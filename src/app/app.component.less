@@ -1,0 +1,100 @@
+/* I need to get these mixins working */
+@accent: #FD6769;
+@maingray: #434343;
+@white: #ffffff;
+
+/*reset all of the user-agent properties*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* CLASSES */
+.mainToolbar {
+  background: @accent;
+  color: @white;
+
+
+  .fill-remaining-space {
+  // This fills the remaining space, by using flexbox. 
+  flex: 1 1 auto;
+  }
+}
+
+
+
+/* GENERAL ELEMENT STYLES */
+md-sidenav-layout {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  md-sidenav.sideDrawer {
+  background: @maingray; 
+  color: @white;
+  width: 160px;
+}
+}
+
+ul.sidenav {
+
+    list-style-type: none; 
+
+    li a {
+      display: inline-block;
+      color: @white;
+      padding-left: 15px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    md-icon {
+      font-size: 30px;
+      vertical-align: bottom;
+    }
+
+    .sidenavBtn {
+      width: 100%;
+      padding: 20px 10px 0 10px;
+    }
+
+    .sidenavBtn:hover {
+
+      .topLevelAnchor {
+        color: @accent;
+      }
+
+      md-icon {
+        color: @accent;
+      }
+    }
+
+    .sublist {
+
+      padding-top: 10px;
+
+        li a {
+            display: inline-block;
+            color: @white;
+            padding: 10px 10px 10px 25px;
+            text-decoration: none;
+            white-space: nowrap;
+      }
+    }
+
+    .sublist > li > a:hover {
+      color: @accent;
+    }
+
+    .sublist > li > a:target {
+      text-decoration: underline;
+      color: green;
+    }
+}
+
+/* SPECIFIC ELEMENT STYLES */
+#menuBtn {
+  padding-left: 15px;
+}
+
+
+

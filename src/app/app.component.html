@@ -1,0 +1,61 @@
+<md-toolbar class="mainToolbar">
+    <md-icon id="menuBtn" (click)="start.toggle()">menu</md-icon>
+  
+    <!-- This fills the remaining space of the current row -->
+    <span class="fill-remaining-space"></span>
+
+    <span>Something on the right</span>
+</md-toolbar>
+
+
+<md-sidenav-layout >
+    <md-sidenav #start mode="over" class="sideDrawer">
+        
+        <!--<button md-button (click)="start.close()">Close</button>-->
+
+        <ul class="sidenav">
+            <li>
+                <div class="sidenavBtn" (click)='sideNavClose()'>
+                    <md-icon>keyboard</md-icon><a class="topLevelAnchor" [routerLink]="['/dashboard']">Dashboard</a>
+                </div>
+            </li>
+            <li>
+                <div class="sidenavBtn" >
+                     <!-- -->
+                    <div (click)='sideNavClick()'><md-icon>location_city</md-icon><a class="topLevelAnchor" [routerLink]="['/sites']">Sites</a></div>
+                    <div>
+                        <ul *ngIf="clickedSites" class="sublist">
+                            <li><a (click) = 'sideNavAlert(e)' >All Sites</a></li>
+                            <li><a>Site Groups</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="sidenavBtn">
+                    <md-icon>lightbulb_outline</md-icon><a class="topLevelAnchor" (click)='sideNavClose()' [routerLink]="['/lights']">Lights</a>
+                </div>
+            </li>
+            <li>
+                <div class="sidenavBtn">
+                    <md-icon>wc</md-icon><a class="topLevelAnchor" (click)='sideNavClose()' [routerLink]="['/users']">Users</a>
+                </div>
+            </li>
+            <li>
+                <div class="sidenavBtn">
+                    <md-icon>settings</md-icon><a class="topLevelAnchor" (click)='sideNavClose()' [routerLink]="['/settings']">Settings</a>
+                </div>
+            </li>
+        </ul>
+    </md-sidenav>
+
+    <app-login></app-login>
+    <router-outlet></router-outlet>
+
+</md-sidenav-layout>
+
+
+
+
+
+
