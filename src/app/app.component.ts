@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { Routes, ROUTER_DIRECTIVES } from '@angular/router';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { AuthenticationComponent } from '../authentication/authentication.component';
@@ -24,15 +24,7 @@ import './app.component.less';
    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-@Routes([
-    { path: '/', component: HomeComponent },
-    //{ path: '/redirect', component: AuthRedirectComponent }
-    { path: '/dashboard', component: HomeComponent },
-    { path: '/sites', component: HomeComponent },
-    { path: '/lights', component: HomeComponent },
-    { path: '/users', component: HomeComponent },
-    { path: '/settings', component: HomeComponent }
-])
+
 
 export class AppComponent {
     toolbarColor: string = "#FD6769";

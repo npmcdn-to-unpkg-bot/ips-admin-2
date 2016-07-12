@@ -1,6 +1,6 @@
 import { bootstrap }    	from '@angular/platform-browser-dynamic';
 import { enableProdMode, provide } 	from '@angular/core';
-import { ROUTER_PROVIDERS } from '@angular/router';
+import { APP_ROUTER_PROVIDERS } from './app/app.routes';
 import { HTTP_PROVIDERS } from '@angular/http';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { provideStore }	 	from '@ngrx/store';
@@ -10,7 +10,7 @@ import { MdIconRegistry } from '@angular2-material/icon/icon-registry';
 export function main(): Promise<any> {
 
 	return bootstrap(AppComponent, [
-		ROUTER_PROVIDERS,
+		APP_ROUTER_PROVIDERS,
 		provide(LocationStrategy, {useClass: HashLocationStrategy}),
 		provideStore({  }), //add a store
 		HTTP_PROVIDERS,
