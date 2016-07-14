@@ -4,14 +4,14 @@ import { Component } from '@angular/core';
     selector: 'app-login',
     template:
     `
-    <button (click)='login()'> {{ buttonTitle}} </button>
+    <button (click)='login()'>Attempt to log in. I make no promises (use incognito mode). You'll be redirected to www.google.com if successful.</button>
     `
 })
 
 export class AuthenticationComponent {
     
     //local variables
-    buttonTitle: string = "Attempt to log in. I make no promises (use incognito mode). You'll be redirected to www.google.com if successful.";
+    buttonTitle: string = "";
 
     //constants
     CLIENT_ID:string = "6e742bcc-ed24-4a2d-b989-f9f833f57fa4";

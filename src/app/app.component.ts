@@ -4,22 +4,23 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { AuthenticationComponent } from '../authentication/authentication.component';
 //import { AuthRedirectComponent } from '../authRedirect/authRedirect.component';
-import { HomeComponent } from '../home/home.component';
 import { MdButton } from '@angular2-material/button/button';
 import { MdToolbar } from '@angular2-material/toolbar/toolbar';
 import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav/sidenav';
 import { MdIcon, MdIconRegistry } from '@angular2-material/icon/icon';
+import { Dropdown } from '../ui/dropdown/dropdown.component';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 
 
-
+//there isn't a LESS loader in ng2 yet
 import '../style/styles.less';
 import './app.component.less';
 
 @Component({
    selector: 'app',
    templateUrl: '../src/app/app.component.html',
-   styleUrls: ['../src/app/app.component.less'],
-   directives: [ROUTER_DIRECTIVES, AuthenticationComponent, MD_SIDENAV_DIRECTIVES, MdButton, MdToolbar, MdIcon],
+   directives: [ROUTER_DIRECTIVES, AuthenticationComponent, MD_SIDENAV_DIRECTIVES, MdButton, 
+                    DashboardComponent, MdToolbar, MdIcon, Dropdown],
    viewProviders: [MdIconRegistry],
    changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -27,15 +28,11 @@ import './app.component.less';
 
 
 export class AppComponent {
-    toolbarColor: string = "#FD6769";
 
     //text decoration values for sublist anchors
-    tdAllSites: string = "none";
-
-    //clicked values
-    clickedSites: boolean = false;
-
-
+    clicked: string = null;
+    private selectedAnchorId: string;
+    dropdownValues = ["Adam", "This", "Is", "Just", "A", "Sample", "Component"];
 
     //for future use with advanced icons and stuff
     // constructor(mdIconRegistry: MdIconRegistry) {
@@ -45,18 +42,20 @@ export class AppComponent {
     //         .registerFontClassAlias('fontawesome', 'fa');
     // }
 
-    sideNavClick(): void {
+    sideNavClick(clicked: string): void {
 
-        this.clickedSites = !this.clickedSites;
-        console.log("sites clicked: " + this.clickedSites);
+        this.clicked = this.clicked == clicked ? null : clicked;
     }
 
-    sideNavAlert(e): void {
-        alert("hey");    
+    setSelectedAnchor(e): void {
+      this.selectedAnchorId = e.currentTarget.id;
     }
 
-    sideNavClose() : void {
-        console.log("ul item clicked");
-    }
+    setClasses(elementId: string) {
 
+        return {
+            sublistAnchor: true,
+            sublistAnchorClicked: this.selectedAnchorId === elementId
+        }
+    }
 }

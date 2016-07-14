@@ -1,3 +1,6 @@
+//nothing happens here yet.
+
+
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,6 +11,6 @@ import { Component } from '@angular/core';
 export class AuthRedirectComponent {
 
     ngOnInit(): void {
-      console.log('ngOnInit() called for authRedirect');
+      console.log('ngOnInit() called for authRedirect. Nothing happens in this component yet.');
     }
 }
