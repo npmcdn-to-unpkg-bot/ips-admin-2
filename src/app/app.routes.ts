@@ -21,14 +21,18 @@ export const routes: RouterConfig = [
     { path: 'sites-groups', component: SitesGroupsComponent },
     { path: 'lights', component: LightsComponent },
     { path: 'users', component: UsersComponent },
-    { path: 'settings', component: SettingsComponent },
-    { path: 'login', component: AuthenticationComponent },
-    { path: 'general', component: GeneralComponent },
-    { path: 'codebooks', component: CodebooksComponent },
-    { path: 'mobile-config', component: MobileConfigComponent },
-    { path: 'api-keys', component: APIKeysComponent },
-    { path: 'deployment', component: DeploymentComponent }
-
+    { 
+        path: 'settings', 
+        component: SettingsComponent,
+        children: [
+            { path: '', component: GeneralComponent },
+            { path: 'codebooks', component: CodebooksComponent },
+            { path: 'mobile-config', component: MobileConfigComponent },
+            { path: 'api-keys', component: APIKeysComponent },
+            { path: 'deployment', component: DeploymentComponent }
+        ] 
+    },
+    { path: 'login', component: AuthenticationComponent }
 ];
 
 //if you need to route 2+ levels deep, it'd be like this 

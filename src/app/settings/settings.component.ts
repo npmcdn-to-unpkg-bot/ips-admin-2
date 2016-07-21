@@ -13,10 +13,10 @@ export class SettingsComponent {
 
     headerTitle: string = "Settings";
     sidebarButtons = [
-        { name: "General Settings", path: ['/general']},
-        { name: "Codebooks", path: ['/codebooks']},
-        { name: "Mobile Config", path: ['/mobile-config']},
-        { name: "API Keys", path: ['/api-keys']},
-        { name: "Deployment", path: ['/deployment']}
+        { name: "General Settings", path: 'general'},
+        { name: "Codebooks", path: 'codebooks'},
+        { name: "Mobile Config", path: 'mobile-config'},
+        { name: "API Keys", path: 'api-keys'},
+        { name: "Deployment", path: 'deployment'}
     ];
 }
