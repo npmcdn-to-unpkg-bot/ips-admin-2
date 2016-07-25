@@ -25,7 +25,8 @@ export const routes: RouterConfig = [
         path: 'settings', 
         component: SettingsComponent,
         children: [
-            { path: '', component: GeneralComponent },
+            { path: '', component: BlankComponent }, //this is a dummy component...can't fix this?
+            { path: 'general', component: GeneralComponent },
             { path: 'codebooks', component: CodebooksComponent },
             { path: 'mobile-config', component: MobileConfigComponent },
             { path: 'api-keys', component: APIKeysComponent },

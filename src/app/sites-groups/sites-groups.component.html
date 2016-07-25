@@ -1,3 +1,32 @@
-<div class="header"> {{ headerTitle }} </div>
+<div class="sitesGroupsParent">
 
-<ui-button>New Site Group</ui-button>
+    <div class="panelLeft">
+        <div class="header"> {{ headerTitle }} </div>
+
+        <ui-filter [values]="filterValues" [(value)]="value"></ui-filter>
+
+        <ui-button>+ New Site Group</ui-button>
+
+        <div id="allSites">
+            <div class="tableHeader">
+                <div class="big text">Group Name</div>
+                <div class="small text"># of Sites</div>
+            </div>
+
+            <div class="data">
+                <div class="dataRow dataRowSites tall" *ngFor="let group of siteGroups">
+                    <div class="big">{{group.siteGroupName}}</div>
+                    <div class="small">10</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="panelRight">
+        <div class="defaultPlaceholder">Select a site group to view details</div> 
+    </div>
+
+</div>
+
+

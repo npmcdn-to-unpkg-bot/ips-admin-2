@@ -1,17 +1,34 @@
-<div class="header">Light Management</div>
+<div class="lightsParent">
 
-<div class="leftPanel"></div>
-<div class="rightPanel"></div>
+    <div class="panelLeft">
 
-<button>Button 1</button>
-<button>Button 2</button>
+        <div class="header">{{headerTitle}}</div>
 
-<!--<table>
-    <thead>
-        <tr>
-           Something
-        </tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>-->
+        <ui-filter [values]="filterValues" [(value)]="value"></ui-filter>
+
+        <ui-button>+ New Light</ui-button>
+
+        <div id="lights">
+            <div class="tableHeader">
+                <div class="big text">Name</div>
+                <div class="small text">Aperture Dimensions</div>
+                <div class="small text">Exterior Dimensions</div>
+            </div>
+
+            <div class="data">
+                <div class="dataRow dataRowLights" *ngFor="let light of lights">
+                    <div class="big">{{light.displayName}}</div>
+                    <div class="small">{{light.interiorWidth + ' x ' + light.interiorLength}}</div>
+                    <div class="small">{{light.exteriorWidth + ' x ' + light.exteriorLength}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="panelRight">
+        <div class="defaultPlaceholder">Select a light to view details</div>
+    </div>
+
+</div>
+

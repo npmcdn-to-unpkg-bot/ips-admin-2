@@ -1,5 +1,8 @@
-@color: red;
+@accent: #FD6769;
 @graytext: #a6a6a6;
+@lightgray: #eeeeee;
+@darkgray: #a39e9e;
+@white: #ffffff;
 
 //reset stuff
 * {
@@ -12,6 +15,42 @@
   color: @graytext;
 }
 
+.tableHeader {
+  background-color: @lightgray;
+  border: 1px solid @darkgray;
+  height: 30px;
+  line-height: 30px;
+  display: flex;
+  flex-wrap: nowrap;
+
+    .text {
+      font-weight: 700;
+      font-size: 1em;
+      color: @graytext;
+      text-align: center;
+    }
+}
+
+.dataRow {
+  background-color: @white;
+  border: 1px solid @lightgray;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.paddingLeft160 {
+  padding-left: 160px;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.defaultPlaceholder {
+  text-align: center;
+  margin-top: 30px;
+}
+
 //global elements
 h1 {
   color: #369; 
@@ -19,7 +58,7 @@ h1 {
   font-size: 250%;
 }
 h2, h3 { 
-  color: @color;
+  color: @accent;
   font-family: Arial, Helvetica, sans-serif;   
   font-weight: lighter;
 }

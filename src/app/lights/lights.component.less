@@ -1,17 +1,78 @@
 /* MIXINS */
 @maingray: #434343;
+@lightgray: #eeeeee;
+@reallylightgray: #f9f9f9;
+@darkgray: #a39e9e;
+@white: #ffffff;
+@blue: #009FEC;
 
 /* CLASSES */
-.lightList {
+.lightsParent {
+    display: flex;
 
+    .panelLeft {
+        padding: 15px;
+        width: 50%;
+        background-color: @reallylightgray;
+    }
+
+    .panelRight {
+        width: 50%;
+    }
 }
 
-.selectedLight {
-    
+.tableHeader {
+
+    .big {
+        flex-shrink: 2;
+        width: 40%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .small {
+        flex-shrink: 1;
+        width: 25%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        text-align: center;
+        padding: 0 5px;
+    }
 }
 
+.dataRowLights {
+
+    height: 30px;
+    line-height: 30px;
+
+    .big {
+        flex-shrink: 2;
+        color: @blue;
+        width: 40%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .small {
+        flex-shrink: 1;
+        width: 25%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        text-align: center;
+        padding: 0 5px;
+    }
+}
 
 /* GENERAL ELEMENT STYLES */
 
 
 /* SPECIFIC ELEMENT STYLES */
+#lights {
+    margin-top: 15px;
+}

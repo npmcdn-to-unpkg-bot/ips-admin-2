@@ -1,20 +1,92 @@
 /* MIXINS */
 @maingray: #434343;
+@lightgray: #eeeeee;
+@reallylightgray: #f9f9f9;
+@darkgray: #a39e9e;
+@white: #ffffff;
+@blue: #009FEC;
 
 /* CLASSES */
-.panelLeft {
-    height: 100%;
-    padding: 15px;
-    display: inline-block;
-    border-right: 10px solid @maingray;
+.sitesAllParent {
+    display: flex;
+
+    .panelLeft {
+        padding: 15px;
+        width: 50%;
+        background-color: @reallylightgray;
+    }
+
+    .panelRight {
+        width: 50%;
+    }
 }
 
-.panelRight {
-    height: 100%;
-    display: inline-block;
+
+
+.tableHeader {
+
+    .big {
+        flex-shrink: 2;
+        width: 40%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .small {
+        flex-shrink: 1;
+        width: 20%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        text-align: center;
+        padding: 0 5px;
+    }
+}
+
+.dataRowSites {
+
+        height: 60px;
+        line-height: 60px;
+
+    .big {
+        flex-shrink: 2;
+        width: 40%;
+        color: @blue;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        text-align: center;
+
+        .blue {
+            line-height: 30px;
+            height: 30px;
+            color: @blue;
+        }
+
+        .gray {
+            line-height: 30px;
+            height: 30px;
+            color: @maingray;
+        }
+    }
+
+    .small {
+        flex-shrink: 1;
+        width: 20%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        text-align: center;
+        padding: 0 5px;
+    }
 }
 
 /* GENERAL ELEMENT STYLES */
 
 
 /* SPECIFIC ELEMENT STYLES */
+#allSites {
+    margin-top: 15px;
+}
