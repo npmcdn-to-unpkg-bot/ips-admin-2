@@ -1,12 +1,10 @@
-/* MIXINS */
-@maingray: #434343;
-@lightgray: #eeeeee;
-@reallylightgray: #f9f9f9;
-@darkgray: #a39e9e;
-@white: #ffffff;
-@blue: #009FEC;
+//Make sure all new styling is within the namespace for the current view!
 
-/* CLASSES */
+@import "../../css/colors.less";
+
+/* MIXINS */
+
+/* CLASSES */ 
 .sitesAllParent {
     display: flex;
 
@@ -19,74 +17,43 @@
     .panelRight {
         width: 50%;
     }
-}
 
-
-
-.tableHeader {
-
-    .big {
-        flex-shrink: 2;
-        width: 40%;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-        text-align: center;
-    }
-
-    .small {
-        flex-shrink: 1;
-        width: 20%;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-        text-align: center;
-        padding: 0 5px;
-    }
-}
-
-.dataRowSites {
+    #allSites {
 
         height: 60px;
         line-height: 60px;
 
-    .big {
-        flex-shrink: 2;
-        width: 40%;
-        color: @blue;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-        text-align: center;
+        .big {
+            flex-shrink: 2;
+            width: 40%;
 
-        .blue {
-            line-height: 30px;
-            height: 30px;
-            color: @blue;
+            .blue30 {
+                line-height: 30px;
+                height: 30px;
+                color: @blue;
+            }
+
+            .gray {
+                line-height: 30px;
+                height: 30px;
+                color: @maingray;
+            }
         }
 
-        .gray {
-            line-height: 30px;
-            height: 30px;
-            color: @maingray;
+        .small {
+            flex-shrink: 1;
+            width: 20%;
+            padding: 0 5px;
         }
     }
 
-    .small {
-        flex-shrink: 1;
-        width: 20%;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-        text-align: center;
-        padding: 0 5px;
+    /* GENERAL ELEMENT STYLES */
+
+
+    /* SPECIFIC ELEMENT STYLES */
+    #allSites {
+        margin-top: 15px;
     }
 }
 
-/* GENERAL ELEMENT STYLES */
 
-
-/* SPECIFIC ELEMENT STYLES */
-#allSites {
-    margin-top: 15px;
-}

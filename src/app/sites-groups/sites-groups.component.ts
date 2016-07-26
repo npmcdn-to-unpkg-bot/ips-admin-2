@@ -1,27 +1,28 @@
-import { Component } from "@angular/core";
-import { ButtonComponent } from '../../shared/button/button.component';
-import { FilterComponent } from '../../shared/filter/filter.component';
-import { SiteGroupsService } from './site-groups.service';
-import { ISiteGroups } from './site-groups.interface';
+import * as sg from './sites-groups';
 
+//less files
 import '../../css/styles.less';
 import './sites-groups.component.less';
 
-@Component({
+@sg.Component({
     selector: 'app-sites-groups',
-    directives: [ButtonComponent, FilterComponent],
+    directives: [sg.ButtonComponent, sg.FilterComponent],
     templateUrl: '../src/app/sites-groups/sites-groups.component.html',
-    providers: [SiteGroupsService]
+    providers: [sg.SiteGroupsService]
 })
 
 export class SitesGroupsComponent {
     
     headerTitle: string = "Sites > Site Groups"
-    siteGroups: ISiteGroups[];
+    siteGroups: sg.ISiteGroups[];
     filterValues = ["Filter", "By", "A", "Value"];
 
-    constructor(private _siteGroupsService: SiteGroupsService) {
+    constructor(private _siteGroupsService: sg.SiteGroupsService) {
 
         this.siteGroups = this._siteGroupsService.getAllSiteGroups();
+    }
+
+    sitesGroupsClick(siteGroupID: number): void {
+        alert("Opening site with siteId: " + siteGroupID);
     }
 }

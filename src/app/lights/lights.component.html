@@ -16,8 +16,8 @@
             </div>
 
             <div class="data">
-                <div class="dataRow dataRowLights" *ngFor="let light of lights">
-                    <div class="big">{{light.displayName}}</div>
+                <div class="dataRow" *ngFor="let light of lights" (click)="lightsClick(light.luminaireTypeId)">
+                    <div class="big blue">{{light.displayName}}</div>
                     <div class="small">{{light.interiorWidth + ' x ' + light.interiorLength}}</div>
                     <div class="small">{{light.exteriorWidth + ' x ' + light.exteriorLength}}</div>
                 </div>

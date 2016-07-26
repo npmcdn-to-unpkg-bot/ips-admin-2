@@ -7,15 +7,15 @@
 
         <ui-button>+ New Site Group</ui-button>
 
-        <div id="allSites">
+        <div id="sitesGroups">
             <div class="tableHeader">
                 <div class="big text">Group Name</div>
                 <div class="small text"># of Sites</div>
             </div>
 
             <div class="data">
-                <div class="dataRow dataRowSites tall" *ngFor="let group of siteGroups">
-                    <div class="big">{{group.siteGroupName}}</div>
+                <div class="dataRow" *ngFor="let group of siteGroups" (click)="sitesGroupsClick(group.siteGroupID)">
+                    <div class="big blue">{{group.siteGroupName}}</div>
                     <div class="small">10</div>
                 </div>
             </div>

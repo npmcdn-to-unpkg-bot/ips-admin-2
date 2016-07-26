@@ -1,28 +1,28 @@
-import { Component } from '@angular/core';
-import { ButtonComponent } from '../../shared/button/button.component';
-import { FilterComponent } from '../../shared/filter/filter.component';
-import { LightsService } from './lights.service';
-import { ILights } from './lights.interface';
+import * as li from './lights';
 
 import '../../css/styles.less';
 import './lights.component.less';
 
-@Component({
+@li.Component({
     selector: 'app-lights',
-    directives: [ButtonComponent, FilterComponent],
+    directives: [li.ButtonComponent, li.FilterComponent],
     templateUrl: '../src/app/lights/lights.component.html',
-    providers: [LightsService]
+    providers: [li.LightsService]
 })
 
 export class LightsComponent {
 
-    lights: ILights[];
+    lights: li.ILights[];
     headerTitle: string = "Lights";
     columns = ["Name"];
     filterValues = ["Filter", "By", "A", "Value"];
 
-    constructor(private _lightsService: LightsService) {
+    constructor(private _lightsService: li.LightsService) {
 
         this.lights = this._lightsService.getAllFixtureTypes();
+    }
+
+    lightsClick(luminaireTypeId: number): void {
+        alert("Opening luminaire type with luminaireTypeId: " + luminaireTypeId);
     }
 }

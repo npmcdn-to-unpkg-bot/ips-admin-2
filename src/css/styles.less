@@ -1,8 +1,4 @@
-@accent: #FD6769;
-@graytext: #a6a6a6;
-@lightgray: #eeeeee;
-@darkgray: #a39e9e;
-@white: #ffffff;
+@import "colors.less";
 
 //reset stuff
 * {
@@ -29,6 +25,17 @@
       color: @graytext;
       text-align: center;
     }
+}
+
+.big, .small {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.blue {
+  color: @blue;
 }
 
 .dataRow {

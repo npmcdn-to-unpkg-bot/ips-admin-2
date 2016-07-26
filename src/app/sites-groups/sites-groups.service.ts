@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ISiteGroups } from './site-groups.interface';
+import { ISiteGroups } from './sites-groups.interface';
 
 @Injectable()
 

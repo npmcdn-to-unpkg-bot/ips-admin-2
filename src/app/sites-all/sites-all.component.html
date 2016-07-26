@@ -15,9 +15,9 @@
             </div>
 
             <div class="data">
-                <div class="dataRow dataRowSites tall" *ngFor="let site of allSites">
+                <div class="dataRow dataRowSites tall" *ngFor="let site of allSites" (click)="allSitesClick(site.siteId)">
                     <div class="big tall">
-                        <div class="blue">{{site.siteName}}</div>
+                        <div class="blue30">{{site.siteName}}</div>
                         <div class="gray">{{site.city + ', ' + site.stateProvince}}</div>
                     </div>
                     <div class="big"></div>
