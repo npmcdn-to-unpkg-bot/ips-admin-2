@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
+import { MdButton } from '@angular2-material/button/button';
+
+import './button.component.less';
 
 @Component({
     selector: 'ui-button',
     template: 
     `
-    <button (click)="onClick($event)">
+    <button md-raised-button color="primary" (click)="onClick($event)">
         <ng-content></ng-content>
     </button>
-    `
+    `,
+    directives: [MdButton]
 })
 
 export class ButtonComponent {
