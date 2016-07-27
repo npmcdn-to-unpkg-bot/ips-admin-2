@@ -16,7 +16,7 @@ export class MobileConfigService {
         {
             "mobileConfigID": 2,
             "lumicastSDKVersion": "1.023b",
-            "mobileConfigString": "Config config config",
+            "mobileConfigString": "Configggggggggggggggg configgggggggggggggg configgggggggggggg",
             "lastUpdatedBy": "Danny"
         }];
     }

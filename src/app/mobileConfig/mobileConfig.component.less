@@ -1,12 +1,44 @@
 @import "../../css/colors.less";
 
-/* MIXINS */
+//this is the namespace for this view
+.mobileConfigParent {
+
+    display: flex;
+
+    /* MIXINS */
 
 
-/* CLASSES */
+    /* CLASSES */
+    .panelLeft {
+        width: 50%;
+        background-color: @reallylightgray;
+    }    
+
+    .panelRight {
+        width: 50%;
+    }
+
+    #mobileConfigs {
+                
+        line-height: 30px;
+
+        .big {
+            flex-shrink: 2;
+            width: 60%;
+        }
+
+        .small {
+            flex-shrink: 1;
+            width: 20%;
+            padding: 0 5px;
+        }
+    }
+
+    /* GENERAL ELEMENT STYLES */
 
 
-/* GENERAL ELEMENT STYLES */
+    /* SPECIFIC ELEMENT STYLES */
 
 
-/* SPECIFIC ELEMENT STYLES */
+
+}
