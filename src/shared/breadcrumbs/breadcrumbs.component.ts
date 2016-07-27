@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import './breadcrumbs.component.less';
 
@@ -12,5 +12,5 @@ import './breadcrumbs.component.less';
 
 export class BreadcrumbComponent {
 
-    navHeader: "Dashboard";
+    @Input() navHeader; //not declaring a type because I think I can append HTML...idk
 }

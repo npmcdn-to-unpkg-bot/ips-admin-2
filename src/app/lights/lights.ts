@@ -5,3 +5,4 @@ export * from './lights.interface';
 export * from './lights.service';
 export * from '../../shared/button/button.component';
 export * from '../../shared/filter/filter.component';
+export * from '../../shared/breadcrumbs/breadcrumbs.component';

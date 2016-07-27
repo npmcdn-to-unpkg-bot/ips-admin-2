@@ -5,3 +5,4 @@ export * from './sites-all.interface';
 export * from './sites-all.service';
 export * from '../../shared/button/button.component';
 export * from '../../shared/filter/filter.component';
+export * from '../../shared/breadcrumbs/breadcrumbs.component';

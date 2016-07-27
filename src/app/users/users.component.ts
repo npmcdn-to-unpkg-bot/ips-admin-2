@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import * as user from './users';
 
 import '../../css/styles.less';
 import './users.component.less';
 
-@Component({
+@user.Component({
     selector: 'app-users',
-    templateUrl: '../src/app/users/users.component.html'
+    templateUrl: '../src/app/users/users.component.html',
+    directives: [user.BreadcrumbComponent]
 })
 
 export class UsersComponent {
 
-    headerTitle: string = "Users";
+    navHeader: string = "Users";
 }

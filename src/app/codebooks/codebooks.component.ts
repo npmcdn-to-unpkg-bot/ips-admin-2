@@ -5,14 +5,14 @@ import './codebooks.component.less';
 
 @cb.Component({
     selector: 'app-codebooks',
-    directives: [cb.ButtonComponent, cb.FilterComponent],
+    directives: [cb.ButtonComponent, cb.FilterComponent, cb.BreadcrumbComponent, cb.ButtonSaveComponent],
     templateUrl: '../src/app/codebooks/codebooks.component.html',
     providers: [cb.CodebooksService]
 })
 
 export class CodebooksComponent {
 
-    headerTitle: string = "Codebooks";
+    navHeader: string = "Settings > Codebooks";
     codebooks: cb.ICodebooks[];
     filterValues = ["Filter", "By", "A", "Value"];
 
