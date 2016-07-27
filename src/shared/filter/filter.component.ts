@@ -15,6 +15,10 @@ export class FilterComponent {
     @Input() values = [];
 
     ngOnInit() {
-        this.select.emit(this.values[0]);
+        this.onSelect(this.values[0]);
+    }
+
+    onSelect(val) {
+        this.select.emit(val);
     }
 }

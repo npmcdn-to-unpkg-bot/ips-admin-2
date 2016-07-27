@@ -27,11 +27,16 @@ The installed dependencies:
 * `rxjs`: Reactive Extensions used through Angular - specifically for Observables
 * `angular2-hmr`: Hot module replacement tool for Angular
 * `awesome-typescript-loader`: TypeScript loader desigend for webpack.  Faster than the commonly use *ts-loader*
+* `core-js`: Used by Karma to work with es6
 * `css-loader`: Used for CSS loading and bundling
 * `html-webpack-plugin`: Builds html files used with webpack bundles
+* `jasmine-core`: unit test library
+* `karma*`: used to run unit tests
 * `*-loader`: Various loader modules to parse application files
 * `less`: CSS preprocessor
+* `protractor`: e2e test library
 * `style-loader`: Combined with css-loader to load and bundle css
+* `ts-node`: used by protractor during e2e tests
 * `typescript`: TypeScript compiler
 * `webpack`: Module loader
 * `webpack-merge`: Plugin to merge different files as part of the webpack operations.

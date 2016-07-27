@@ -5,7 +5,7 @@ import { Component, Output, Input, EventEmitter } from "@angular/core";
     template:
     `
     <div>
-        <select #dd (change)="select.emit(dd.value)">
+        <select #dd (change)="onSelect(dd.value)">
             <option *ngFor="let value of values; let i = index">
                 {{ value }}
             </option>
@@ -20,6 +20,10 @@ export class Dropdown {
     @Input() values = [];
 
     ngOnInit() {
-        this.select.emit(this.values[0]);
+        this.onSelect(this.values[0]);
+    }
+
+    onSelect(val) {
+        this.select.emit(val);
     }
 }

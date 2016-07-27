@@ -3,7 +3,7 @@
     <md-input class="filterInput" dividerColor="#FD6769" placeholder="Filter..."></md-input>
 
     <div class="filterDropdown">
-        <select #dd (change)="select.emit(dd.value)">
+        <select #dd (change)="onSelect(dd.value)">
             <option *ngFor="let value of values; let i = index">
                 {{ value }}
             </option>
