@@ -23,4 +23,8 @@ export class APIKeysComponent {
     apiKeysClick(apiKeyID: number): void {
         alert("Opening api key with apiKeyID: " + apiKeyID);
     }
+
+    apiKeySave(e): void {
+        alert("Saving api key!");
+    }
 }

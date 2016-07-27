@@ -23,4 +23,8 @@ export class MobileConfigComponent {
     mobileConfigClick(mobileConfigID: number): void {
         alert("Opening mobile config with mobileConfigID: " + mobileConfigID);
     }
+
+    mobileConfigSave(e): void {
+        alert("Saving mobile config!");
+    }
 }

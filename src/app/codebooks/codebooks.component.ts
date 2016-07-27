@@ -23,4 +23,8 @@ export class CodebooksComponent {
     codebookClick(codeBookId: number): void {
         alert("Opening codebook with codeBookId: " + codeBookId);
     }
+
+    codebookSave(e): void {
+        alert("Saving codebook!");
+    }
 }
