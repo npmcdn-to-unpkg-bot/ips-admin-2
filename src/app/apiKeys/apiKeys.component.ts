@@ -5,7 +5,7 @@ import './apiKeys.component.less';
 
 @api.Component({
     selector: 'app-apiKeys',
-    directives: [api.ButtonComponent, api.FilterComponent],
+    directives: [api.ButtonComponent, api.FilterComponent, api.BreadcrumbComponent, api.ButtonSaveComponent],
     templateUrl: '../src/app/apiKeys/apiKeys.component.html',
     providers: [api.APIKeysService]
 })
@@ -13,7 +13,7 @@ import './apiKeys.component.less';
 export class APIKeysComponent {
 
     apiKeys: api.IAPIKeys[];
-    headerTitle: string = "API Keys";
+    navHeader: string = "Settings > API Keys";
     filterValues = ["Filter", "By", "A", "Value"];
 
     constructor(private _apiKeysService: api.APIKeysService) {
@@ -22,5 +22,9 @@ export class APIKeysComponent {
 
     apiKeysClick(apiKeyID: number): void {
         alert("Opening api key with apiKeyID: " + apiKeyID);
+    }
+
+    apiKeySave(e): void {
+        alert("Saving api key!");
     }
 }

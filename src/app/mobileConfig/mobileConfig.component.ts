@@ -5,14 +5,14 @@ import './mobileConfig.component.less';
 
 @mc.Component({
     selector: 'app-mobileConfig',
-    directives: [mc.ButtonComponent, mc.FilterComponent],
+    directives: [mc.ButtonComponent, mc.FilterComponent, mc.BreadcrumbComponent, mc.ButtonSaveComponent],
     templateUrl: '../src/app/mobileConfig/mobileConfig.component.html',
     providers: [mc.MobileConfigService]
 })
 
 export class MobileConfigComponent {
 
-    headerTitle: string = "Mobile Config";
+    navHeader: string = "Settings > Mobile Config";
     mobileConfigs: mc.IMobileConfig[];
     filterValues = ["Filter", "By", "A", "Value"];
 
@@ -22,5 +22,9 @@ export class MobileConfigComponent {
 
     mobileConfigClick(mobileConfigID: number): void {
         alert("Opening mobile config with mobileConfigID: " + mobileConfigID);
+    }
+
+    mobileConfigSave(e): void {
+        alert("Saving mobile config!");
     }
 }

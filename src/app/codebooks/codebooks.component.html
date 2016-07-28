@@ -2,7 +2,7 @@
 
     <div class="paddingLeft160 panelLeft">
 
-        <div class="header">{{headerTitle}}</div>
+        <ui-breadcrumb [navHeader]="navHeader"></ui-breadcrumb>
 
         <ui-filter [values]="filterValues" [(value)]="value"></ui-filter>
 
@@ -26,5 +26,8 @@
 
     <div class="panelRight">
         <div class="defaultPlaceholder">Select a codebook to view details</div>
+
+
+        <ui-buttonSave (click)="codebookSave($event)"></ui-buttonSave>
     </div>
 </div>

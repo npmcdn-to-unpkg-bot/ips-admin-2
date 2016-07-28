@@ -5,7 +5,7 @@ import './lights.component.less';
 
 @li.Component({
     selector: 'app-lights',
-    directives: [li.ButtonComponent, li.FilterComponent],
+    directives: [li.ButtonComponent, li.FilterComponent, li.BreadcrumbComponent],
     templateUrl: '../src/app/lights/lights.component.html',
     providers: [li.LightsService]
 })
@@ -13,7 +13,7 @@ import './lights.component.less';
 export class LightsComponent {
 
     lights: li.ILights[];
-    headerTitle: string = "Lights";
+    navHeader: string = "Lights";
     columns = ["Name"];
     filterValues = ["Filter", "By", "A", "Value"];
 

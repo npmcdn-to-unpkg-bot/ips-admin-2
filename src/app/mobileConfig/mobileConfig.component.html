@@ -2,7 +2,7 @@
 
     <div class="paddingLeft160 panelLeft">
 
-        <div class="header">{{headerTitle}}</div>
+        <ui-breadcrumb [navHeader]="navHeader"></ui-breadcrumb>
 
         <ui-filter [values]="filterValues" [(value)]="value"></ui-filter>
 
@@ -27,5 +27,7 @@
 
     <div class="panelRight">
         <div class="defaultPlaceholder">Select a mobile config to view details</div>
+
+        <ui-buttonSave (click)="mobileConfigSave($event)"></ui-buttonSave>
     </div>
 </div>

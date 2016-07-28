@@ -1,18 +1,17 @@
-import { Component } from "@angular/core";
-import { BreadcrumbComponent } from '../../shared/breadcrumbs/breadcrumbs.component'
+import * as dash from './dashboard';
 
 import '../../css/styles.less';
+import './dashboard.component.less';
 
-@Component({
+@dash.Component({
     selector: 'app-dashboard',
     templateUrl: '../src/app/dashboard/dashboard.component.html',
-    //directives: [BreadcrumbComponent],
-    //providers: [BreadcrumbComponent]
+    directives: [dash.BreadcrumbComponent],
 })
 
 export class DashboardComponent {
 
-    // constructor(private _bread: BreadcrumbComponent) {
-    //     _bread.navHeader = "Dashboard";
-    // }
+    navHeader: string = "Dashboard";
+
+
 }

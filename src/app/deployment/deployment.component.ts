@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import * as dep from './deployment';
 
 import '../../css/styles.less';
 import './deployment.component.less';
 
-@Component({
+@dep.Component({
     selector: 'app-deployment',
-    templateUrl: '../src/app/deployment/deployment.component.html'
+    templateUrl: '../src/app/deployment/deployment.component.html',
+    directives: [dep.BreadcrumbComponent]
 })
 
 export class DeploymentComponent {
 
-    headerTitle: string = "Deployment";
+    navHeader: string = "Settings > Deployment";
 }

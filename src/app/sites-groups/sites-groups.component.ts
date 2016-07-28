@@ -6,14 +6,14 @@ import './sites-groups.component.less';
 
 @sg.Component({
     selector: 'app-sites-groups',
-    directives: [sg.ButtonComponent, sg.FilterComponent],
+    directives: [sg.ButtonComponent, sg.FilterComponent, sg.BreadcrumbComponent],
     templateUrl: '../src/app/sites-groups/sites-groups.component.html',
     providers: [sg.SiteGroupsService]
 })
 
 export class SitesGroupsComponent {
     
-    headerTitle: string = "Sites > Site Groups"
+    navHeader: string = "Sites > Site Groups"
     siteGroups: sg.ISiteGroups[];
     filterValues = ["Filter", "By", "A", "Value"];
 

@@ -1,17 +1,16 @@
-import { Component } from '@angular/core';
-import { SidebarComponent } from '../../shared/sidebar/sidebar.component';
+import * as set from './settings';
 
 import '../../css/styles.less';
 
-@Component({
+@set.Component({
     selector: 'app-settings',
     templateUrl: '../src/app/settings/settings.component.html',
-    directives: [SidebarComponent]
+    directives: [set.SidebarComponent]
 })
 
 export class SettingsComponent {
 
-    headerTitle: string = "Settings";
+    navHeader: string = "Settings";
     sidebarButtons = [
         { name: "General Settings", path: "general", id: "sbGeneral"},
         { name: "Codebooks", path: "codebooks", id: "sbCodebooks"},

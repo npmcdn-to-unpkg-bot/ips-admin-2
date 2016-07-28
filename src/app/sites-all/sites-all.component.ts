@@ -6,14 +6,14 @@ import './sites-all.component.less';
 
 @all.Component({
     selector: 'app-sites-all',
-    directives: [all.ButtonComponent, all.FilterComponent],
+    directives: [all.ButtonComponent, all.FilterComponent, all.BreadcrumbComponent],
     templateUrl: '../src/app/sites-all/sites-all.component.html',
     providers: [all.AllSitesService]
 })
 
 export class SitesAllComponent {
     
-    headerTitle: string = "Sites > All Sites"
+    navHeader: string = "Sites > All Sites"
     allSites: all.IAllSites[];
     filterValues = ["Filter", "By", "A", "Value"];
 

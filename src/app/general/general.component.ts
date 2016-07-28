@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import * as gen from './general';
 
 import '../../css/styles.less';
 import './general.component.less';
 
-@Component({
+@gen.Component({
     selector: 'app-general',
-    templateUrl: '../src/app/general/general.component.html'
+    templateUrl: '../src/app/general/general.component.html',
+    directives: [gen.BreadcrumbComponent]
 })
 
 export class GeneralComponent {
 
-    headerTitle: string = "General";
+    navHeader: string = "Settings > General";
 }
