@@ -1,28 +1,16 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
-import { AuthenticationComponent } from './authentication/authentication.component';
-//import { AuthRedirectComponent } from './authRedirect/authRedirect.component';
-import { MdButton } from '@angular2-material/button/button';
-import { MdToolbar } from '@angular2-material/toolbar/toolbar';
-import { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav/sidenav';
-import { MdIcon, MdIconRegistry } from '@angular2-material/icon/icon';
-import { Dropdown } from '../shared/dropdown/dropdown.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-
+import * as a from './app'
 
 //there isn't a LESS loader in ng2 yet
 import '../css/styles.less';
 import './app.component.less';
 
-@Component({
+@a.Component({
    selector: 'app',
    templateUrl: '../src/app/app.component.html',
-   directives: [ROUTER_DIRECTIVES, AuthenticationComponent, MD_SIDENAV_DIRECTIVES, MdButton, 
-                    DashboardComponent, MdToolbar, MdIcon, Dropdown],
-   viewProviders: [MdIconRegistry],
-   changeDetection: ChangeDetectionStrategy.OnPush
+   directives: [a.ROUTER_DIRECTIVES, a.AuthenticationComponent, a.MD_SIDENAV_DIRECTIVES, a.MdButton, 
+                    a.DashboardComponent, a.MdToolbar, a.MdIcon, a.Dropdown],
+   viewProviders: [a.MdIconRegistry],
+   changeDetection: a.ChangeDetectionStrategy.OnPush
 })
 
 
