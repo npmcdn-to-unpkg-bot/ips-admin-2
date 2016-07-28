@@ -15,7 +15,7 @@ describe('GeneralComponent::', () => {
         expect(component).toEqual(jasmine.any(GeneralComponent));
     }));
 
-    it('should have a headerTitle', inject([GeneralComponent], (component: GeneralComponent) => {
-        expect(component.headerTitle).toEqual('General');
+    it('should have a navHeader', inject([GeneralComponent], (component: GeneralComponent) => {
+        expect(component.navHeader).toEqual('Settings > General');
     }));
 });

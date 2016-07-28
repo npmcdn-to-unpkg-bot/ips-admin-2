@@ -39,8 +39,8 @@ describe('MobileConfigComponent::', () => {
         expect(component).toEqual(jasmine.any(MobileConfigComponent));
     }));
 
-    it('should have a headerTitle', inject([MobileConfigComponent], (component: MobileConfigComponent) => {
-        expect(component.headerTitle).toEqual('Mobile Config');
+    it('should have a navHeader', inject([MobileConfigComponent], (component: MobileConfigComponent) => {
+        expect(component.navHeader).toEqual('Settings > Mobile Config');
     }));
 
     it('should have sites', inject([MobileConfigComponent], (component: MobileConfigComponent) => {

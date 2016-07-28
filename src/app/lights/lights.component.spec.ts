@@ -48,8 +48,8 @@ describe('LightsComponent::', () => {
         expect(component.lights.length).toBeGreaterThan(0);
     }));
 
-    it('should have a headerTitle', inject([LightsComponent], (component: LightsComponent) => {
-        expect(component.headerTitle).toEqual('Lights');
+    it('should have a navHeader', inject([LightsComponent], (component: LightsComponent) => {
+        expect(component.navHeader).toEqual('Lights');
     }));
 
     it('should have columns', inject([LightsComponent], (component: LightsComponent) => {

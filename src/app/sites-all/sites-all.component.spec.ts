@@ -48,8 +48,8 @@ describe('SitesAllComponent::', () => {
         expect(component.allSites.length).toBeGreaterThan(0);
     }));
 
-    it('should have a headerTitle', inject([SitesAllComponent], (component: SitesAllComponent) => {
-        expect(component.headerTitle).toEqual('Sites > All Sites');
+    it('should have a navHeader', inject([SitesAllComponent], (component: SitesAllComponent) => {
+        expect(component.navHeader).toEqual('Sites > All Sites');
     }));
 
     it('should do something when clicked', inject([SitesAllComponent], (component: SitesAllComponent) => {

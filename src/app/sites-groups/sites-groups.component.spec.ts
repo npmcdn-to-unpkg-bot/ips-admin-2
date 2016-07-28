@@ -43,8 +43,8 @@ describe('SitesGroupsComponent::', () => {
         expect(component.siteGroups.length).toBeGreaterThan(0);
     }));
 
-    it('should have a headerTitle', inject([SitesGroupsComponent], (component: SitesGroupsComponent) => {
-        expect(component.headerTitle).toEqual('Sites > Site Groups');
+    it('should have a navHeader', inject([SitesGroupsComponent], (component: SitesGroupsComponent) => {
+        expect(component.navHeader).toEqual('Sites > Site Groups');
     }));
 
     it('should do something when clicked', inject([SitesGroupsComponent], (component: SitesGroupsComponent) => {

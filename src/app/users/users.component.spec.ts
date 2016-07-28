@@ -15,7 +15,7 @@ describe('UsersComponent::', () => {
         expect(component).toEqual(jasmine.any(UsersComponent));
     }));
 
-    it('should have a headerTitle', inject([UsersComponent], (component: UsersComponent) => {
-        expect(component.headerTitle).toEqual('Users');
+    it('should have a navHeader', inject([UsersComponent], (component: UsersComponent) => {
+        expect(component.navHeader).toEqual('Users');
     }));
 });
