@@ -1,7 +1,6 @@
 import * as a from './app'
 
 //there isn't a LESS loader in ng2 yet
-import '../css/styles.less';
 import './app.component.less';
 
 @a.Component({
@@ -20,7 +19,7 @@ export class AppComponent {
     //text decoration values for sublist anchors
     clicked: string = null;
     private selectedAnchorId: string;
-    dropdownValues = ["Adam", "This", "Is", "Just", "A", "Sample", "Component"];
+    dropdownValues = ['Adam', 'This', 'Is', 'Just', 'A', 'Sample', 'Component'];
 
     //for future use with advanced icons and stuff
     // constructor(mdIconRegistry: MdIconRegistry) {

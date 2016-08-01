@@ -1,17 +1,16 @@
-import * as dash from './dashboard';
+import { Component, BreadcrumbComponent } from './dashboard';
 
-import '../../css/styles.less';
 import './dashboard.component.less';
 
-@dash.Component({
+@Component({
     selector: 'app-dashboard',
     templateUrl: '../src/app/dashboard/dashboard.component.html',
-    directives: [dash.BreadcrumbComponent],
+    directives: [BreadcrumbComponent],
 })
 
 export class DashboardComponent {
 
-    navHeader: string = "Dashboard";
+    navHeader: string = 'Dashboard';
 
 
 }

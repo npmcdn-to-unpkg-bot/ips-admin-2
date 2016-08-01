@@ -20,10 +20,10 @@ describe('MobileConfigService::', () => {
         let configs = service.getAllFixtureTypes();
         expect(configs.length).toBeGreaterThan(0);
         let configType: IMobileConfig = {
-            "mobileConfigID": 1,
-            "lumicastSDKVersion": "1.023a",
-            "mobileConfigString": "Config config config",
-            "lastUpdatedBy": "Adam"
+            'mobileConfigID': 1,
+            'lumicastSDKVersion': '1.023a',
+            'mobileConfigString': 'Config config config',
+            'lastUpdatedBy': 'Adam'
         };
         expect(typeof configs).toBe(typeof configType);
     }));

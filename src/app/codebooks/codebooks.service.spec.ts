@@ -20,12 +20,12 @@ describe('CodebooksService::', () => {
         let codebooks = service.getAllFixtureTypes();
         expect(codebooks.length).toBeGreaterThan(0);
         let codebookType: ICodebooks = {
-            "codeBookId": 1,
-            "codeBookName": "Codebook 1",
-            "codeWords": "codez, codez, codez",
-            "codeWordCount": 2,
-            "symbolPattern": "symbol patern",
-            "lastUpdateBy": "Adam"
+            'codeBookId': 1,
+            'codeBookName': 'Codebook 1',
+            'codeWords': 'codez, codez, codez',
+            'codeWordCount': 2,
+            'symbolPattern': 'symbol patern',
+            'lastUpdateBy': 'Adam'
         };
         expect(typeof codebooks).toBe(typeof codebookType);
     }));

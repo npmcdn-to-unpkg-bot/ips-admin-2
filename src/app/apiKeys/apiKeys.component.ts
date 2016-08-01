@@ -1,30 +1,30 @@
-import * as api from './apiKeys';
+import { Component, IAPIKeys, APIKeysService, ButtonComponent, FilterComponent,
+    BreadcrumbComponent, ButtonSaveComponent } from './apiKeys';
 
-import '../../css/styles.less';
 import './apiKeys.component.less';
 
-@api.Component({
+@Component({
     selector: 'app-apiKeys',
-    directives: [api.ButtonComponent, api.FilterComponent, api.BreadcrumbComponent, api.ButtonSaveComponent],
+    directives: [ButtonComponent, FilterComponent, BreadcrumbComponent, ButtonSaveComponent],
     templateUrl: '../src/app/apiKeys/apiKeys.component.html',
-    providers: [api.APIKeysService]
+    providers: [APIKeysService]
 })
 
 export class APIKeysComponent {
 
-    apiKeys: api.IAPIKeys[];
-    navHeader: string = "Settings > API Keys";
-    filterValues = ["Filter", "By", "A", "Value"];
+    apiKeys: IAPIKeys[];
+    navHeader: string = 'Settings > API Keys';
+    filterValues = ['Filter', 'By', 'A', 'Value'];
 
-    constructor(private _apiKeysService: api.APIKeysService) {
+    constructor(private _apiKeysService: APIKeysService) {
         this.apiKeys = _apiKeysService.getAllAPIKeys();
     }
 
     apiKeysClick(apiKeyID: number): void {
-        alert("Opening api key with apiKeyID: " + apiKeyID);
+        alert('Opening api key with apiKeyID: ' + apiKeyID);
     }
 
     apiKeySave(e): void {
-        alert("Saving api key!");
+        alert('Saving api key!');
     }
 }

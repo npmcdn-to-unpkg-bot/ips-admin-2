@@ -1,8 +1,8 @@
 //barrel file for lights
 
 export { Component } from '@angular/core';
-export * from './lights.interface';
-export * from './lights.service';
-export * from '../../shared/button/button.component';
-export * from '../../shared/filter/filter.component';
-export * from '../../shared/breadcrumbs/breadcrumbs.component';
+export { ILights } from './lights.interface';
+export { LightsService } from './lights.service';
+export { ButtonComponent } from '../../shared/button/button.component';
+export { FilterComponent } from '../../shared/filter/filter.component';
+export { BreadcrumbComponent } from '../../shared/breadcrumbs/breadcrumbs.component';

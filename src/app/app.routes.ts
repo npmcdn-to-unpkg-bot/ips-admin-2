@@ -1,17 +1,8 @@
-import { provideRouter, RouterConfig } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { SitesAllComponent } from './sites-all/sites-all.component';
-import { SitesGroupsComponent } from './sites-groups/sites-groups.component';
-import { BlankComponent } from './blank/blank.component';
-import { UsersComponent } from './users/users.component';
-import { SettingsComponent } from './settings/settings.component';
-import { LightsComponent } from './lights/lights.component';
-import { AuthenticationComponent } from './authentication/authentication.component';
-import { APIKeysComponent } from './apiKeys/apiKeys.component';
-import { CodebooksComponent } from './codebooks/codebooks.component';
-import { DeploymentComponent } from './deployment/deployment.component';
-import { MobileConfigComponent } from './mobileConfig/mobileConfig.component';
-import { GeneralComponent } from './general/general.component';
+import { provideRouter, RouterConfig, DashboardComponent, SitesAllComponent,
+     SitesGroupsComponent, BlankComponent, UsersComponent, SettingsComponent,
+    LightsComponent, APIKeysComponent, CodebooksComponent, DeploymentComponent, 
+    MobileConfigComponent, GeneralComponent, AuthenticationComponent} from './app'
+
 
 //BlankComponent == I haven't implemented it yet ​
 
@@ -42,7 +33,7 @@ export const routes: RouterConfig = [
 //   { path: 'sites/groups', component: <component> },
 //
 // and in the html:
-// [routerLink]="['/sites/all']"
+// [routerLink]='['/sites/all']'
 ​
 export const APP_ROUTER_PROVIDERS = [
     provideRouter(routes)

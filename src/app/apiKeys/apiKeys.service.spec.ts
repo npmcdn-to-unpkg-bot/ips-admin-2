@@ -20,12 +20,12 @@ describe('APIKeysService::', () => {
         let apikeys = service.getAllAPIKeys();
         expect(apikeys.length).toBeGreaterThan(0);
         let keyType: IAPIKeys = {
-            "apiKeyID": 1,
-            "apiKeyValue": "agadw^&#224ag#$",
-            "effectiveFrom": 7262016,
-            "effectiveTo": 912016,
-            "type": "Auth",
-            "description": "Sample key for auth"
+            'apiKeyID': 1,
+            'apiKeyValue': 'agadw^&#224ag#$',
+            'effectiveFrom': 7262016,
+            'effectiveTo': 912016,
+            'type': 'Auth',
+            'description': 'Sample key for auth'
         };
         expect(typeof apikeys).toBe(typeof keyType);
     }));
