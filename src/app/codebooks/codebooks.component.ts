@@ -1,22 +1,22 @@
-import * as cb from './codebooks';
+import { Component, ICodebooks, CodebooksService, ButtonComponent, FilterComponent,
+    BreadcrumbComponent, ButtonSaveComponent } from './codebooks';
 
-import '../../css/styles.less';
 import './codebooks.component.less';
 
-@cb.Component({
+@Component({
     selector: 'app-codebooks',
-    directives: [cb.ButtonComponent, cb.FilterComponent, cb.BreadcrumbComponent, cb.ButtonSaveComponent],
+    directives: [ButtonComponent, FilterComponent, BreadcrumbComponent, ButtonSaveComponent],
     templateUrl: '../src/app/codebooks/codebooks.component.html',
-    providers: [cb.CodebooksService]
+    providers: [CodebooksService]
 })
 
 export class CodebooksComponent {
 
     navHeader: string = "Settings > Codebooks";
-    codebooks: cb.ICodebooks[];
+    codebooks: ICodebooks[];
     filterValues = ["Filter", "By", "A", "Value"];
 
-    constructor(private _codebooksService: cb.CodebooksService) {
+    constructor(private _codebooksService: CodebooksService) {
         this.codebooks = _codebooksService.getAllFixtureTypes();
     }
 

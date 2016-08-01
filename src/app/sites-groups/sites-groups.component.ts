@@ -1,28 +1,28 @@
-import * as sg from './sites-groups';
+import {Component, ISiteGroups, SiteGroupsService, ButtonComponent, FilterComponent, 
+    BreadcrumbComponent } from './sites-groups';
 
 //less files
-import '../../css/styles.less';
 import './sites-groups.component.less';
 
-@sg.Component({
+@Component({
     selector: 'app-sites-groups',
-    directives: [sg.ButtonComponent, sg.FilterComponent, sg.BreadcrumbComponent],
+    directives: [ButtonComponent, FilterComponent, BreadcrumbComponent],
     templateUrl: '../src/app/sites-groups/sites-groups.component.html',
-    providers: [sg.SiteGroupsService]
+    providers: [SiteGroupsService]
 })
 
 export class SitesGroupsComponent {
     
-    navHeader: string = "Sites > Site Groups"
-    siteGroups: sg.ISiteGroups[];
-    filterValues = ["Filter", "By", "A", "Value"];
+    navHeader: string = 'Sites > Site Groups'
+    siteGroups: ISiteGroups[];
+    filterValues = ['Filter', 'By', 'A', 'Value'];
 
-    constructor(private _siteGroupsService: sg.SiteGroupsService) {
+    constructor(private _siteGroupsService: SiteGroupsService) {
 
         this.siteGroups = this._siteGroupsService.getAllSiteGroups();
     }
 
     sitesGroupsClick(siteGroupID: number): void {
-        alert("Opening site with siteId: " + siteGroupID);
+        alert('Opening site with siteId: ' + siteGroupID);
     }
 }

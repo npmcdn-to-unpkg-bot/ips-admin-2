@@ -1,11 +1,9 @@
-import * as set from './settings';
+import { Component, SidebarComponent }  from './settings';
 
-import '../../css/styles.less';
-
-@set.Component({
+@Component({
     selector: 'app-settings',
     templateUrl: '../src/app/settings/settings.component.html',
-    directives: [set.SidebarComponent]
+    directives: [SidebarComponent]
 })
 
 export class SettingsComponent {
