@@ -15,7 +15,7 @@ export class LightsComponent {
     lights: ILights[];
     navHeader: string = 'Lights';
     columns = ['Name'];
-    filterValues = ['Filter', 'By', 'A', 'Value'];
+    filterValues = ['Filter', 'By', 'A', 'Different', 'Value'];
 
     constructor(private _lightsService: LightsService) {
 
