@@ -10,3 +10,6 @@ import 'rxjs';
 
 // NGRX
 import '@ngrx/store';
+
+// Leaflet
+import 'leaflet';

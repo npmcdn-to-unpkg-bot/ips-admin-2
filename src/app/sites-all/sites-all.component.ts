@@ -1,4 +1,5 @@
 import * as all from './sites-all';
+import { MapComponent } from '../../shared/map/map.component';
 
 //import less
 import '../../css/styles.less';
@@ -6,7 +7,8 @@ import './sites-all.component.less';
 
 @all.Component({
     selector: 'app-sites-all',
-    directives: [all.ButtonComponent, all.FilterComponent, all.BreadcrumbComponent],
+    directives: [all.ButtonComponent, all.FilterComponent, all.BreadcrumbComponent,
+        MapComponent],
     templateUrl: '../src/app/sites-all/sites-all.component.html',
     providers: [all.AllSitesService]
 })
