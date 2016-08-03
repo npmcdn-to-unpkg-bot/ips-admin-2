@@ -1,29 +1,27 @@
-import * as all from './sites-all';
+import { Component, IAllSites, AllSitesService, ButtonComponent, FilterComponent, BreadcrumbComponent } from './sites-all';
 import { MapComponent } from '../../shared/map/map.component';
 
 //import less
-import '../../css/styles.less';
 import './sites-all.component.less';
 
-@all.Component({
+@Component({
     selector: 'app-sites-all',
-    directives: [all.ButtonComponent, all.FilterComponent, all.BreadcrumbComponent,
-        MapComponent],
+    directives: [ButtonComponent, FilterComponent, BreadcrumbComponent, MapComponent],
     templateUrl: '../src/app/sites-all/sites-all.component.html',
-    providers: [all.AllSitesService]
+    providers: [AllSitesService]
 })
 
 export class SitesAllComponent {
     
-    navHeader: string = "Sites > All Sites"
-    allSites: all.IAllSites[];
-    filterValues = ["Filter", "By", "A", "Value"];
+    navHeader: string = 'Sites > All Sites'
+    allSites: IAllSites[];
+    filterValues = ['Filter', 'By', 'A', 'Value'];
 
-    constructor(private _allSitesService: all.AllSitesService) {
+    constructor(private _allSitesService: AllSitesService) {
         this.allSites = this._allSitesService.getAllSites();
     }
 
     allSitesClick(siteId: number): void {
-        alert("Opening site with siteId: " + siteId);
+        alert('Opening site with siteId: ' + siteId);
     }
 }

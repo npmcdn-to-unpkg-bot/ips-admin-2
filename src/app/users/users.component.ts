@@ -1,15 +1,14 @@
-import * as user from './users';
+import { Component, BreadcrumbComponent } from './users';
 
-import '../../css/styles.less';
 import './users.component.less';
 
-@user.Component({
+@Component({
     selector: 'app-users',
     templateUrl: '../src/app/users/users.component.html',
-    directives: [user.BreadcrumbComponent]
+    directives: [BreadcrumbComponent]
 })
 
 export class UsersComponent {
 
-    navHeader: string = "Users";
+    navHeader: string = 'Users';
 }

@@ -7,6 +7,9 @@ import { provideStore }	 	from '@ngrx/store';
 import { AppComponent } 	from './app/app.component';
 import { MdIconRegistry } from '@angular2-material/icon/icon-registry';
 
+//import global less file
+import './css/styles.less';
+
 export function main(): Promise<any> {
 
 	return bootstrap(AppComponent, [

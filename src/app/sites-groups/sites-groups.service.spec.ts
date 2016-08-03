@@ -20,10 +20,10 @@ describe('SiteGroupsService::', () => {
         let sites = service.getAllSiteGroups();
         expect(sites.length).toBeGreaterThan(0);
         let sightType: ISiteGroups = {
-            "siteGroupID": 1,
-            "organization_ID": 1,
-            "siteGroupName": "Group 1",
-            "description": "This is the first site group"
+            'siteGroupID': 1,
+            'organization_ID': 1,
+            'siteGroupName': 'Group 1',
+            'description': 'This is the first site group'
         };
         expect(typeof sites).toBe(typeof sightType);
     }));
