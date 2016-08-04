@@ -1,12 +1,12 @@
-import { Component, IAllSites, AllSitesService, ButtonComponent, FilterComponent,
-    BreadcrumbComponent } from './sites-all';
+import { Component, IAllSites, AllSitesService, ButtonComponent, FilterComponent, BreadcrumbComponent } from './sites-all';
+import { MapComponent } from '../../shared/map/map.component';
 
 //import less
 import './sites-all.component.less';
 
 @Component({
     selector: 'app-sites-all',
-    directives: [ButtonComponent, FilterComponent, BreadcrumbComponent],
+    directives: [ButtonComponent, FilterComponent, BreadcrumbComponent, MapComponent],
     templateUrl: '../src/app/sites-all/sites-all.component.html',
     providers: [AllSitesService]
 })
