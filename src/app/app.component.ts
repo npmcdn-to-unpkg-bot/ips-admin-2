@@ -7,7 +7,7 @@ import './app.component.less';
    selector: 'app',
    templateUrl: '../src/app/app.component.html',
    directives: [a.ROUTER_DIRECTIVES, a.AuthenticationComponent, a.MD_SIDENAV_DIRECTIVES, a.MdButton, 
-                    a.DashboardComponent, a.MdToolbar, a.MdIcon, a.Dropdown],
+                    a.DashboardComponent, a.MdToolbar, a.MdIcon, a.Dropdown, a.MD_LIST_DIRECTIVES],
    viewProviders: [a.MdIconRegistry],
    changeDetection: a.ChangeDetectionStrategy.OnPush
 })

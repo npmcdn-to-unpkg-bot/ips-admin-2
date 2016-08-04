@@ -1,7 +1,7 @@
 import { provideRouter, RouterConfig, DashboardComponent, SitesAllComponent,
      SitesGroupsComponent, BlankComponent, UsersComponent, SettingsComponent,
     LightsComponent, APIKeysComponent, CodebooksComponent, DeploymentComponent, 
-    MobileConfigComponent, GeneralComponent, AuthenticationComponent} from './app'
+    MobileConfigComponent, GeneralComponent, AuthenticationComponent, NotFoundComponent} from './app'
 
 
 //BlankComponent == I haven't implemented it yet ​
@@ -24,7 +24,8 @@ export const routes: RouterConfig = [
             { path: 'deployment', component: DeploymentComponent }
         ] 
     },
-    { path: 'login', component: AuthenticationComponent }
+    { path: 'login', component: AuthenticationComponent },
+    { path: '**', component: NotFoundComponent } //404 support
 ];
 
 //if you need to route 2+ levels deep, it'd be like this 

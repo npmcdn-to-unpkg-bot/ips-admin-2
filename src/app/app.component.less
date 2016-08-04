@@ -4,7 +4,7 @@
 
 /* CLASSES */
 .mainToolbar {
-  background: @accent;
+  background: @mainblue;
   color: @white;
 
 
@@ -101,11 +101,11 @@ ul.sidenav {
     .sidenavContainer:hover {
 
       .topLevelAnchor {
-        color: @accent;
+        color: @white;
       }
 
       md-icon {
-        color: @accent;
+        color: @white;
       }
     }
 
@@ -115,12 +115,12 @@ ul.sidenav {
 
     .sublist {
 
-      background-color: @accent;
+      background-color: @accentblue;
       padding-top: 10px;
 
         li a {
             display: inline-block;
-            color: @black;
+            color: @white;
             padding: 10px 10px 10px 25px;
             text-decoration: none;
             white-space: nowrap;
@@ -137,12 +137,8 @@ ul.sidenav {
 
         li > a:hover {
         color: @white;
+        font-weight: 700;
       }
-    }
-
-    .sublist > li > a:target {
-      text-decoration: underline;
-      color: green;
     }
 }
 
