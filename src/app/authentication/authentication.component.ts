@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-login',
@@ -31,9 +32,10 @@ export class AuthenticationComponent {
 		return params;
 	}
 	private params = this.parseQueryString(location.hash);
-	public access_token:string = null;
+	public access_token: string;
+	public id_token: any;
 	
-	constructor() {
+	constructor(private _router: Router) {
 		//check for id_token or access_token in url
 		if (this.params["id_token"] != null)
 			this.getAccessToken();
@@ -47,8 +49,11 @@ export class AuthenticationComponent {
 		//redirect to get id_token
 		window.location.href = "https://login.microsoftonline.com/" + this.TENTANT_ID + 
 			"/oauth2/authorize?response_type=id_token&client_id=" + this.CLIENT_ID + 
-			"&redirect_uri=" + encodeURIComponent('https://www.google.com') + 
+			"&redirect_uri=" + encodeURIComponent('http://localhost:8080/users/') + 
 			"&state=SomeState&nonce=SomeNonce";
+
+
+			alert("login");
 	}
 	
 	private getAccessToken() {
@@ -58,8 +63,10 @@ export class AuthenticationComponent {
 		window.location.href = "https://login.microsoftonline.com/" + this.TENTANT_ID + 
 			"/oauth2/authorize?response_type=token&client_id=" + this.CLIENT_ID + 
 			"&resource=" + this.GRAPH_RESOURCE + 
-			"&redirect_uri=" + encodeURIComponent(window.location.href) + 
+			"&redirect_uri=" + encodeURIComponent('http://localhost:8080/users/') + 
 			"&prompt=none&state=SomeState&nonce=SomeNonce";
+
+			alert("access token");
 	}
     
 }
