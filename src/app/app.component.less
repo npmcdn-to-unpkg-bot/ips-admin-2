@@ -1,152 +1,114 @@
 @import '../css/colors.less';
 
-/* MIXINS */
+//provides a namespace for this page
+.appParent {
 
-/* CLASSES */
-.mainToolbar {
-  background: @mainblue;
-  color: @white;
+  /* MIXINS */
+
+  /* CLASSES */
+  .mainToolbar {
+    background: @mainblue;
+    color: @white;
 
 
-  .fill-remaining-space {
-  // This fills the remaining space, by using flexbox. 
-  flex: 1 1 auto;
+    .fill-remaining-space {
+    // This fills the remaining space, by using flexbox. 
+    flex: 1 1 auto;
+    }
+    
   }
+
+  .navIcon {
+    padding-right: 10px;
+  }
+
+  // .triangle {
+  //     border-color: @maingray;
+  //     border-right-color: transparent;
+  //     border-left-color: transparent;
+  //     border-style: solid;
+  //     border-width: 10px 10px 0 10px;
+  //     height: 0;
+  //     width: 0;
+  //     left: 14px;
+  //     position: absolute;
+  // }
+
+  .preventHighlight {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+
+  .anchor {
+  // just used for selection purposes
 }
 
-.navIcon {
-  padding-left: 10px;
-}
-
-.triangle {
-    border-color: @maingray;
-    border-right-color: transparent;
-    border-left-color: transparent;
-    border-style: solid;
-    border-width: 10px 10px 0 10px;
-    height: 0;
-    width: 0;
-    left: 14px;
-    position: absolute;
-}
-
-.preventHighlight {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
-
-.sublistAnchor {
-  //this is just used to I can select all of the anchors in sublists
-  //to toggle clicked styles
-}
-
-.sublistAnchorClicked {
+.anchorClicked {
   font-weight: 700;
-  text-decoration: underline !important;
+  border-left: 5px solid @highlightblue;
+  background-color: @mainblue;
+  color: @white;
 }
 
-/* GENERAL ELEMENT STYLES */
-md-sidenav-layout {
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
-
-  md-sidenav.sideDrawer {
-    background: @maingray; 
+  /* GENERAL ELEMENT STYLES */
+  .sideDrawer {
+    font-family: Roboto, 'Helvetica Neue', sans-serif;  
+    background: @accentblue; 
     color: @white;
     width: 160px;
     position: absolute;
     top: 64px;
-  }
-}
+    height: calc(~'100% - 64px');
+    padding-top: 0;
 
-md-toolbar md-icon {
-  padding-right: 10px;
-}
+    //no highlighty
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 
-ul.sidenav {
+    li {
 
-    list-style-type: none !important; 
+      height: 50px;
+      position: relative;
 
-    li a {
-      display: inline-block;
-      color: @white;
-      padding-left: 15px;
-      text-decoration: none;
-      white-space: nowrap;
+      a {
+        color: @white;
+        text-decoration: none;
+        position: relative;
+        top: 12px;
 
-      //no highlighty
-      -webkit-touch-callout: none;
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      -o-user-select: none;
-      user-select: none;
+        md-icon {
+          color: @white;
+          vertical-align: bottom;
+          padding-left: 15px;
+        }
+      }
     }
+
+
+  }
+
+  .routerContent {
+    padding-left: 160px;
+  }
+
+  /* SPECIFIC ELEMENT STYLES */
+  #toolbarBtn {
 
     md-icon {
-      font-size: 30px;
       vertical-align: bottom;
     }
-
-    .sidenavContainer {
-      width: 100%;
-      padding-top: 20px;
-    }
-
-    .sidenavContainer:hover {
-
-      .topLevelAnchor {
-        color: @white;
-      }
-
-      md-icon {
-        color: @white;
-      }
-    }
-
-    .sidenavBtn {
-      height: 35px;
-    }
-
-    .sublist {
-
-      background-color: @accentblue;
-      padding-top: 10px;
-
-        li a {
-            display: inline-block;
-            color: @white;
-            padding: 10px 10px 10px 25px;
-            text-decoration: none;
-            white-space: nowrap;
-
-            //no highlighty
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            -o-user-select: none;
-            user-select: none;
-      }
-
-        li > a:hover {
-        color: @white;
-        font-weight: 700;
-      }
-    }
-}
-
-#toolbarBtn {
-
-  md-icon {
-    vertical-align: bottom;
   }
+
 }
 
 
