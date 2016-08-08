@@ -1,3 +1,9 @@
+// Imports for loading & configuring the in-memory web api for mock http server and mock data
+import { XHRBackend } from '@angular/http';
+import { InMemoryBackendService, SEED_DATA }  from 'angular2-in-memory-web-api';
+import { MockData }   from './app/api/mock-data';
+
+//usual imports
 import { bootstrap }    	from '@angular/platform-browser-dynamic';
 import { enableProdMode, provide } 	from '@angular/core';
 import { APP_ROUTER_PROVIDERS } from './app/app.routes';
@@ -17,7 +23,9 @@ export function main(): Promise<any> {
 		provide(LocationStrategy, {useClass: HashLocationStrategy}),
 		provideStore({  }), //add a store
 		HTTP_PROVIDERS,
-		MdIconRegistry
+		MdIconRegistry,
+		{ provide: XHRBackend, useClass: InMemoryBackendService }, // in-mem mock http server
+		{ provide: SEED_DATA,  useClass: MockData }                // in-mem mock server data
 	])
 	.catch(err => console.error(err));
 

@@ -16,10 +16,14 @@ export class LightsComponent {
     navHeader: string = 'Lights';
     columns = ['Name'];
     filterValues = ['Filter', 'By', 'A', 'Different', 'Value'];
+    errorMessage: string;
 
-    constructor(private _lightsService: LightsService) {
+    constructor(private _lightsService: LightsService) {}
 
-        this.lights = this._lightsService.getAllFixtureTypes();
+    ngOnInit() {
+        this._lightsService.getLights().subscribe(
+                lights => this.lights = lights,
+                error =>  this.errorMessage = <any>error);
     }
 
     lightsClick(luminaireTypeId: number): void {

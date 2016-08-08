@@ -1,4 +1,4 @@
-import { Component, IAllSites, AllSitesService, ButtonComponent, FilterComponent, BreadcrumbComponent } from './sites-all';
+import { Component, ISite, AllSitesService, ButtonComponent, FilterComponent, BreadcrumbComponent } from './sites-all';
 import { MapComponent } from '../../shared/map/map.component';
 
 //import less
@@ -14,11 +14,16 @@ import './sites-all.component.less';
 export class SitesAllComponent {
     
     navHeader: string = 'Sites > All Sites'
-    allSites: IAllSites[];
+    allSites: ISite[];
     filterValues = ['Filter', 'By', 'A', 'Value'];
+    errorMessage: string;
 
-    constructor(private _allSitesService: AllSitesService) {
-        this.allSites = this._allSitesService.getAllSites();
+    constructor(private _allSitesService: AllSitesService) {}
+
+    ngOnInit() {
+        this._allSitesService.getSites().subscribe(
+                sites => this.allSites = sites,
+                error =>  this.errorMessage = <any>error);
     }
 
     allSitesClick(siteId: number): void {

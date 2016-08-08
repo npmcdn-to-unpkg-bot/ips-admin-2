@@ -1,7 +1,7 @@
 //barrel file for all sites
 
 export { Component } from '@angular/core';
-export { IAllSites } from './sites-all.interface';
+export { ISite } from './sites-all.interface';
 export { AllSitesService } from './sites-all.service';
 export { ButtonComponent } from '../../shared/button/button.component';
 export { FilterComponent } from '../../shared/filter/filter.component';
