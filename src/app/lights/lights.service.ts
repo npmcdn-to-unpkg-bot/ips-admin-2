@@ -2,12 +2,34 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
 import { ILights } from './lights.interface';
+import {Store} from '@ngrx/store';
+
+export interface AppStore {
+    items: ILights[];
+    counter: number;
+}
+
+//-------------------------------------------------------------------
+// ITEMS STORE/REDUCER
+//-------------------------------------------------------------------
+export const MyLights = (state: any = [], {type, payload}) => {
+    let index: number;
+    switch (type) {
+        default:
+            return state;
+    }
+};
 
 @Injectable()
 export class LightsService{
-    constructor(private http : Http){}
 
     lightsUrl: string = 'localhost:8080/lights';
+
+    lights: Observable<Array<ILights>>;
+
+    constructor(private http : Http, private store: Store<AppStore>) {
+        this.lights = store.select<Array<ILights>>('items'); // Bind an observable of our items to "ItemsService"
+    }
 
     getLights(): Observable<ILights[]> {
         return this.http.get(this.lightsUrl)
@@ -57,3 +79,4 @@ export class LightsService{
     }
 
 }
+

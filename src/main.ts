@@ -13,15 +13,18 @@ import { provideStore }	 	from '@ngrx/store';
 import { AppComponent } 	from './app/app.component';
 import { MdIconRegistry } from '@angular2-material/icon/icon-registry';
 
+import { LightsService, MyLights} from './app/lights/lights.service';
+
 //import global less file
 import './css/styles.less';
 
 export function main(): Promise<any> {
 
 	return bootstrap(AppComponent, [
+		LightsService,
 		APP_ROUTER_PROVIDERS,
 		provide(LocationStrategy, {useClass: HashLocationStrategy}),
-		provideStore({  }), //add a store
+		provideStore({ MyLights }), //add a store
 		HTTP_PROVIDERS,
 		MdIconRegistry,
 		{ provide: XHRBackend, useClass: InMemoryBackendService }, // in-mem mock http server
