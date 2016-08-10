@@ -75,8 +75,7 @@ export class LightsService{
 
     deleteLight (light: ILights)//: Observable<ILights>
     {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
+        let options = new RequestOptions(HEADER);
 
         return this.http.delete(this.lightsUrl+'/'+light.luminaireTypeId, options)
             .map(this.extractData)
