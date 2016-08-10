@@ -14,18 +14,18 @@
                 <div class="small text">Aperture Dimensions</div>
                 <div class="small text">Exterior Dimensions</div>
             </div>
-
             <div class="data">
                 <!--<div class="dataRow" *ngFor="let light of lights" (click)="lightsClick(light.luminaireTypeId)">-->
                     <!--<div class="big blue">{{light.displayName}}</div>-->
                     <!--<div class="small">{{light.interiorWidth + ' x ' + light.interiorLength}}</div>-->
                     <!--<div class="small">{{light.exteriorWidth + ' x ' + light.exteriorLength}}</div>-->
                 <!--</div>-->
-                <items-list [items]="myLights | async"></items-list>
+                <lights-list [items]="myLights | async"
+                            (selected)="selectItem($event)"
+                            (deleted)="deleteItem($event)"></lights-list>
             </div>
         </div>
     </div>
-
 
     <div class="panelRight">
         <div class="defaultPlaceholder">Select a light to view details</div>

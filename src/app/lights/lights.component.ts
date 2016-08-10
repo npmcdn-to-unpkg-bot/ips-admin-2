@@ -1,16 +1,17 @@
-import { ILights, LightsService, MyLights, ButtonComponent, FilterComponent,
+import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from '@angular/core';
+import { ILights, LightsService, ButtonComponent, FilterComponent,
     BreadcrumbComponent, AppStore} from './lights';
 
-import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Store} from '@ngrx/store';
-//import {MyLights, AppStore} from './lights.service';
 
 import './lights.component.less';
 
-
+//-------------------------------------------------------------------
+// LIGHTS-LIST
+//-------------------------------------------------------------------
 @Component({
-    selector: 'items-list',
+    selector: 'lights-list',
     template: `
                 <div class="dataRow" *ngFor="let item of items" (click)="selected.emit(item)">
                     <div class="big blue">{{item.displayName}}</div>
@@ -30,12 +31,15 @@ class ItemsList {
     @Output() deleted = new EventEmitter();
 }
 
+//-------------------------------------------------------------------
+// MAIN COMPONENT
+//-------------------------------------------------------------------
 @Component({
     selector: 'app-lights',
-    directives: [ButtonComponent, FilterComponent, BreadcrumbComponent, ItemsList],
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [],
     templateUrl: '../src/app/lights/lights.component.html',
-    // providers: [LightsService]
+    directives: [ButtonComponent, FilterComponent, BreadcrumbComponent, ItemsList],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class LightsComponent {
@@ -51,17 +55,22 @@ export class LightsComponent {
 
     constructor(private _lightsService: LightsService, private store: Store<AppStore>) {
 
-        this.myLights = _lightsService.lights;
-
     }
 
     ngOnInit() {
-        this._lightsService.getLights().subscribe(
-                lights => this.lights = lights,
-                error =>  this.errorMessage = <any>error);
+        this.myLights = this._lightsService.myLights;
+        this._lightsService.loadLights();
     }
 
     lightsClick(luminaireTypeId: number): void {
         alert('Opening luminaire type with luminaireTypeId: ' + luminaireTypeId);
+    }
+
+    selectItem(item: ILights) {
+        this.store.dispatch({type: 'SELECT_ITEM', payload: item});
+    }
+
+    deleteItem(item: ILights) {
+        this._lightsService.deleteLight(item);
     }
 }
