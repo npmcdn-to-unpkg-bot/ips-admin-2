@@ -1,9 +1,7 @@
-import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from '@angular/core';
-import { ILights, LightsService, ButtonComponent, FilterComponent,
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy,
+    Observable, Store,
+    ILights, LightsService, ButtonComponent, FilterComponent,
     BreadcrumbComponent, AppStore} from './lights';
-
-import {Observable} from 'rxjs/Observable';
-import {Store} from '@ngrx/store';
 
 import './lights.component.less';
 

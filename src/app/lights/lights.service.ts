@@ -10,24 +10,6 @@ export interface AppStore {
     myLights: ILights[];
 }
 
-//-------------------------------------------------------------------
-// ITEMS STORE/REDUCER
-//-------------------------------------------------------------------
-export const MyLightsStore = (state: any = [], {type, payload}) => {
-    let index: number;
-    switch (type) {
-        case 'ADD_ITEMS':
-            return payload;
-        case 'DELETE_ITEM':
-            let newState = state.filter(item => {
-                return item.displayName !== payload.displayName;
-            });
-            return newState;
-        default:
-            return state;
-    }
-};
-
 @Injectable()
 export class LightsService{
 
@@ -36,7 +18,7 @@ export class LightsService{
     myLights: Observable<Array<ILights>>;
 
     constructor(private http : Http, private store: Store<AppStore>) {
-        this.myLights = store.select<Array<ILights>>('MyLightsStore');
+        this.myLights = store.select<Array<ILights>>('LightsReducer');
     }
 
     loadLights() {
