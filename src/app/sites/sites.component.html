@@ -1,0 +1,72 @@
+<div class="sitesParent">
+
+    <div class="panelLeft">
+        
+        <!--<ui-breadcrumb [navHeader]="navHeader"></ui-breadcrumb>-->
+        <header>
+            <nav class="sitesTabs">
+                <li [routerLink]="['all']"><a (click)="allTabClick()">All</a></li>
+                <li [routerLink]="['groups']"><a (click)="groupTabClick()">Group</a></li>
+                <li><a (click)="favTabClick()">Favs</a></li>
+            </nav>
+
+            <input type="text" placeholder="Search for site...">
+
+            <div class="dataSettings">
+                Icons go here
+                <ui-buttonAdd></ui-buttonAdd>
+            </div>
+
+            <main>
+                <router-outlet></router-outlet>
+            </main>
+
+        </header>
+
+        
+
+    </div>
+
+    <div class="panelRight">
+
+            <section class="rightDetails">
+                <span>Recent Sites:</span>
+                <ul>
+                    <li><a href="#">Castle Black</a></li>
+                    <li><a href="#">Flea Bottom</a></li>
+                </ul>
+            </section>
+
+            <header class="mapHeader">
+
+                <section>
+                    <h2>Red Keep</h2>
+                    <div>Kingsroad, Westeros</div>
+                    <a href="#">View Site Analytics</a>
+                </section>
+
+                <nav class="mapTabs">
+                    <li><a>Details</a></li>
+                    <li><a>Floors</a></li>
+                    <li><a>Users</a></li>
+                    <li><a>Health</a></li>
+                </nav>
+            </header>
+            <div class="map"> 
+                <ui-map [map-id]="'sitesMap'"></ui-map>
+            </div>
+
+  
+            <div class="floors">
+                <header class="floorsHeader">
+                    <div class="floorsHeaderValue">FLOORS</div>
+
+                    <ui-buttonAdd></ui-buttonAdd>
+                </header>
+                <div class="floorsData">
+                    <div class="inProgress">Select a site to view the floors (in progress > routing)</div>
+                </div>
+            </div>
+    </div>
+
+</div>

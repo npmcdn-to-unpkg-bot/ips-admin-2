@@ -1,15 +1,25 @@
 import { provideRouter, RouterConfig, DashboardComponent, SitesAllComponent,
      SitesGroupsComponent, BlankComponent, UsersComponent, SettingsComponent,
     LightsComponent, APIKeysComponent, CodebooksComponent, DeploymentComponent, 
-    MobileConfigComponent, GeneralComponent, AuthenticationComponent, NotFoundComponent} from './app'
+    MobileConfigComponent, GeneralComponent, AuthenticationComponent, 
+    NotFoundComponent, SitesComponent} from './app'
 
 
 //BlankComponent == I haven't implemented it yet ​
 
 export const routes: RouterConfig = [
     { path: '', component: DashboardComponent },
-    { path: 'sites-all', component: SitesAllComponent },
-    { path: 'sites-groups', component: SitesGroupsComponent },
+    { 
+        path: 'sites', 
+        component: SitesComponent,
+        children: [
+            { path: '', 
+              redirectTo: 'all',
+              pathMatch: 'full' 
+            },
+            { path: 'all', component: SitesAllComponent },
+            { path: 'groups', component: SitesGroupsComponent }
+        ] },
     { path: 'lights', component: LightsComponent },
     { path: 'users', component: UsersComponent },
     { 

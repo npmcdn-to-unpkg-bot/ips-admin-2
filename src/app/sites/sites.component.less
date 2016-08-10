@@ -1,0 +1,171 @@
+@import '../../css/colors.less';
+
+/* MIXINS */
+
+
+/* CLASSES */
+.sitesParent {
+    display: flex;
+    height: calc(~'100% - 64px');
+    font-family: inherit;
+
+    .panelLeft {
+        width: 25%;
+        background-color: @reallylightgray;
+        flex-shrink: 1;
+
+        input {
+            border: none;
+            height: 40px;
+            line-height: 40px;
+            background-color: @lightgray;
+            width: 100%;
+        }
+
+    .sitesTabs{
+
+        display: flex;
+
+            li {
+                font-size: .8em;
+                text-align: center;
+                flex-shrink: 1;
+                width: 33.3%;
+                display: inline-block;
+                list-style-type: none;
+                color: @mainblue;
+                padding: 10px;
+                box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                height: 35px;
+
+                a {
+                    text-decoration: none;
+
+                }
+            }
+
+            li:hover {
+                //background-color: rgba(55, 68, 76, 0.2) !important;
+                border-bottom: 3px solid @highlightblue;
+            }
+        }
+
+        .dataSettings {
+            height: 25px;
+        }
+
+
+    }
+
+    .panelRight {
+        width: 75%;
+        flex-shrink: 1;
+
+        .rightDetails {
+            background-color: @lightgray;
+            height: 35px;
+            line-height: 35px;
+            color: @mainblue;
+            padding-left: 10px;
+
+            ul {
+                display: inline-block;
+            }
+
+            li {
+                display: inline-block;
+                list-style-type: none;
+
+                a {
+                    color: @highlightblue;
+                }
+            }
+        }
+
+        .mapHeader {
+            border: 1px solid @lightgray;
+            height: 120px;
+            position: relative;
+
+            section {
+                padding: 15px;
+
+                div {
+                    display: inline-block;
+                    padding-right: 20px;
+                }
+
+                a {
+                    display: inline-block;
+                }
+            }
+
+            .mapTabs {
+
+                    position: absolute;
+                    top: 85px;
+
+
+                li {
+                    font-size: .8em;
+                    text-align: center;
+                    display: inline-block;
+                    list-style-type: none;
+                    color: @mainblue;
+                    padding: 10px 20px 10px 20px;
+                    box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    -webkit-box-sizing: border-box;
+                    height: 35px;
+
+
+                    a {
+                        text-decoration: none;
+
+                    }
+            }
+
+                li:hover {
+                    //background-color: rgba(55, 68, 76, 0.2) !important;
+                    border-bottom: 3px solid @highlightblue;
+                }
+            }
+        }
+
+        .map {
+            height: 400px;
+        }
+
+        .floors {
+            background-color: @lightgray;
+            height: 20px;
+
+            .floorsHeader {
+                height: 40px;
+                background-color: @accentblue;
+
+                .floorsHeaderValue {
+                    color: @white;
+                    display: inline-block;
+                    padding-left: 15px;
+                    vertical-align: middle;
+                    position: relative;
+                    top: 12px;
+                }
+            }
+        }
+
+        .inProgress {
+            text-align: center;
+            padding: 20px;
+        }
+    }
+
+    /* GENERAL ELEMENT STYLES */
+
+
+    /* SPECIFIC ELEMENT STYLES */
+
+}
