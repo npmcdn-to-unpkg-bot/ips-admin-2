@@ -15,27 +15,10 @@
         <ui-dropdown [values]="dropdownValues" [(value)]="value"></ui-dropdown>
     </md-toolbar>
 
-    <!--<md-nav-list class="sideDrawer">
-
-        <a id="dashboard" md-list-item [routerLink]="['/']" (click)="setSelectedAnchor($event)" [ngClass]="setClasses('dashboard')"> 
-            <md-icon class="navIcon">keyboard</md-icon>Dashboard
-        </a>
-        <a id="sites" md-list-item [routerLink]="['/sites']" (click)="setSelectedAnchor($event)" [ngClass]="setClasses('sites')">
-            <md-icon class="navIcon">location_city</md-icon>Sites
-        </a>
-        <a id="lights" md-list-item [routerLink]="['/lights']" (click)="setSelectedAnchor($event)" [ngClass]="setClasses('lights')">
-            <md-icon class="navIcon">lightbulb_outline</md-icon>Lights
-        </a>
-        <a id="users" md-list-item [routerLink]="['/users']" (click)="setSelectedAnchor($event)" [ngClass]="setClasses('users')">
-            <md-icon class="navIcon">wc</md-icon>Users
-        </a>
-        <a id="settings" md-list-item [routerLink]="['/settings']" (click)="setSelectedAnchor($event)" [ngClass]="setClasses('settings')">
-            <md-icon class="navIcon">settings</md-icon>Settings
-        </a>
-
-    </md-nav-list>-->
-
     <ul class="sideDrawer">
+
+        <div class="sideDrawerText">MAIN</div>
+
         <li id="dashboard" md-list-item [routerLink]="['/']" (click)="setSelectedAnchor($event)" [ngClass]="setClasses('dashboard')">
             <a><md-icon class="navIcon">keyboard</md-icon>Dashboard</a>      
         </li>
@@ -49,65 +32,24 @@
         <li id="users" md-list-item [routerLink]="['/users']" (click)="setSelectedAnchor($event)" [ngClass]="setClasses('users')">
             <a><md-icon class="navIcon">wc</md-icon>Users</a>
         </li>
-        <li id="settings" md-list-item [routerLink]="['/settings']" (click)="setSelectedAnchor($event)" [ngClass]="setClasses('settings')">
+
+        <!--hidden for now-->
+        <!--<li id="settings" md-list-item [routerLink]="['/settings']" (click)="setSelectedAnchor($event)" [ngClass]="setClasses('settings')">
             <a><md-icon class="navIcon">settings</md-icon>Settings</a>
+        </li>-->
+
+        <div class="blueBorder"></div>
+
+        <div class="sideDrawerText">OTHER</div>
+
+        <li id="feedback" md-list-item [ngClass]="setClasses('feedback')">
+            <a><md-icon class="navIcon">feedback</md-icon>Feedback</a>
         </li>
     </ul>
 
     <div class="routerContent">
         <router-outlet></router-outlet>
     </div>
-    
-        <!--<ul class="sidenav">
-            <li>
-                <div class="sidenavContainer" >
-                    <div class="sidenavBtn">
-                        <a class="topLevelAnchor">Dashboard</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="sidenavContainer" >
-                    <div class="sidenavBtn">
-                        <a class="topLevelAnchor">Sites</a>
-                    </div>
-                    <div>
-                        <div class="triangle"></div>
-                        <ul *ngIf="clicked == 'sites'" class="sublist">
-                            <li>
-                                <a id="sublistAll" [ngClass]="setClasses('sublistAll')" (click)="setSelectedAnchor($event); 
-                                    [routerLink]="['/sites-all']">All Sites</a>
-                            </li>
-                            <li>
-                                <a id="sublistGroups" [ngClass]="setClasses('sublistGroups')" (click)="setSelectedAnchor($event); 
-                                    [routerLink]="['/sites-groups']">Site Groups</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="sidenavContainer">
-                    <div class="sidenavBtn">
-                        <a class="topLevelAnchor">Lights</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="sidenavContainer">
-                    <div class="sidenavBtn">
-                        <a class="topLevelAnchor">Users</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="sidenavContainer">
-                    <div  class="sidenavBtn">                       
-                        <a class="topLevelAnchor"  >Settings</a>
-                    </div>
-                </div>
-            </li>
-        </ul>-->
 </div>
 
 

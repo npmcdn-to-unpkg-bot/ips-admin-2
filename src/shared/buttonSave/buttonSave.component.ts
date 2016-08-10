@@ -1,8 +1,8 @@
-import * as save from './buttonSave';
+import { Component, MdButton, MdIcon, MdIconRegistry } from './buttonSave';
 
 import './buttonSave.component.less';
 
-@save.Component({
+@Component({
     selector: 'ui-buttonSave',
     template:
     `
@@ -10,8 +10,8 @@ import './buttonSave.component.less';
        <md-icon class="md-24">save</md-icon>
     </button>
     `,
-    directives: [save.MdButton, save.MdIcon],
-    viewProviders: [save.MdIconRegistry]
+    directives: [MdButton, MdIcon],
+    viewProviders: [MdIconRegistry]
 })
 
 export class ButtonSaveComponent {

@@ -16,6 +16,7 @@ export { DashboardComponent } from './dashboard/dashboard.component';
 
 export { SitesAllComponent } from './sites-all/sites-all.component';
 export { SitesGroupsComponent } from './sites-groups/sites-groups.component';
+export { SitesComponent } from './sites/sites.component';
 export { BlankComponent } from './blank/blank.component';
 export { UsersComponent } from './users/users.component';
 export { SettingsComponent } from './settings/settings.component';

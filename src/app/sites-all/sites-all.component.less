@@ -4,65 +4,59 @@
 
 /* MIXINS */
 
-/* CLASSES */ 
 .sitesAllParent {
-    display: flex;
-
-    .panelLeft {
-        padding: 15px;
-        width: 50%;
-        background-color: @reallylightgray;
-    }
-
-    .panelRight {
-        width: 50%;
-    }
-
-    .panelTop {
-        height: 50%;
-    }
-
-    .panelBottom {
-        height: 50%;
-    }
 
     #allSites {
 
-        .big {
-            flex-shrink: 2;
-            width: 40%;
-
-            .blue30 {
-                line-height: 30px;
-                height: 30px;
-                color: @highlightblue;
-            }
-
-            .gray {
-                line-height: 30px;
-                height: 30px;
-                color: @maingray;
-            }
-        }
-
-        .small {
-            flex-shrink: 1;
-            width: 20%;
-            padding: 0 5px;
-        }
-
-        .lineHeight60px {
-            line-height: 60px;
-        }
-    }
-
-    /* GENERAL ELEMENT STYLES */
-
-
-    /* SPECIFIC ELEMENT STYLES */
-    #allSites {
+        height: calc(~'100% - 115px');
+        overflow-y: auto;
         margin-top: 15px;
+        text-align: left;
+
+
+        .allSitesControls {
+
+            width: 75px;
+            position: relative;
+
+            input[type='checkbox']{
+                height: 16px;
+                width: 16px;
+                position: relative;
+                top: 22px;
+                left: 10px;
+            }
+
+            .greenCircle {
+                background-color: @activegreen;
+                border-radius: 50%;
+                width: 10px;
+                height: 10px; 
+                position: relative;
+                top: 9px;
+                left: 40px;
+            /* width and height can be anything, as long as they're equal */
+            }
+        }
+
+        .blue30 {
+            padding-top: 5px;
+            line-height: 25px;
+            height: 25px;
+            color: @mainblue;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        .gray {
+            line-height: 25px;
+            height: 25px;
+            color: @maingray;
+            text-align: left;
+        }
     }
+
+
 }
 
 
