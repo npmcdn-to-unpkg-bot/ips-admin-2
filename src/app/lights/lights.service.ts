@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable }     from 'rxjs/Observable';
 import { ILights } from './lights.interface';
 
+const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
 export interface AppStore {
     myLights: ILights[];
@@ -17,6 +18,11 @@ export const MyLightsStore = (state: any = [], {type, payload}) => {
     switch (type) {
         case 'ADD_ITEMS':
             return payload;
+        case 'DELETE_ITEM':
+            let newState = state.filter(item => {
+                return item.displayName !== payload.displayName;
+            });
+            return newState;
         default:
             return state;
     }
@@ -30,7 +36,7 @@ export class LightsService{
     myLights: Observable<Array<ILights>>;
 
     constructor(private http : Http, private store: Store<AppStore>) {
-        this.myLights = store.select<Array<ILights>>('MyLightsStore'); //something smells wrong here...
+        this.myLights = store.select<Array<ILights>>('MyLightsStore');
     }
 
     loadLights() {
@@ -69,19 +75,18 @@ export class LightsService{
 
     deleteLight (light: ILights)//: Observable<ILights>
     {
-        // let body = JSON.stringify(light);
-        // let headers = new Headers({ 'Content-Type': 'application/json' });
-        // let options = new RequestOptions({ headers: headers });
-        //
-        // return this.http.delete(this.lightsUrl+'/'+light.luminaireTypeId, options)
-        //     .map(this.extractData)
-        //     .catch(this.handleError);
-        this.store.dispatch({ type: 'DELETE_ITEM', payload: light });
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.delete(this.lightsUrl+'/'+light.luminaireTypeId, options)
+            .map(this.extractData)
+            .subscribe(action => this.store.dispatch({ type: 'DELETE_ITEM', payload: light }));
+            //.catch(this.handleError);
     }
 
     private extractData(res: Response) {
         let body = res.json();
-        return body.data || { };
+        return body ? body.data || { } : { };
     }
     private handleError (error: any) {
         let errMsg = (error.message) ? error.message :
