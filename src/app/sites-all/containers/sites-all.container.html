@@ -15,14 +15,17 @@
             </div>
 
             <div class="data">
-                <div class="dataRow dataRowSites tall" *ngFor="let site of allSites" (click)="allSitesClick(site.siteId)">
-                    <div class="big tall">
-                        <div class="blue30">{{site.siteName}}</div>
-                        <div class="gray">{{site.city + ', ' + site.stateProvince}}</div>
-                    </div>
-                    <div class="big"></div>
-                    <div class="small lineHeight60px">{{site.serviceStatus}}</div>
-                </div>
+                <!--<div class="dataRow dataRowSites tall" *ngFor="let site of allSites" (click)="allSitesClick(site.siteId)">-->
+                    <!--<div class="big tall">-->
+                        <!--<div class="blue30">{{site.siteName}}</div>-->
+                        <!--<div class="gray">{{site.city + ', ' + site.stateProvince}}</div>-->
+                    <!--</div>-->
+                    <!--<div class="big"></div>-->
+                    <!--<div class="small lineHeight60px">{{site.serviceStatus}}</div>-->
+                <!--</div>-->
+                <sites-all-list [items]="mySites | async"
+                                (selected)="selectItem($event)"
+                                (deleted)="deleteItem($event)"></sites-all-list>
             </div>
         </div>
 

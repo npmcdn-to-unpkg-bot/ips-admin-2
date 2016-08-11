@@ -1,4 +1,5 @@
 import * as a from './app'
+import './rxjs-operators';
 
 //there isn't a LESS loader in ng2 yet
 import './app.component.less';

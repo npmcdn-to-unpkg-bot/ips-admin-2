@@ -3,7 +3,7 @@ import {
     inject
 } from '@angular/core/testing';
 
-import { IAllSites } from './sites-all.interface';
+import { ISite } from './sites-all.interface';
 import { AllSitesService } from './sites-all.service';
 
 describe('AllSitesService::', () => {
@@ -19,7 +19,7 @@ describe('AllSitesService::', () => {
     it('should return sites', inject([AllSitesService], (service: AllSitesService) => {
         let sites = service.getAllSites();
         expect(sites.length).toBeGreaterThan(0);
-        let sightType: IAllSites = {
+        let sightType: ISite = {
             'siteId': 1,
             'siteName': 'Site 1',
             'city': 'Atlanta',

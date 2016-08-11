@@ -1,47 +1,61 @@
 import { Injectable } from '@angular/core';
-import { IAllSites } from './sites-all.interface';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { Observable }     from 'rxjs/Observable';
+import { ISite } from '../sites-all/sites-all.interface';
 
 @Injectable()
+export class AllSitesService{
+    constructor(private http : Http){}
 
-export class AllSitesService {
-    
-    getAllSites(): IAllSites[] {
-        return [
-        {
-            'siteId': 1,
-            'siteName': 'Site 1',
-            'city': 'Atlanta',
-            'stateProvince': 'GA',
-            'country': 'USA',
-            'serviceStatus': 'ACTIVE',
-            'timeZoneId': 1
-        },
-        {
-            'siteId': 2,
-            'siteName': 'Site 2',
-            'city': 'Atlanta',
-            'stateProvince': 'GA',
-            'country': 'USA',
-            'serviceStatus': 'ACTIVE',
-            'timeZoneId': 1
-        },
-        {
-            'siteId': 3,
-            'siteName': 'Site 3',
-            'city': 'Atlanta',
-            'stateProvince': 'GA',
-            'country': 'USA',
-            'serviceStatus': 'ACTIVE',
-            'timeZoneId': 1
-        },
-        {
-            'siteId': 4,
-            'siteName': 'Site 4',
-            'city': 'Atlanta',
-            'stateProvince': 'GA',
-            'country': 'USA',
-            'serviceStatus': 'ACTIVE',
-            'timeZoneId': 1
-        }];
+    siteUrl: string = 'localhost:8080/sites';
+
+    getSites(): Observable<ISite[]> {
+        return this.http.get(this.siteUrl)
+            .map(this.extractData)
+            .catch(this.handleError);
     }
+
+    addSite (site: ISite): Observable<ISite> {
+        let body = JSON.stringify(site);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.put(this.siteUrl, body, options)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
+    updateSite (site: ISite): Observable<ISite> {
+        let body = JSON.stringify(site);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post(this.siteUrl, body, options)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
+    deleteSite (site: ISite): Observable<ISite> {
+        let body = JSON.stringify(site);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.delete(this.siteUrl+'/'+site.siteId, options)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
+
+
+    private extractData(res: Response) {
+        let body = res.json();
+        return body.data || { };
+    }
+    private handleError (error: any) {
+        let errMsg = (error.message) ? error.message :
+            error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+        console.error(errMsg); // log to console instead
+        return Observable.throw(errMsg);
+    }
+
 }
