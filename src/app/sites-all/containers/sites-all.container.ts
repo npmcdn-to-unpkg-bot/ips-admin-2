@@ -14,7 +14,7 @@ import './sites-all.container.less';
 
 export class SitesAllContainer {
     
-    navHeader: string = 'Sites > All Sites'
+    navHeader: string = 'Sites > All Sites';
     allSites: ISite[];
     filterValues = ['Filter', 'By', 'A', 'Value'];
     errorMessage: string;
