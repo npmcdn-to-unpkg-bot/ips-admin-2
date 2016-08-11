@@ -3,12 +3,12 @@ import {
     inject
 } from '@angular/core/testing';
 import { provide } from '@angular/core'
-import { ILights } from '../lights.interface';
+import { ILight } from '../lights.interface';
 import { LightsService } from '../lights.service';
 import { LightsContainer } from './lights.container';
 
 class MockLightService {
-    public getAllFixtureTypes(): ILights[] {
+    public getAllFixtureTypes(): ILight[] {
         return [
             {
                 'luminaireTypeId': 1,

@@ -1,7 +1,7 @@
 //barrel file for lights
 
 export { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-export { ILights } from './lights.interface';
+export { ILight } from './lights.interface';
 export { AppStore } from '../app.store';
 export { LightsService } from './lights.service';
 export { LightsReducer } from './lights.reducer';

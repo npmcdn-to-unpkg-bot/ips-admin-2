@@ -1,4 +1,4 @@
-export interface ILights {
+export interface ILight {
     
     luminaireTypeId: number;
     organization_ID: number;

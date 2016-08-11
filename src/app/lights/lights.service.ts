@@ -2,12 +2,12 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import {Store} from '@ngrx/store';
 import { Injectable } from '@angular/core';
 import { Observable }     from 'rxjs/Observable';
-import { ILights } from './lights.interface';
+import { ILight } from './lights.interface';
 
 const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
 export interface AppStore {
-    myLights: ILights[];
+    myLights: ILight[];
 }
 
 @Injectable()
@@ -15,10 +15,10 @@ export class LightsService{
 
     lightsUrl: string = 'localhost:8080/lights';
 
-    myLights: Observable<Array<ILights>>;
+    myLights: Observable<Array<ILight>>;
 
     constructor(private http : Http, private store: Store<AppStore>) {
-        this.myLights = store.select<Array<ILights>>('LightsReducer');
+        this.myLights = store.select<Array<ILight>>('LightsReducer');
     }
 
     loadLights() {
@@ -29,13 +29,13 @@ export class LightsService{
             //.catch(this.handleError);
     }
 
-    // getLights(): Observable<ILights[]> {
+    // getLights(): Observable<ILight[]> {
     //     return this.http.get(this.lightsUrl)
     //         .map(this.extractData)
     //         .catch(this.handleError);
     // }
     //
-    // addLight (light: ILights): Observable<ILights> {
+    // addLight (light: ILight): Observable<ILight> {
     //     let body = JSON.stringify(light);
     //     let headers = new Headers({ 'Content-Type': 'application/json' });
     //     let options = new RequestOptions({ headers: headers });
@@ -45,7 +45,7 @@ export class LightsService{
     //         .catch(this.handleError);
     // }
     //
-    // updateLight (light: ILights): Observable<ILights> {
+    // updateLight (light: ILight): Observable<ILight> {
     //     let body = JSON.stringify(light);
     //     let headers = new Headers({ 'Content-Type': 'application/json' });
     //     let options = new RequestOptions({ headers: headers });
@@ -55,7 +55,7 @@ export class LightsService{
     //         .catch(this.handleError);
     // }
 
-    deleteLight (light: ILights)//: Observable<ILights>
+    deleteLight (light: ILight)//: Observable<ILight>
     {
         let options = new RequestOptions(HEADER);
 

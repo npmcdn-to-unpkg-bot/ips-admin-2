@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy,
     Observable, Store, LightsList, LightsDetail,
-    ILights, LightsService, ButtonComponent, FilterComponent,
+    ILight, LightsService, ButtonComponent, FilterComponent,
     BreadcrumbComponent, AppStore} from '../lights';
 
 import './lights.container.less';
@@ -18,8 +18,8 @@ import './lights.container.less';
 
 export class LightsContainer {
 
-    lights: Observable<Array<ILights>>;
-    selectedLight: Observable<ILights>;
+    lights: Observable<Array<ILight>>;
+    selectedLight: Observable<ILight>;
 
     navHeader: string = 'Lights';
     columns = ['Name'];
@@ -39,11 +39,11 @@ export class LightsContainer {
         alert('Opening luminaire type with luminaireTypeId: ' + luminaireTypeId);
     }
 
-    selectItem(item: ILights) {
+    selectItem(item: ILight) {
         this.store.dispatch({type: 'SELECT_ITEM', payload: item});
     }
 
-    deleteItem(item: ILights) {
+    deleteItem(item: ILight) {
         this._lightsService.deleteLight(item);
     }
 }
