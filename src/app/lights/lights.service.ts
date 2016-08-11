@@ -18,8 +18,10 @@ export class LightsService{
         return this.http.get(this.lightsUrl)
             .map(this.extractData)
             .map(payload => ({type: 'ADD_ITEMS', payload}))
-            .subscribe(action => this.store.dispatch(action));
-            //.catch(this.handleError);
+            .subscribe(
+                action => this.store.dispatch(action),
+                err => this.handleError(err)
+            );
     }
 
     addLight (light: ILight): Observable<ILight> {
@@ -50,8 +52,10 @@ export class LightsService{
 
         return this.http.delete(this.lightsUrl+'/'+light.luminaireTypeId, options)
             .map(this.extractData)
-            .subscribe(action => this.store.dispatch({ type: 'DELETE_ITEM', payload: light }));
-            //.catch(this.handleError);
+            .subscribe(
+                action => this.store.dispatch({ type: 'DELETE_ITEM', payload: light }),
+                err => this.handleError(err)
+            );
     }
 
     private extractData(res: Response) {
