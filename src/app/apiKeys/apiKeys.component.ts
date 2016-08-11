@@ -15,9 +15,14 @@ export class APIKeysComponent {
     apiKeys: IAPIKeys[];
     navHeader: string = 'Settings > API Keys';
     filterValues = ['Filter', 'By', 'A', 'Value'];
+    errorMessage: string;
 
-    constructor(private _apiKeysService: APIKeysService) {
-        this.apiKeys = _apiKeysService.getAllAPIKeys();
+    constructor(private _apiKeysService: APIKeysService) {}
+
+    ngOnInit() {
+        this._apiKeysService.getApiKeys().subscribe(
+                sites => this.apiKeys = sites,
+                error =>  this.errorMessage = <any>error);
     }
 
     apiKeysClick(apiKeyID: number): void {

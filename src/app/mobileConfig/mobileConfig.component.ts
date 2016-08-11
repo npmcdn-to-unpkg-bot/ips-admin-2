@@ -15,9 +15,14 @@ export class MobileConfigComponent {
     navHeader: string = 'Settings > Mobile Config';
     mobileConfigs: IMobileConfig[];
     filterValues = ['Filter', 'By', 'A', 'Value'];
+    errorMessage: string;
 
-    constructor(private _mobileConfigService: MobileConfigService) {
-        this.mobileConfigs = _mobileConfigService.getAllFixtureTypes();
+    constructor(private _mobileConfigService: MobileConfigService) {}
+
+    ngOnInit () {
+        this._mobileConfigService.getMobileConfigs().subscribe(
+                mobileConfigs => this.mobileConfigs = mobileConfigs,
+                error =>  this.errorMessage = <any>error);
     }
 
     mobileConfigClick(mobileConfigID: number): void {

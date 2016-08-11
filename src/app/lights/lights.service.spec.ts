@@ -3,7 +3,7 @@ import {
     inject
 } from '@angular/core/testing';
 
-import { ILights } from './lights.interface';
+import { ILight } from './lights.interface';
 import { LightsService } from './lights.service';
 
 describe('LightsService::', () => {
@@ -19,7 +19,7 @@ describe('LightsService::', () => {
     it('should return fixture types', inject([LightsService], (service: LightsService) => {
         let fixtureTypes = service.getAllFixtureTypes();
         expect(fixtureTypes.length).toBeGreaterThan(0);
-        let lightType: ILights = {
+        let lightType: ILight = {
             'luminaireTypeId': 1,
             'organization_ID': 1,
             'displayName': 'Light 1',
