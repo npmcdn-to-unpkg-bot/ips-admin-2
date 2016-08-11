@@ -16,10 +16,14 @@ export class SitesGroupsComponent {
     navHeader: string = 'Sites > Site Groups'
     siteGroups: ISiteGroups[];
     filterValues = ['Filter', 'By', 'A', 'Value'];
+    errorMessage: string;
 
-    constructor(private _siteGroupsService: SiteGroupsService) {
+    constructor(private _siteGroupsService: SiteGroupsService) {}
 
-        this.siteGroups = this._siteGroupsService.getAllSiteGroups();
+    ngOnInit() {
+        this._siteGroupsService.getSiteGroups().subscribe(
+                siteGroups => this.siteGroups = siteGroups,
+                error =>  this.errorMessage = <any>error);
     }
 
     sitesGroupsClick(siteGroupID: number): void {

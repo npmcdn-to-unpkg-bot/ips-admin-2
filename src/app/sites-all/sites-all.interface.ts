@@ -1,4 +1,4 @@
-export interface IAllSites {
+export interface ISite {
     
     siteId: number;
     siteName: string;

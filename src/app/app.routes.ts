@@ -1,8 +1,7 @@
-import { provideRouter, RouterConfig, DashboardComponent, SitesAllComponent,
+import { provideRouter, RouterConfig, DashboardComponent, SitesAllContainer,
      SitesGroupsComponent, BlankComponent, UsersComponent, SettingsComponent,
-    LightsComponent, APIKeysComponent, CodebooksComponent, DeploymentComponent, 
-    MobileConfigComponent, GeneralComponent, AuthenticationComponent, 
-    NotFoundComponent, SitesComponent} from './app'
+    LightsContainer, APIKeysComponent, CodebooksComponent, DeploymentComponent, 
+    MobileConfigComponent, GeneralComponent, AuthenticationComponent} from './app'
 
 
 //BlankComponent == I haven't implemented it yet ​
@@ -17,10 +16,10 @@ export const routes: RouterConfig = [
               redirectTo: 'all',
               pathMatch: 'full' 
             },
-            { path: 'all', component: SitesAllComponent },
+            { path: 'all', component: SitesAllContainer },
             { path: 'groups', component: SitesGroupsComponent }
         ] },
-    { path: 'lights', component: LightsComponent },
+    { path: 'lights', component: LightsContainer },
     { path: 'users', component: UsersComponent },
     { 
         path: 'settings', 

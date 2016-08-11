@@ -15,10 +15,16 @@ export class CodebooksComponent {
     navHeader: string = "Settings > Codebooks";
     codebooks: ICodebooks[];
     filterValues = ["Filter", "By", "A", "Value"];
+    errorMessage: string;
 
-    constructor(private _codebooksService: CodebooksService) {
-        this.codebooks = _codebooksService.getAllFixtureTypes();
+    constructor(private _codebooksService: CodebooksService) {}
+
+    ngOnInit() {
+        this._codebooksService.getCodebooks().subscribe(
+                codebooks => this.codebooks = codebooks,
+                error =>  this.errorMessage = <any>error);
     }
+
 
     codebookClick(codeBookId: number): void {
         alert("Opening codebook with codeBookId: " + codeBookId);

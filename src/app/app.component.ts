@@ -4,6 +4,7 @@ import { Component, ChangeDetectionStrategy, ROUTER_DIRECTIVES, provideRouter,
     SitesAllComponent, SitesGroupsComponent, BlankComponent, UsersComponent,
     SettingsComponent, LightsComponent, APIKeysComponent, CodebooksComponent,
     DeploymentComponent, MobileConfigComponent, GeneralComponent, NotFoundComponent} from './app'
+import './rxjs-operators';
 
 //there isn't a LESS loader in ng2 yet
 import './app.component.less';
