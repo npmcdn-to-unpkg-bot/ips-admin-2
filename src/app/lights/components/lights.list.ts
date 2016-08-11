@@ -4,8 +4,6 @@
 
 import { Component, Input, Output, EventEmitter, ILights } from '../lights';
 
-import '../lights.component.less';
-
 //-------------------------------------------------------------------
 // LIGHTS-LIST
 //-------------------------------------------------------------------

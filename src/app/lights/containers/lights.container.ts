@@ -1,9 +1,9 @@
 import { Component, ChangeDetectionStrategy,
     Observable, Store, LightsList,
     ILights, LightsService, ButtonComponent, FilterComponent,
-    BreadcrumbComponent, AppStore} from './lights';
+    BreadcrumbComponent, AppStore} from '../lights';
 
-import './lights.component.less';
+import './lights.container.less';
 
 //-------------------------------------------------------------------
 // MAIN COMPONENT
@@ -11,12 +11,12 @@ import './lights.component.less';
 @Component({
     selector: 'app-lights',
     providers: [],
-    templateUrl: '../src/app/lights/lights.component.html',
+    templateUrl: '../src/app/lights/containers/lights.container.html',
     directives: [ButtonComponent, FilterComponent, BreadcrumbComponent, LightsList],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class LightsComponent {
+export class LightsContainer {
 
     lights: Observable<Array<ILights>>;
 

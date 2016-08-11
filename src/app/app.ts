@@ -18,7 +18,7 @@ export { SitesGroupsComponent } from './sites-groups/sites-groups.component';
 export { BlankComponent } from './blank/blank.component';
 export { UsersComponent } from './users/users.component';
 export { SettingsComponent } from './settings/settings.component';
-export { LightsComponent } from './lights/lights.component';
+export { LightsContainer } from './lights/containers/lights.container';
 export { APIKeysComponent } from './apiKeys/apiKeys.component';
 export { CodebooksComponent } from './codebooks/codebooks.component';
 export { DeploymentComponent } from './deployment/deployment.component';

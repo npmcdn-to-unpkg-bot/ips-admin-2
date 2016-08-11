@@ -1,6 +1,6 @@
 import { provideRouter, RouterConfig, DashboardComponent, SitesAllComponent,
      SitesGroupsComponent, BlankComponent, UsersComponent, SettingsComponent,
-    LightsComponent, APIKeysComponent, CodebooksComponent, DeploymentComponent, 
+    LightsContainer, APIKeysComponent, CodebooksComponent, DeploymentComponent,
     MobileConfigComponent, GeneralComponent, AuthenticationComponent} from './app'
 
 
@@ -10,7 +10,7 @@ export const routes: RouterConfig = [
     { path: '', component: DashboardComponent },
     { path: 'sites-all', component: SitesAllComponent },
     { path: 'sites-groups', component: SitesGroupsComponent },
-    { path: 'lights', component: LightsComponent },
+    { path: 'lights', component: LightsContainer },
     { path: 'users', component: UsersComponent },
     { 
         path: 'settings', 
