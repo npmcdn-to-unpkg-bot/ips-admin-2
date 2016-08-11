@@ -1,27 +1,20 @@
-import { Http, Headers, RequestOptions, Response } from '@angular/http';
-import {Store} from '@ngrx/store';
-import { Injectable } from '@angular/core';
-import { Observable }     from 'rxjs/Observable';
-import { ILight } from './lights.interface';
+import { Store, Observable, Injectable, Http, Headers, RequestOptions, Response, AppStore, ILight } from './lights';
 
 const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
-export interface AppStore {
-    myLights: ILight[];
-}
+
 
 @Injectable()
 export class LightsService{
 
     lightsUrl: string = 'localhost:8080/lights';
-
-    myLights: Observable<Array<ILight>>;
+    lights: Observable<Array<ILight>>;
 
     constructor(private http : Http, private store: Store<AppStore>) {
-        this.myLights = store.select<Array<ILight>>('LightsReducer');
+        this.lights = store.select<Array<ILight>>('LightsReducer');
     }
 
-    loadLights() {
+    getLights() {
         return this.http.get(this.lightsUrl)
             .map(this.extractData)
             .map(payload => ({type: 'ADD_ITEMS', payload}))
@@ -29,33 +22,29 @@ export class LightsService{
             //.catch(this.handleError);
     }
 
-    // getLights(): Observable<ILight[]> {
-    //     return this.http.get(this.lightsUrl)
-    //         .map(this.extractData)
-    //         .catch(this.handleError);
-    // }
-    //
-    // addLight (light: ILight): Observable<ILight> {
-    //     let body = JSON.stringify(light);
-    //     let headers = new Headers({ 'Content-Type': 'application/json' });
-    //     let options = new RequestOptions({ headers: headers });
-    //
-    //     return this.http.put(this.lightsUrl, body, options)
-    //         .map(this.extractData)
-    //         .catch(this.handleError);
-    // }
-    //
-    // updateLight (light: ILight): Observable<ILight> {
-    //     let body = JSON.stringify(light);
-    //     let headers = new Headers({ 'Content-Type': 'application/json' });
-    //     let options = new RequestOptions({ headers: headers });
-    //
-    //     return this.http.post(this.lightsUrl, body, options)
-    //         .map(this.extractData)
-    //         .catch(this.handleError);
-    // }
+    addLight (light: ILight): Observable<ILight> {
+        //TODO: Add store code
+        let body = JSON.stringify(light);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
 
-    deleteLight (light: ILight)//: Observable<ILight>
+        return this.http.put(this.lightsUrl, body, options)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
+    updateLight (light: ILight): Observable<ILight> {
+        //TODO: Add store code
+        let body = JSON.stringify(light);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post(this.lightsUrl, body, options)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
+    deleteLight (light: ILight)
     {
         let options = new RequestOptions(HEADER);
 
@@ -75,6 +64,4 @@ export class LightsService{
         console.error(errMsg); // log to console instead
         return Observable.throw(errMsg);
     }
-
 }
-

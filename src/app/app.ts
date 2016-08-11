@@ -3,6 +3,7 @@
 export { Component, ChangeDetectionStrategy } from '@angular/core';
 export { ROUTER_DIRECTIVES, provideRouter, RouterConfig } from '@angular/router';
 export { Store } from '@ngrx/store';
+export { AppStore } from './app.store';
 export { Observable } from 'rxjs/Observable';
 export { AuthenticationComponent } from './authentication/authentication.component';
 //import { AuthRedirectComponent } from './authRedirect/authRedirect.component';

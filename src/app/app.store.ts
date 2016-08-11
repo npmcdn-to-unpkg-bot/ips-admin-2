@@ -1,10 +1,10 @@
 /**
  * Created by sxd15 on 8/10/2016.
  */
-import { ILight } from './lights/lights.interface';
-import { ISite } from './sites-all/sites-all.interface';
+import { ILight } from './lights/lights';
+import { ISite } from './sites-all/sites-all';
 
 export interface AppStore {
-    myLights: ILight[];
-    mySites : ISite[]
+    lights: ILight[];
+    sites : ISite[]
 }
