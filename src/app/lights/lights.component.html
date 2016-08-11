@@ -15,7 +15,7 @@
                 <div class="small text">Exterior Dimensions</div>
             </div>
             <div class="data">
-                <lights-list [items]="myLights | async"
+                <lights-list [items]="lights | async"
                             (selected)="selectItem($event)"
                             (deleted)="deleteItem($event)"></lights-list>
             </div>

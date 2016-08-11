@@ -1,33 +1,9 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy,
-    Observable, Store,
+import { Component, ChangeDetectionStrategy,
+    Observable, Store, LightsList,
     ILights, LightsService, ButtonComponent, FilterComponent,
     BreadcrumbComponent, AppStore} from './lights';
 
 import './lights.component.less';
-
-//-------------------------------------------------------------------
-// LIGHTS-LIST
-//-------------------------------------------------------------------
-@Component({
-    selector: 'lights-list',
-    template: `
-                <div class="dataRow" *ngFor="let item of items" (click)="selected.emit(item)">
-                    <div class="big blue">{{item.displayName}}</div>
-                    <div class="small">{{item.interiorWidth + ' x ' + item.interiorLength}}</div>
-                    <div class="small">{{item.exteriorWidth + ' x ' + item.exteriorLength}}</div>
-                    <div class="mdl-card__menu">
-                        <button (click)="deleted.emit(item); $event.stopPropagation();"
-                        class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                            <i class="material-icons">close</i>
-                        </button>
-                    </div>
-                </div>`
-})
-class ItemsList {
-    @Input() items: ILights[];
-    @Output() selected = new EventEmitter();
-    @Output() deleted = new EventEmitter();
-}
 
 //-------------------------------------------------------------------
 // MAIN COMPONENT
@@ -36,15 +12,13 @@ class ItemsList {
     selector: 'app-lights',
     providers: [],
     templateUrl: '../src/app/lights/lights.component.html',
-    directives: [ButtonComponent, FilterComponent, BreadcrumbComponent, ItemsList],
+    directives: [ButtonComponent, FilterComponent, BreadcrumbComponent, LightsList],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class LightsComponent {
 
-    lights: ILights[];
-
-    myLights: Observable<Array<ILights>>;
+    lights: Observable<Array<ILights>>;
 
     navHeader: string = 'Lights';
     columns = ['Name'];
@@ -56,7 +30,7 @@ export class LightsComponent {
     }
 
     ngOnInit() {
-        this.myLights = this._lightsService.myLights;
+        this.lights = this._lightsService.myLights;
         this._lightsService.loadLights();
     }
 
