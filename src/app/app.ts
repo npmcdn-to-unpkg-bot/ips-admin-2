@@ -13,7 +13,7 @@ export { MdIcon, MdIconRegistry } from '@angular2-material/icon/icon';
 export { Dropdown } from '../shared/dropdown/dropdown.component';
 export { DashboardComponent } from './dashboard/dashboard.component';
 
-export { SitesAllComponent } from './sites-all/sites-all.component';
+export { SitesAllContainer } from './sites-all/containers/sites-all.container';
 export { SitesGroupsComponent } from './sites-groups/sites-groups.component';
 export { BlankComponent } from './blank/blank.component';
 export { UsersComponent } from './users/users.component';
