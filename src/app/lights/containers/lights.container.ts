@@ -10,7 +10,7 @@ import './lights.container.less';
 //-------------------------------------------------------------------
 @Component({
     selector: 'app-lights',
-    providers: [],
+    providers: [LightsService],
     templateUrl: '../src/app/lights/containers/lights.container.html',
     directives: [ButtonComponent, FilterComponent, BreadcrumbComponent, LightsList, LightsDetail],
     changeDetection: ChangeDetectionStrategy.OnPush
@@ -26,13 +26,13 @@ export class LightsContainer {
     filterValues = ['Filter', 'By', 'A', 'Different', 'Value'];
     errorMessage: string;
 
-    constructor(private _lightsService: LightsService, private store: Store<AppStore>) {
+    constructor(private lightsService: LightsService, private store: Store<AppStore>) {
 
     }
 
     ngOnInit() {
-        this.lights = this._lightsService.lights;
-        this._lightsService.getLights();
+        this.lights = this.lightsService.lights;
+        this.lightsService.getLights();
     }
 
     lightsClick(luminaireTypeId: number): void {
@@ -44,6 +44,6 @@ export class LightsContainer {
     }
 
     deleteItem(item: ILight) {
-        this._lightsService.deleteLight(item);
+        this.lightsService.deleteLight(item);
     }
 }

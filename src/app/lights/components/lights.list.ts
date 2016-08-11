@@ -9,18 +9,7 @@ import { Component, Input, Output, EventEmitter, ILight } from '../lights';
 //-------------------------------------------------------------------
 @Component({
     selector: 'lights-list',
-    template: `
-                <div class="dataRow" *ngFor="let item of items" (click)="selected.emit(item)">
-                    <div class="big blue">{{item.displayName}}</div>
-                    <div class="small">{{item.interiorWidth + ' x ' + item.interiorLength}}</div>
-                    <div class="small">{{item.exteriorWidth + ' x ' + item.exteriorLength}}</div>
-                    <div class="mdl-card__menu">
-                        <button (click)="deleted.emit(item); $event.stopPropagation();"
-                        class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                            <i class="material-icons">close</i>
-                        </button>
-                    </div>
-                </div>`
+    templateUrl: '../src/app/lights/components/lights.list.html'
 })
 export class LightsList {
     @Input() items: ILight[];

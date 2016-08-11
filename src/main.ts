@@ -13,7 +13,7 @@ import { provideStore }	 	from '@ngrx/store';
 import { AppComponent } 	from './app/app.component';
 import { MdIconRegistry } from '@angular2-material/icon/icon-registry';
 
-import { LightsReducer} from './app/lights/lights';
+import { LightsReducer } from './app/lights/lights';
 
 //import global less file
 import './css/styles.less';
@@ -39,3 +39,4 @@ if (process.env.ENV === 'production') {
 	let ngHmr = require('angular2-hmr');
 	ngHmr.hotModuleReplacement(main, module);
 }
+
