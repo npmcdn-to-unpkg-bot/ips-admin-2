@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy,
-    Observable, Store, LightsList,
+    Observable, Store, LightsList, LightsDetail,
     ILights, LightsService, ButtonComponent, FilterComponent,
     BreadcrumbComponent, AppStore} from '../lights';
 
@@ -12,13 +12,14 @@ import './lights.container.less';
     selector: 'app-lights',
     providers: [],
     templateUrl: '../src/app/lights/containers/lights.container.html',
-    directives: [ButtonComponent, FilterComponent, BreadcrumbComponent, LightsList],
+    directives: [ButtonComponent, FilterComponent, BreadcrumbComponent, LightsList, LightsDetail],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class LightsContainer {
 
     lights: Observable<Array<ILights>>;
+    selectedLight: Observable<ILights>;
 
     navHeader: string = 'Lights';
     columns = ['Name'];
