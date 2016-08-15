@@ -12,7 +12,7 @@ export { MdToolbar } from '@angular2-material/toolbar/toolbar';
 export { MD_SIDENAV_DIRECTIVES } from '@angular2-material/sidenav/sidenav';
 export { MD_LIST_DIRECTIVES } from '@angular2-material/list/list';
 export { MdIcon, MdIconRegistry } from '@angular2-material/icon/icon';
-export { Dropdown } from '../shared/dropdown/dropdown.component';
+export { Dropdown } from './shared/dropdown/dropdown.component';
 export { DashboardComponent } from './dashboard/dashboard.component';
 
 export { SitesAllContainer } from './sites-all/containers/sites-all.container';

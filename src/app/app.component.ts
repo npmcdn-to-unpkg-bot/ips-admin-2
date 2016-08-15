@@ -14,8 +14,7 @@ import './app.component.less';
    templateUrl: '../src/app/app.component.html',
    directives: [ROUTER_DIRECTIVES, AuthenticationComponent, MdButton, MD_LIST_DIRECTIVES, 
    DashboardComponent, MdToolbar, MdIcon, Dropdown],
-   viewProviders: [MdIconRegistry],
-   changeDetection: ChangeDetectionStrategy.OnPush
+   viewProviders: [MdIconRegistry]
 })
 
 
