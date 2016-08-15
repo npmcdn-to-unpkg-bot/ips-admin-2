@@ -4,7 +4,7 @@ import {
 } from '@angular/core/testing';
 
 import { SettingsComponent } from './settings.component';
-import { SidebarComponent } from '../../shared/sidebar/sidebar.component';
+import { SidebarComponent } from '../shared/sidebar/sidebar.component';
 
 describe('SettingsComponent::', () => {
 

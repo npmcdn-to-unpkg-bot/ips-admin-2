@@ -7,7 +7,8 @@ import './breadcrumbs.component.less';
     template: 
     `
     <div>{{navHeader}}</div>
-    `
+    `,
+    
 })
 
 export class BreadcrumbComponent {

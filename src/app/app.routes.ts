@@ -1,15 +1,25 @@
 import { provideRouter, RouterConfig, DashboardComponent, SitesAllContainer,
      SitesGroupsComponent, BlankComponent, UsersComponent, SettingsComponent,
-    LightsContainer, APIKeysComponent, CodebooksComponent, DeploymentComponent,
-    MobileConfigComponent, GeneralComponent, AuthenticationComponent} from './app'
+    LightsContainer, APIKeysComponent, CodebooksComponent, DeploymentComponent, 
+    MobileConfigComponent, GeneralComponent, AuthenticationComponent, NotFoundComponent,
+    SitesComponent } from './app'
 
 
 //BlankComponent == I haven't implemented it yet ​
 
 export const routes: RouterConfig = [
     { path: '', component: DashboardComponent },
-    { path: 'sites-all', component: SitesAllContainer },
-    { path: 'sites-groups', component: SitesGroupsComponent },
+    { 
+        path: 'sites', 
+        component: SitesComponent,
+        children: [
+            { path: '', 
+              redirectTo: 'all',
+              pathMatch: 'full' 
+            },
+            { path: 'all', component: SitesAllContainer },
+            { path: 'groups', component: SitesGroupsComponent }
+        ] },
     { path: 'lights', component: LightsContainer },
     { path: 'users', component: UsersComponent },
     { 
@@ -24,7 +34,8 @@ export const routes: RouterConfig = [
             { path: 'deployment', component: DeploymentComponent }
         ] 
     },
-    { path: 'login', component: AuthenticationComponent }
+    { path: 'login', component: AuthenticationComponent },
+    { path: '**', component: NotFoundComponent } //404 support
 ];
 
 //if you need to route 2+ levels deep, it'd be like this 

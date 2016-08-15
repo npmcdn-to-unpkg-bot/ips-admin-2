@@ -1,16 +1,20 @@
-import * as a from './app'
+import { Component, ChangeDetectionStrategy, ROUTER_DIRECTIVES, provideRouter, 
+    RouterConfig, Store, Observable, AuthenticationComponent, MdButton, MdToolbar,
+    MD_LIST_DIRECTIVES, MdIcon, MdIconRegistry, Dropdown, DashboardComponent, 
+    SitesAllContainer, SitesGroupsComponent, BlankComponent, UsersComponent,
+    SettingsComponent, LightsContainer, APIKeysComponent, CodebooksComponent,
+    DeploymentComponent, MobileConfigComponent, GeneralComponent, NotFoundComponent} from './app'
 import './rxjs-operators';
 
 //there isn't a LESS loader in ng2 yet
 import './app.component.less';
 
-@a.Component({
+@Component({
    selector: 'app',
    templateUrl: '../src/app/app.component.html',
-   directives: [a.ROUTER_DIRECTIVES, a.AuthenticationComponent, a.MD_SIDENAV_DIRECTIVES, a.MdButton, 
-                    a.DashboardComponent, a.MdToolbar, a.MdIcon, a.Dropdown],
-   viewProviders: [a.MdIconRegistry],
-   changeDetection: a.ChangeDetectionStrategy.OnPush
+   directives: [ROUTER_DIRECTIVES, AuthenticationComponent, MdButton, MD_LIST_DIRECTIVES, 
+   DashboardComponent, MdToolbar, MdIcon, Dropdown],
+   viewProviders: [MdIconRegistry]
 })
 
 
@@ -30,20 +34,21 @@ export class AppComponent {
     //         .registerFontClassAlias('fontawesome', 'fa');
     // }
 
-    sideNavClick(clicked: string): void {
+    // sideNavClick(clicked: string): void {
 
-        this.clicked = this.clicked == clicked ? null : clicked;
-    }
+    //     this.clicked = this.clicked == clicked ? null : clicked;
+    // }
 
     setSelectedAnchor(e): void {
+
       this.selectedAnchorId = e.currentTarget.id;
     }
 
     setClasses(elementId: string) {
 
         return {
-            sublistAnchor: true,
-            sublistAnchorClicked: this.selectedAnchorId === elementId
+            anchor: true,
+            anchorClicked: this.selectedAnchorId === elementId
         }
     }
 }

@@ -1,10 +1,11 @@
-<md-sidenav-layout >
+<div class="appParent">
 
     <md-toolbar class="mainToolbar">
-        <div id="toolbarBtn" (click)="start.toggle()" class="preventHighlight">
+        <!--<div id="toolbarBtn" class="preventHighlight">
             <md-icon>menu</md-icon>
             <span>Menu</span>
-        </div>
+        </div>-->
+        Admin
     
         <!-- This fills the remaining space of the current row -->
         <span class="fill-remaining-space"></span>
@@ -14,71 +15,42 @@
         <ui-dropdown [values]="dropdownValues" [(value)]="value"></ui-dropdown>
     </md-toolbar>
 
-    <md-sidenav #start mode="over" class="sideDrawer">
-    
-        <ul class="sidenav">
-            <li>
-                <div class="sidenavContainer" >
-                    <div (click)="sideNavClick('dashboard')" class="sidenavBtn">
-                        <md-icon class="navIcon">keyboard</md-icon>
-                        <a class="topLevelAnchor" [routerLink]="['/']" (click)='start.close()'>Dashboard</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="sidenavContainer" >
-                    <div (click)="sideNavClick('sites')" class="sidenavBtn">
-                        <md-icon class="navIcon">location_city</md-icon>
-                        <a class="topLevelAnchor">Sites</a>
-                    </div>
-                    <div>
-                        <div class="triangle"></div>
-                        <ul *ngIf="clicked == 'sites'" class="sublist">
-                            <li>
-                                <a id="sublistAll" [ngClass]="setClasses('sublistAll')" (click)="setSelectedAnchor($event); start.close()"
-                                    [routerLink]="['/sites-all']">All Sites</a>
-                            </li>
-                            <li>
-                                <a id="sublistGroups" [ngClass]="setClasses('sublistGroups')" (click)="setSelectedAnchor($event); start.close()"
-                                    [routerLink]="['/sites-groups']">Site Groups</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="sidenavContainer">
-                    <div (click)="sideNavClick('lights')" class="sidenavBtn">
-                        <md-icon class="navIcon">lightbulb_outline</md-icon>
-                        <a class="topLevelAnchor" (click)='start.close()' [routerLink]="['/lights']">Lights</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="sidenavContainer">
-                    <div (click)="sideNavClick('users')" class="sidenavBtn">
-                        <md-icon class="navIcon">wc</md-icon>
-                        <a class="topLevelAnchor" (click)='start.close()' [routerLink]="['/users']">Users</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="sidenavContainer">
-                    <div (click)="sideNavClick('settings')" class="sidenavBtn">
-                        <md-icon class="navIcon">settings</md-icon>
-                        <a class="topLevelAnchor" (click)='start.close()' [routerLink]="['/settings']">Settings</a>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </md-sidenav>
+    <ul class="sideDrawer">
+
+        <div class="sideDrawerText">MAIN</div>
+
+        <li id="dashboard" md-list-item [routerLink]="['/']" (click)="setSelectedAnchor($event)" [ngClass]="setClasses('dashboard')">
+            <a><md-icon class="navIcon">keyboard</md-icon>Dashboard</a>      
+        </li>
+        <li id="sites" md-list-item [routerLink]="['/sites']" (click)="setSelectedAnchor($event)" [ngClass]="setClasses('sites')">
+            <a><md-icon class="navIcon">location_city</md-icon>Sites</a>
+        </li>
+        <li id="lights" md-list-item [routerLink]="['/lights']" (click)="setSelectedAnchor($event)" [ngClass]="setClasses('lights')">
+            <a>
+            <md-icon class="navIcon">lightbulb_outline</md-icon>Lights</a>
+        </li>
+        <li id="users" md-list-item [routerLink]="['/users']" (click)="setSelectedAnchor($event)" [ngClass]="setClasses('users')">
+            <a><md-icon class="navIcon">wc</md-icon>Users</a>
+        </li>
+
+        <!--hidden for now-->
+        <!--<li id="settings" md-list-item [routerLink]="['/settings']" (click)="setSelectedAnchor($event)" [ngClass]="setClasses('settings')">
+            <a><md-icon class="navIcon">settings</md-icon>Settings</a>
+        </li>-->
+
+        <div class="blueBorder"></div>
+
+        <div class="sideDrawerText">OTHER</div>
+
+        <li id="feedback" md-list-item [ngClass]="setClasses('feedback')">
+            <a><md-icon class="navIcon">feedback</md-icon>Feedback</a>
+        </li>
+    </ul>
 
     <div class="routerContent">
         <router-outlet></router-outlet>
     </div>
-
-</md-sidenav-layout>
-
+</div>
 
 
 
