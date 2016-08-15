@@ -1,7 +1,8 @@
 import { provideRouter, RouterConfig, DashboardComponent, SitesAllContainer,
      SitesGroupsComponent, BlankComponent, UsersComponent, SettingsComponent,
     LightsContainer, APIKeysComponent, CodebooksComponent, DeploymentComponent, 
-    MobileConfigComponent, GeneralComponent, AuthenticationComponent} from './app'
+    MobileConfigComponent, GeneralComponent, AuthenticationComponent, NotFoundComponent,
+    SitesComponent } from './app'
 
 
 //BlankComponent == I haven't implemented it yet ​

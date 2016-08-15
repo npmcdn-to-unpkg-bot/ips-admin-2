@@ -1,8 +1,8 @@
 import { Component, ChangeDetectionStrategy, ROUTER_DIRECTIVES, provideRouter, 
     RouterConfig, Store, Observable, AuthenticationComponent, MdButton, MdToolbar,
     MD_LIST_DIRECTIVES, MdIcon, MdIconRegistry, Dropdown, DashboardComponent, 
-    SitesAllComponent, SitesGroupsComponent, BlankComponent, UsersComponent,
-    SettingsComponent, LightsComponent, APIKeysComponent, CodebooksComponent,
+    SitesAllContainer, SitesGroupsComponent, BlankComponent, UsersComponent,
+    SettingsComponent, LightsContainer, APIKeysComponent, CodebooksComponent,
     DeploymentComponent, MobileConfigComponent, GeneralComponent, NotFoundComponent} from './app'
 import './rxjs-operators';
 
