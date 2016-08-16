@@ -1,15 +1,8 @@
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var helpers = require('./helpers');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const helpers = require('./helpers');
 
 module.exports = {
-    resolve: {
-        extensions: ['', '.js', '.ts']
-    },
-
-    // Make sure root is src
-    root: helpers.root('src'),
 
     entry: {
         'polyfills': './src/polyfills.ts',
@@ -17,33 +10,83 @@ module.exports = {
         'app': './src/main.ts'
     },
 
+    resolve: {
+        extensions: ['', '.js', '.ts'],
+
+        // Make sure root is src
+        root: helpers.root('src'),
+
+        modulesDirectories: ['node_modules']
+    },
+
     module: {
         loaders: [
-            { test: /\.ts$/, loader: 'awesome-typescript-loader'},
-            { test: /\.html$/, loader: 'raw-loader' },
-
-            // Extract css files
-            {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+            { 
+                test: /\.ts$/, 
+                loaders: ['awesome-typescript-loader','angular2-template-loader'],
+                exclude: [/\.(spec|e2e)\.ts$/, /node_modules/]
             },
-            // Optionally extract less files
-            // or any other compile-to-css language
+            { 
+                test: /\.html$/,
+                loader: 'raw-loader',
+                exclude: [helpers.root('src/index.html')]
+            },
+
+            // File loader for supporting images, for example, in CSS files.
+            /*{ 
+                test: /\.(png|gif|jpg)$/, 
+                loader: "file?name=images/[name].[ext]" 
+            },*/
+
+            // Standard [inline] CSS loader
+            { 
+                test: /\.css$/, 
+                loaders: ['style-loader', 'css-loader'],
+                exclude: [/node_modules/]
+            },
+
+            //Finds less files in the global css folder
             {
-                test: /\.less$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
+                test: /css\/.*?\.less$/,
+                loaders: ['style-loader', 'css-loader', 'less-loader'],
+                exclude: [/node_modules/]
+            },
+
+            //Finds non global less files (assumed to be component less files and loads them as strings)
+            {
+                test: /^(?:(?!css\/).)*\.less$/,
+                loaders: ['to-string-loader', 'css-loader', 'less-loader'],
+                exclude: [/node_modules/]
             }
 
         ]
     },
 
     plugins: [
+        //new webpack.optimize.OccurenceOrderPlugin(true),
+
         new webpack.optimize.CommonsChunkPlugin({
-            name: ['polyfills', 'vendor' ].reverse()
+            name: ['app', 'vendor','polyfills']
         }),
 
         new HtmlWebpackPlugin({
-            template: './src/index.html'
+            template: './src/index.html',
+            chunksSortMode: 'dependency'
         })
-    ]
+    ],
+
+    /*
+    * Include polyfills or mocks for various node stuff
+    * Description: Node configuration
+    *
+    * See: https://webpack.github.io/docs/configuration.html#node
+    */
+    node: {
+        global: 'window',
+        crypto: 'empty',
+        process: true,
+        module: false,
+        clearImmediate: false,
+        setImmediate: false
+    }
 };

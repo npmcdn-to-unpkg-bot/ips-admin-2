@@ -5,7 +5,7 @@ import './filter.component.less';
 
 @Component({
     selector: 'ui-filter',
-    templateUrl: '../src/app/shared/filter/filter.component.html',
+    template: require('./filter.component.html'),
     directives: [MD_INPUT_DIRECTIVES]
 })
 

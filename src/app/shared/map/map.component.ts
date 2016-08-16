@@ -1,10 +1,10 @@
 import { Component, Input, ViewChild } from '@angular/core'
-import 'leaflet';
 
 @Component({
     selector: 'ui-map',
     template: `<div [id]="mapId" style="height:100%"></div>`
 })
+
 export class MapComponent {
     @Input('map-id') mapId: string;
     map: any;
