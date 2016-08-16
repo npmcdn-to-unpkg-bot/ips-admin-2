@@ -4,7 +4,6 @@ import { Component, ROUTER_DIRECTIVES, provideRouter,
     SitesAllContainer, SitesGroupsComponent, BlankComponent, UsersContainer,
     SettingsComponent, LightsContainer, APIKeysComponent, CodebooksComponent,
     DeploymentComponent, MobileConfigComponent, GeneralComponent, NotFoundComponent} from './app'
-import './rxjs-operators';
 
 //import global less file
 import '../css/styles.less';
