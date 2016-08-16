@@ -1,11 +1,10 @@
 import { Component, ButtonAddComponent,
   SitesAllContainer, SitesGroupsComponent, ROUTER_DIRECTIVES, MapComponent } from './sites';
 
-import './sites.component.less';
-
 @Component({
     selector: 'app-sites',
-    templateUrl: '../src/app/sites/sites.component.html',
+    template: require('./sites.component.html'),
+    styles: [require('./sites.component.less')],
     directives: [ButtonAddComponent, SitesAllContainer,
                   SitesGroupsComponent, ROUTER_DIRECTIVES, MapComponent],
 })

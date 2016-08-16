@@ -4,7 +4,7 @@ import './dashboard.component.less';
 
 @Component({
     selector: 'app-dashboard',
-    templateUrl: '../src/app/dashboard/dashboard.component.html',
+    templateUrl: 'app/dashboard/dashboard.component.html',
     directives: [BreadcrumbComponent, AuthenticationComponent],
 })
 

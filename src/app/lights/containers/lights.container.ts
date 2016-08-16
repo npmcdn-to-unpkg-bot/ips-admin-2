@@ -3,15 +3,14 @@ import { Component, ChangeDetectionStrategy,
     ILight, LightsService, ButtonComponent, FilterComponent,
     BreadcrumbComponent, AppStore} from '../lights';
 
-import './lights.container.less';
-
 //-------------------------------------------------------------------
 // MAIN COMPONENT
 //-------------------------------------------------------------------
 @Component({
     selector: 'app-lights',
+    template: require('./lights.container.html'),
+    styles: ['./lights.container.less'],
     providers: [LightsService],
-    templateUrl: '../src/app/lights/containers/lights.container.html',
     directives: [ButtonComponent, FilterComponent, BreadcrumbComponent, LightsList, LightsDetail],
     changeDetection: ChangeDetectionStrategy.OnPush
 })

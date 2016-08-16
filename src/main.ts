@@ -16,9 +16,6 @@ import { MdIconRegistry } from '@angular2-material/icon/icon-registry';
 
 import { LightsReducer } from './app/lights/lights';
 
-//import global less file
-import './css/styles.less';
-
 export function main(): Promise<any> {
 
 	return bootstrap(AppComponent, [
@@ -36,10 +33,13 @@ export function main(): Promise<any> {
 
 }
 
-if (process.env.ENV === 'production') {
-	document.addEventListener('DOMContentLoaded', () => main());
-} else {
+//Activate HMR if requested
+if ('development' === ENV && HMR === true) {
+	// activate hot module reload
 	let ngHmr = require('angular2-hmr');
 	ngHmr.hotModuleReplacement(main, module);
+} else {
+	// bootstrap when document is ready
+	document.addEventListener('DOMContentLoaded', () => main());
 }
 

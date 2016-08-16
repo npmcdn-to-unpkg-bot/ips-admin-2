@@ -6,12 +6,13 @@ import { Component, ChangeDetectionStrategy, ROUTER_DIRECTIVES, provideRouter,
     DeploymentComponent, MobileConfigComponent, GeneralComponent, NotFoundComponent} from './app'
 import './rxjs-operators';
 
-//there isn't a LESS loader in ng2 yet
-import './app.component.less';
+//import global less file
+import '../css/styles.less';
 
 @Component({
    selector: 'app',
-   templateUrl: '../src/app/app.component.html',
+   template: require('./app.component.html'),
+   styles: [require('./app.component.less')],
    directives: [ROUTER_DIRECTIVES, AuthenticationComponent, MdButton, MD_LIST_DIRECTIVES, 
    DashboardComponent, MdToolbar, MdIcon, Dropdown],
    viewProviders: [MdIconRegistry]

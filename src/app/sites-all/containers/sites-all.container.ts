@@ -1,13 +1,11 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { ISite, AllSitesService, ButtonComponent, FilterComponent, BreadcrumbComponent } from '../sites-all';
 
-//import less
-import './sites-all.container.less';
-
 @Component({
     selector: 'app-sites-all',
+    template: require('./sites-all.container.html'),
+    styles: [require('./sites-all.container.less')],
     directives: [ButtonComponent, FilterComponent, BreadcrumbComponent],
-    templateUrl: '../src/app/sites-all/containers/sites-all.container.html',
     providers: [AllSitesService]
 })
 
