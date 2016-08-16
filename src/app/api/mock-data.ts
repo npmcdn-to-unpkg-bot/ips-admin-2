@@ -221,24 +221,43 @@ export class MockData {
         'lastUpdateBy': 'Danny'
       }];
     let lights = [
-      {
-        'luminaireTypeId': 1,
-        'organization_ID': 1,
-        'displayName': 'Light 1',
-        'exteriorWidth': 2,
-        'exteriorLength': 2,
-        'interiorWidth': 2,
-        'interiorLength': 1
-      },
-      {
-        'luminaireTypeId': 2,
-        'organization_ID': 1,
-        'displayName': 'Light 2',
-        'exteriorWidth': 4,
-        'exteriorLength': 4,
-        'interiorWidth': 4,
-        'interiorLength': 1
-      }];
+          {
+              'luminaireTypeId': 1,
+              'organization_ID': 1,
+              'displayName': 'Light 1',
+              'exteriorWidth': 2,
+              'exteriorLength': 2,
+              'interiorWidth': 2,
+              'interiorLength': 1
+          },
+          {
+              'luminaireTypeId': 2,
+              'organization_ID': 1,
+              'displayName': 'Light 2',
+              'exteriorWidth': 4,
+              'exteriorLength': 4,
+              'interiorWidth': 4,
+              'interiorLength': 1
+          }];
+      let users = [
+          {
+              'luminaireTypeId': 33,
+              'organization_ID': 33,
+              'displayName': 'User 33',
+              'exteriorWidth': 33,
+              'exteriorLength': 33,
+              'interiorWidth': 33,
+              'interiorLength': 33
+          },
+          {
+              'luminaireTypeId': 44,
+              'organization_ID': 44,
+              'displayName': 'User 44',
+              'exteriorWidth': 44,
+              'exteriorLength': 44,
+              'interiorWidth': 44,
+              'interiorLength': 44
+          }];
 
     return {
       sites: sites,
@@ -246,7 +265,8 @@ export class MockData {
       mobileConfigs: mobileConfigs,
       apiKeys: apiKeys,
       codeBooks: codeBooks,
-      lights: lights
+      lights: lights,
+        users: users
     };
   }
 }

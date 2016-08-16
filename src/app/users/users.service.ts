@@ -1,59 +1,59 @@
-import { Store, Observable, Injectable, Http, Headers, RequestOptions, Response, AppStore, ILight, ADD_LIGHTS, DELETE_LIGHT } from './lights';
+import { Store, Observable, Injectable, Http, Headers, RequestOptions, Response, AppStore, IUser, ADD_USERS, DELETE_USER } from './users';
 
 const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
 
 
 @Injectable()
-export class LightsService{
+export class UsersService{
 
-    lightsUrl: string = 'localhost:8080/lights';
-    lights: Observable<Array<ILight>>;
+    userUrl: string = 'localhost:8080/users';
+    users: Observable<Array<IUser>>;
 
     constructor(private http : Http, private store: Store<AppStore>) {
-        this.lights = store.select<Array<ILight>>('LightsReducer');
+        this.users = store.select<Array<IUser>>('UsersReducer');
     }
 
-    getLights() {
-        return this.http.get(this.lightsUrl)
+    getUsers() {
+        return this.http.get(this.userUrl)
             .map(this.extractData)
-            .map(payload => ({type: ADD_LIGHTS, payload}))
+            .map(payload => ({type: ADD_USERS, payload}))
             .subscribe(
                 action => this.store.dispatch(action),
                 err => this.handleError(err)
             );
     }
 
-    addLight (light: ILight): Observable<ILight> {
+    addUsers (user: IUser): Observable<IUser> {
         //TODO: Add store code
-        let body = JSON.stringify(light);
+        let body = JSON.stringify(user);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.put(this.lightsUrl, body, options)
+        return this.http.put(this.userUrl, body, options)
             .map(this.extractData)
             .catch(this.handleError);
     }
 
-    updateLight (light: ILight): Observable<ILight> {
+    updateUsers (user: IUser): Observable<IUser> {
         //TODO: Add store code
-        let body = JSON.stringify(light);
+        let body = JSON.stringify(user);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(this.lightsUrl, body, options)
+        return this.http.post(this.userUrl, body, options)
             .map(this.extractData)
             .catch(this.handleError);
     }
 
-    deleteLight (light: ILight)
+    deleteUser (user: IUser)
     {
         let options = new RequestOptions(HEADER);
 
-        return this.http.delete(this.lightsUrl+'/'+light.luminaireTypeId, options)
+        return this.http.delete(this.userUrl+'/'+user.displayName, options)
             .map(this.extractData)
             .subscribe(
-                action => this.store.dispatch({ type: DELETE_LIGHT, payload: light }),
+                action => this.store.dispatch({ type: DELETE_USER, payload: user }),
                 err => this.handleError(err)
             );
     }
