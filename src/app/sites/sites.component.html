@@ -5,15 +5,18 @@
         <!--<ui-breadcrumb [navHeader]="navHeader"></ui-breadcrumb>-->
         <header>
             <nav class="sitesTabs">
-                <li [routerLink]="['all']"><a>All</a></li>
-                <li [routerLink]="['groups']"><a>Group</a></li>
-                <li><a>Favs</a></li>
+                <li class="liFlex" [routerLink]="['all']"><a>All</a></li>
+                <li class="liFlex" [routerLink]="['groups']"><a>Group</a></li>
+                <li class="liFlex"><a>Favs</a></li>
+                <li class="liNoFlex"><md-icon>apps</md-icon></li>
+                <li class="liNoFlex"><md-icon>menu</md-icon></li>
             </nav>
 
             <input type="text" placeholder="Search for site...">
 
             <div class="dataSettings">
-                Icons go here
+                <md-icon>turned_in_not</md-icon>
+                <md-icon>link</md-icon>
                 <ui-buttonAdd></ui-buttonAdd>
             </div>
 

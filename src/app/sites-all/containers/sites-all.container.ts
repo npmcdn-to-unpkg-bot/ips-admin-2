@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { ISite, AllSitesService, ButtonComponent, FilterComponent, BreadcrumbComponent } from '../sites-all';
-
+import { Router } from '@angular/router';
 //import less
 import './sites-all.container.less';
 
@@ -18,7 +18,7 @@ export class SitesAllContainer {
     filterValues = ['Filter', 'By', 'A', 'Value'];
     errorMessage: string;
 
-    constructor(private _allSitesService: AllSitesService) {}
+    constructor(private _allSitesService: AllSitesService, private router: Router) {}
 
     ngOnInit() {
         this._allSitesService.getSites().subscribe(
@@ -26,7 +26,8 @@ export class SitesAllContainer {
                 error =>  this.errorMessage = <any>error);
     }
 
-    allSitesClick(siteId: number): void {
-        alert('Opening site with siteId: ' + siteId);
+    allSitesClick(site: ISite): void {
+        //alert('Opening site with siteId: ' + site.siteId);
+        //this.router.navigate(['/all', site.siteId]);
     }
 }

@@ -16,7 +16,7 @@ export { Dropdown } from './shared/dropdown/dropdown.component';
 export { DashboardComponent } from './dashboard/dashboard.component';
 
 export { SitesAllContainer } from './sites-all/containers/sites-all.container';
-export { SitesGroupsComponent } from './sites-groups/sites-groups.component';
+export { SitesGroupsComponent } from './sites-groups/containers/sites-groups.container';
 export { SitesComponent } from './sites/sites.component';
 export { BlankComponent } from './blank/blank.component';
 export { UsersComponent } from './users/users.component';

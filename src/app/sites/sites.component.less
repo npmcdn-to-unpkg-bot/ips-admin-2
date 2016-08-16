@@ -24,13 +24,14 @@
 
     .sitesTabs{
 
+        min-width: 215px; //for now
         display: flex;
 
-            li {
+            .liFlex {
+                flex-shrink: 1;
+                width: 27%;
                 font-size: .8em;
                 text-align: center;
-                flex-shrink: 1;
-                width: 33.3%;
                 display: inline-block;
                 list-style-type: none;
                 color: @mainblue;
@@ -46,17 +47,27 @@
                 }
             }
 
-            li:hover {
-                //background-color: rgba(55, 68, 76, 0.2) !important;
+            .liFlex:hover {
                 border-bottom: 3px solid @highlightblue;
+            }
+
+            .liNoFlex {
+                list-style-type: none;
+                height: 26px;
+                font-size: 26px;
+                padding: 5px;
+                margin-left: 5px;
             }
         }
 
         .dataSettings {
-            height: 25px;
+            height: 45px;
+
+            md-icon {
+                font-size: 36px;
+                padding: 6px;
+            }
         }
-
-
     }
 
     .panelRight {
@@ -128,7 +139,6 @@
             }
 
                 li:hover {
-                    //background-color: rgba(55, 68, 76, 0.2) !important;
                     border-bottom: 3px solid @highlightblue;
                 }
             }
@@ -162,10 +172,4 @@
             padding: 20px;
         }
     }
-
-    /* GENERAL ELEMENT STYLES */
-
-
-    /* SPECIFIC ELEMENT STYLES */
-
 }

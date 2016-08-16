@@ -17,7 +17,7 @@ describe('SiteGroupsService::', () => {
     }));
 
     it('should return sites', inject([SiteGroupsService], (service: SiteGroupsService) => {
-        let sites = service.getAllSiteGroups();
+        let sites = service.getAllSiteGroups(); 
         expect(sites.length).toBeGreaterThan(0);
         let sightType: ISiteGroups = {
             'siteGroupID': 1,

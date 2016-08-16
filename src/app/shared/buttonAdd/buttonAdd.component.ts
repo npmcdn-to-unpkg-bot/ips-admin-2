@@ -6,7 +6,7 @@ import './buttonAdd.component.less';
     selector: 'ui-buttonAdd',
     template:
     `
-    <button>+</button>
+    <button class="buttonAdd">+</button>
     `,
 })
 

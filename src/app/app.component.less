@@ -10,11 +10,33 @@
     background: @mainblue;
     color: @white;
 
+    #acuity {
+      height: 20px;
+      margin-right: -5px;
+    }
 
     .fill-remaining-space {
     // This fills the remaining space, by using flexbox. 
     flex: 1 1 auto;
     }
+
+    .userButton, .acuityButton {
+      background: none;
+      color: @white;  
+      position: relative; 
+
+      md-icon {
+        vertical-align: bottom;
+        line-height: 1em;
+      } 
+
+      .downArrow {
+        font-size: 14px;
+        height: 18px;
+      }
+    }
+
+
     
   }
 

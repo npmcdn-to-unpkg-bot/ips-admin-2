@@ -3,9 +3,9 @@ import {
     inject
 } from '@angular/core/testing';
 import { provide } from '@angular/core'
-import { ISiteGroups } from './sites-groups.interface';
-import { SiteGroupsService } from './sites-groups.service';
-import { SitesGroupsComponent } from './sites-groups.component';
+import { ISiteGroups } from '../sites-groups.interface';
+import { SiteGroupsService } from '../sites-groups.service';
+import { SitesGroupsComponent } from './sites-groups.container';
 
 class MockSiteGroupsService {
     getAllSiteGroups(): ISiteGroups[] {
