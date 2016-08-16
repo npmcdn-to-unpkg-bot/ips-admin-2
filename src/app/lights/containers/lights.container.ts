@@ -9,7 +9,7 @@ import { Component, ChangeDetectionStrategy,
 @Component({
     selector: 'app-lights',
     template: require('./lights.container.html'),
-    styles: ['./lights.container.less'],
+    styles: [require('./lights.container.less')],
     providers: [LightsService],
     directives: [ButtonComponent, FilterComponent, BreadcrumbComponent, LightsList, LightsDetail],
     changeDetection: ChangeDetectionStrategy.OnPush
