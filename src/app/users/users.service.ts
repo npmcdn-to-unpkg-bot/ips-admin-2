@@ -15,7 +15,6 @@ export class UsersService{
     }
 
     getUsers() {
-        debugger;
         return this.http.get(this.userUrl)
             .map(this.extractData)
             .map(payload => ({type: ADD_USERS, payload}))
