@@ -2,24 +2,21 @@
 
 @import '../../../css/colors.less';
 
-/* MIXINS */
+.sitesFavoritesParent {
 
-.sitesAllParent {
+    #sitesFavorites {
 
-    #allSites {
-
+        width: 100%;
+        line-height: 60px;
         height: calc(~'100% - 121px');
         overflow-y: auto;
-        text-align: left;
 
-
-        .siteRow {
+        .favRow {
 
             display: flex;
             height: 60px;
 
-            .allSitesControls {
-
+            .checkbox {
                 flex-shrink: 1;
                 width: 15%;
                 min-width: 42px;
@@ -33,58 +30,35 @@
                     width: 16px;
                     min-width: 16px;
                     min-height: 16px;
-                    margin-right: 10px;
-                    //min values hold size constant
-                    //flex might try to shrink them!
-                }
-
-                .greenCircle {
-                    background-color: @treefroggreen;
-                    border-radius: 50%;
-                    width: 10px;
-                    height: 10px; 
-                    min-width: 10px;
-                    min-height: 10px;
-                    //min values hold size constant
-                    //flex might try to shrink them
+                    padding: 5px;
+                    margin-right: 21px;
                 }
             }
 
-            .allSiteInfo{
-
+            .favInfo {
                 flex-shrink: 4;
                 width: 85%;
                 height: 100%;
-                padding-left: 10px;
 
-                md-icon{
-                    color: @rosyred;
-                    float: right;
-                    margin-top: -4px;
-                    padding-right: 20px;
-                }
-
-                .blue30 {
+                .favName {
                     padding-top: 5px;
+                    display: block;
+                    width: 100%;
                     line-height: 25px;
                     height: 25px;
                     color: @stormyblue;
                     font-weight: 700;
-                    text-align: left;
                 }
 
-                .gray {
+
+                .favDetails {
+                    display: block;
+                    width: 100%;
                     line-height: 25px;
                     height: 25px;
-                    color: @asphalt;
-                    text-align: left;
                 }
             }
-
         }
-
     }
-
 }
-
 

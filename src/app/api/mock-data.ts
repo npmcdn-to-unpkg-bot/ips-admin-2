@@ -1,5 +1,36 @@
 export class MockData {
   createDb() {
+    let siteFavorites = [
+      {
+            'siteId': 1,
+            'siteName': 'Favorite 1',
+            'city': 'Atlanta',
+            'stateProvince': 'GA',
+            'country': 'USA',
+            'serviceStatus': 'ACTIVE',
+            'timeZoneId': 1
+        },
+        {
+            'siteId': 2,
+            'siteName': 'Favorite 2',
+            'city': 'Atlanta',
+            'stateProvince': 'GA',
+            'country': 'USA',
+            'serviceStatus': 'ACTIVE',
+            'timeZoneId': 1
+        },
+        {
+            'siteId': 3,
+            'siteName': 'Favorite 3',
+            'city': 'Atlanta',
+            'stateProvince': 'GA',
+            'country': 'USA',
+            'serviceStatus': 'ACTIVE',
+            'timeZoneId': 1
+        }
+
+    ];
+
     let sites = [
       {
             'siteId': 1,
@@ -166,6 +197,78 @@ export class MockData {
         'organization_ID': 1,
         'siteGroupName': 'Group 2',
         'description': 'This is the second site group'
+      },
+      {
+        'siteGroupID': 3,
+        'organization_ID': 1,
+        'siteGroupName': 'Group 3',
+        'description': 'This is the third site group'
+      },
+      {
+        'siteGroupID': 4,
+        'organization_ID': 1,
+        'siteGroupName': 'Group 4',
+        'description': 'This is the fourth site group'
+      },
+      {
+        'siteGroupID': 5,
+        'organization_ID': 1,
+        'siteGroupName': 'Group 5',
+        'description': 'This is the fifth site group'
+      },
+      {
+        'siteGroupID': 6,
+        'organization_ID': 1,
+        'siteGroupName': 'Group 6',
+        'description': 'This is the sixth site group'
+      },
+      {
+        'siteGroupID': 7,
+        'organization_ID': 1,
+        'siteGroupName': 'Group 7',
+        'description': 'This is the seventh site group'
+      },
+      {
+        'siteGroupID': 8,
+        'organization_ID': 1,
+        'siteGroupName': 'Group 8',
+        'description': 'This is the eigth site group'
+      },
+      {
+        'siteGroupID': 9,
+        'organization_ID': 1,
+        'siteGroupName': 'Group 9',
+        'description': 'This is the ninth site group'
+      },
+      {
+        'siteGroupID': 10,
+        'organization_ID': 1,
+        'siteGroupName': 'Group 10',
+        'description': 'This is the tenth site group'
+      },
+      {
+        'siteGroupID': 11,
+        'organization_ID': 1,
+        'siteGroupName': 'Group 11',
+        'description': 'This is the eleventh site group'
+      },
+      {
+        'siteGroupID': 12,
+        'organization_ID': 1,
+        'siteGroupName': 'Group 12',
+        'description': 'This is the twelth site group'
+      },
+      {
+        'siteGroupID': 13,
+        'organization_ID': 1,
+        'siteGroupName': 'Group 13',
+        'description': 'This is the thirteenth site group'
+      },
+      {
+        'siteGroupID': 14,
+        'organization_ID': 1,
+        'siteGroupName': 'Group 14',
+        'description': 'This is the fourteenth site group'
       }
     ];
     let mobileConfigs = [
@@ -262,6 +365,7 @@ export class MockData {
     return {
       sites: sites,
       siteGroups: siteGroups,
+      siteFavorites: siteFavorites,
       mobileConfigs: mobileConfigs,
       apiKeys: apiKeys,
       codeBooks: codeBooks,

@@ -40,10 +40,6 @@ describe('APIKeysComponent::', () => {
         expect(component).toEqual(jasmine.any(APIKeysComponent));
     }));
 
-    it('should have a navHeader', inject([APIKeysComponent], (component: APIKeysComponent) => {
-        expect(component.navHeader).toEqual('Settings > API Keys');
-    }));
-
     it('should have api keys', inject([APIKeysComponent], (component: APIKeysComponent) => {
         expect(component.apiKeys.length).toBeGreaterThan(0);
     }));
