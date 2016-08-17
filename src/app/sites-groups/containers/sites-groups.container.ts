@@ -1,19 +1,16 @@
-import {Component, ISiteGroups, SiteGroupsService, ButtonComponent, FilterComponent, 
-    BreadcrumbComponent } from '../sites-groups';
-
-//less files
-import './sites-groups.container.less';
+import {Component, ISiteGroups, SiteGroupsService, ButtonComponent, FilterComponent
+     } from '../sites-groups';
 
 @Component({
     selector: 'app-sites-groups',
-    directives: [ButtonComponent, FilterComponent, BreadcrumbComponent],
-    templateUrl: '../src/app/sites-groups/containers/sites-groups.container.html',
+    template: require('./sites-groups.container.html'),
+    styles: [require('./sites-groups.container.less')],
+    directives: [ButtonComponent, FilterComponent],
     providers: [SiteGroupsService]
 })
 
 export class SitesGroupsComponent {
     
-    navHeader: string = 'Sites > Site Groups'
     siteGroups: ISiteGroups[];
     filterValues = ['Filter', 'By', 'A', 'Value'];
     errorMessage: string;

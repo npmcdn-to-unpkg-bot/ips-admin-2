@@ -18,7 +18,7 @@ export { SitesAllContainer } from './sites-all/containers/sites-all.container';
 export { SitesGroupsComponent } from './sites-groups/containers/sites-groups.container';
 export { SitesComponent } from './sites/sites.component';
 export { BlankComponent } from './blank/blank.component';
-export { UsersComponent } from './users/users.component';
+export { UsersContainer } from './users/containers/users.container';
 export { SettingsComponent } from './settings/settings.component';
 export { LightsContainer } from './lights/containers/lights.container';
 export { APIKeysComponent } from './apiKeys/apiKeys.component';

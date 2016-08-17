@@ -44,9 +44,9 @@ import '@ngrx/store';
 // Leaflet
 import 'leaflet';
 
-//if ('production' === ENV) {
+if ('production' === ENV) {
   // Production
-//} else {
+} else {
   // Development
   require('angular2-hmr');
-//}
+}

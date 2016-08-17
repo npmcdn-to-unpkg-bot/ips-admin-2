@@ -1,17 +1,17 @@
 /**
  * Created by sxd15 on 8/10/2016.
  */
+export const ADD_LIGHTS = 'ADD_LIGHTS';
+export const DELETE_LIGHT = 'DELETE_LIGHT';
 
 export const LightsReducer = (state: any = [], {type, payload}) => {
-    let index: number;
     switch (type) {
-        case 'ADD_ITEMS':
+        case ADD_LIGHTS:
             return payload;
-        case 'DELETE_ITEM':
-            let newState = state.filter(item => {
+        case DELETE_LIGHT:
+            return state.filter(item => {
                 return item.displayName !== payload.displayName;
             });
-            return newState;
         default:
             return state;
     }

@@ -15,16 +15,14 @@ import { AppComponent } 	from './app/app.component';
 import { MdIconRegistry } from '@angular2-material/icon/icon-registry';
 
 import { LightsReducer } from './app/lights/lights';
-
-//import global less file
-import './css/styles.less';
+import { UsersReducer } from './app/users/users';
 
 export function main(): Promise<any> {
 
 	return bootstrap(AppComponent, [
 		APP_ROUTER_PROVIDERS,
 		provide(LocationStrategy, {useClass: HashLocationStrategy}),
-		provideStore({ LightsReducer }), //add a store
+		provideStore({ LightsReducer, UsersReducer }), //add a store
 		disableDeprecatedForms(),
 		provideForms(),
 		HTTP_PROVIDERS,
@@ -36,10 +34,13 @@ export function main(): Promise<any> {
 
 }
 
-if (process.env.ENV === 'production') {
-	document.addEventListener('DOMContentLoaded', () => main());
-} else {
+//Activate HMR if requested
+if ('development' === ENV && HMR === true) {
+	// activate hot module reload
 	let ngHmr = require('angular2-hmr');
 	ngHmr.hotModuleReplacement(main, module);
+} else {
+	// bootstrap when document is ready
+	document.addEventListener('DOMContentLoaded', () => main());
 }
 
