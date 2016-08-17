@@ -7,8 +7,9 @@ import './users.container.less';
 
 @Component({
     selector: 'app-users',
+    template: require('./users.container.html'),
+    styles: [require('./users.container.less')],
     providers: [UsersService],
-    templateUrl: '../src/app/users/containers/users.container.html',
     directives: [BreadcrumbComponent, AuthenticationComponent, UsersList, UsersDetail],
     changeDetection: ChangeDetectionStrategy.OnPush
 })

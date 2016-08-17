@@ -1,4 +1,4 @@
-import { Store, Observable, Injectable, Http, Headers, RequestOptions, Response, AppStore, IUser, ADD_USERS, DELETE_USER } from './users';
+import { Store, Observable, Injectable, Http, Headers, RequestOptions, Response, AppStore, IUser, ADD_USERS, DELETE_USER, CREATE_USER } from './users';
 
 const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
@@ -24,15 +24,17 @@ export class UsersService{
             );
     }
 
-    addUsers (user: IUser): Observable<IUser> {
-        //TODO: Add store code
+    addUsers (user: IUser) {
         let body = JSON.stringify(user);
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
+        let options = new RequestOptions(HEADER);
 
-        return this.http.put(this.userUrl, body, options)
+        //assumption here is that we get back the properly formed user from the put
+        //the returned object is what will get added into the store
+        this.http.put(this.userUrl, body, options)
             .map(this.extractData)
-            .catch(this.handleError);
+            .map(payload => ({type: CREATE_USER, payload}))
+            .subscribe(action => this.store.dispatch(action),
+                err => this.handleError(err));
     }
 
     updateUsers (user: IUser): Observable<IUser> {
