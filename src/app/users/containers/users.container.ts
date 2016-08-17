@@ -3,8 +3,6 @@ import { Component, AuthenticationComponent, ChangeDetectionStrategy,
     IUser, UsersService, ButtonComponent, FilterComponent,
     BreadcrumbComponent, AppStore } from '../users';
 
-import './users.container.less';
-
 @Component({
     selector: 'app-users',
     template: require('./users.container.html'),
