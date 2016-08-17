@@ -6,7 +6,7 @@ export { Store } from '@ngrx/store';
 export { ILight } from './lights.interface';
 export { AppStore } from '../app.store';
 export { LightsService } from './lights.service';
-export { LightsReducer } from './lights.reducer';
+export { LightsReducer, ADD_LIGHTS, DELETE_LIGHT } from './lights.reducer';
 export { LightsList } from './components/lights.list';
 export { LightsDetail } from './components/lights.detail';
 export { ButtonComponent } from '../shared/button/button.component';

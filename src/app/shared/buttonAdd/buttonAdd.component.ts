@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 
-import './buttonAdd.component.less';
-
 @Component({
     selector: 'ui-buttonAdd',
     template:
     `
-    <button class="buttonAdd">+</button>
+    <button class="buttonAdd">
+    +
+    </button>
     `,
+    styles: [require('./buttonAdd.component.less')]
 })
 
 export class ButtonAddComponent {
