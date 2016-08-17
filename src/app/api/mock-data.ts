@@ -208,6 +208,36 @@ export class MockData {
         'organization_ID': 1,
         'siteGroupName': 'Group 9',
         'description': 'This is the ninth site group'
+      },
+      {
+        'siteGroupID': 10,
+        'organization_ID': 1,
+        'siteGroupName': 'Group 10',
+        'description': 'This is the tenth site group'
+      },
+      {
+        'siteGroupID': 11,
+        'organization_ID': 1,
+        'siteGroupName': 'Group 11',
+        'description': 'This is the eleventh site group'
+      },
+      {
+        'siteGroupID': 12,
+        'organization_ID': 1,
+        'siteGroupName': 'Group 12',
+        'description': 'This is the twelth site group'
+      },
+      {
+        'siteGroupID': 13,
+        'organization_ID': 1,
+        'siteGroupName': 'Group 13',
+        'description': 'This is the thirteenth site group'
+      },
+      {
+        'siteGroupID': 14,
+        'organization_ID': 1,
+        'siteGroupName': 'Group 14',
+        'description': 'This is the fourteenth site group'
       }
     ];
     let mobileConfigs = [
