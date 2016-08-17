@@ -37,14 +37,6 @@ export const routes: RouterConfig = [
     { path: 'login', component: AuthenticationComponent },
     { path: '**', component: NotFoundComponent } //404 support
 ];
-
-//if you need to route 2+ levels deep, it'd be like this 
-//(say you're drilling down from sites)
-//   { path: 'sites/all', component: <component> },
-//   { path: 'sites/groups', component: <component> },
-//
-// and in the html:
-// [routerLink]='['/sites/all']'
 ​
 export const APP_ROUTER_PROVIDERS = [
     provideRouter(routes)

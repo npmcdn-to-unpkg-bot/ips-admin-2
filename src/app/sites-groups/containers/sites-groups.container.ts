@@ -1,13 +1,13 @@
 import {Component, ISiteGroups, SiteGroupsService, ButtonComponent, FilterComponent, 
-    BreadcrumbComponent } from './sites-groups';
+    BreadcrumbComponent } from '../sites-groups';
 
 //less files
-import './sites-groups.component.less';
+import './sites-groups.container.less';
 
 @Component({
     selector: 'app-sites-groups',
     directives: [ButtonComponent, FilterComponent, BreadcrumbComponent],
-    templateUrl: '../src/app/sites-groups/sites-groups.component.html',
+    templateUrl: '../src/app/sites-groups/containers/sites-groups.container.html',
     providers: [SiteGroupsService]
 })
 
