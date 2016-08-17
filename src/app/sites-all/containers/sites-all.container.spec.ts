@@ -184,19 +184,10 @@ describe('SitesAllContainer::', () => {
         expect(component.allSites.length).toBeGreaterThan(0);
     }));
 
-    it('should have a navHeader', inject([SitesAllContainer], (component: SitesAllContainer) => {
-        expect(component.navHeader).toEqual('Sites > All Sites');
-    }));
-
     it('should do something when clicked', inject([SitesAllContainer], (component: SitesAllContainer) => {
         spyOn(window, 'alert');
         component.allSitesClick(1);
         expect(alert).toHaveBeenCalled();
-    }));
-
-    it('should have filters values', inject([SitesAllContainer], (component: SitesAllContainer) => {
-        expect(component.filterValues.length).toBeGreaterThan(0);
-        expect(component.filterValues[0]).toEqual('Filter');
     }));
 
 });

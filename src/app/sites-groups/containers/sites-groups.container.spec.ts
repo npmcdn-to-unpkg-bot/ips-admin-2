@@ -43,19 +43,10 @@ describe('SitesGroupsComponent::', () => {
         expect(component.siteGroups.length).toBeGreaterThan(0);
     }));
 
-    it('should have a navHeader', inject([SitesGroupsComponent], (component: SitesGroupsComponent) => {
-        expect(component.navHeader).toEqual('Sites > Site Groups');
-    }));
-
     it('should do something when clicked', inject([SitesGroupsComponent], (component: SitesGroupsComponent) => {
         spyOn(window, 'alert');
         component.sitesGroupsClick(1);
         expect(alert).toHaveBeenCalled();
-    }));
-
-    it('should have filters values', inject([SitesGroupsComponent], (component: SitesGroupsComponent) => {
-        expect(component.filterValues.length).toBeGreaterThan(0);
-        expect(component.filterValues[0]).toEqual('Filter');
     }));
 
 });

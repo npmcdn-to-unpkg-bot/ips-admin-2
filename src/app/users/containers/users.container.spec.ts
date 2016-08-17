@@ -15,7 +15,4 @@ describe('UsersComponent::', () => {
         expect(component).toEqual(jasmine.any(UsersContainer));
     }));
 
-    it('should have a navHeader', inject([UsersContainer], (component: UsersContainer) => {
-        expect(component.navHeader).toEqual('Users');
-    }));
 });

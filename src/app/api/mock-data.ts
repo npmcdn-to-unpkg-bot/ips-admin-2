@@ -1,5 +1,36 @@
 export class MockData {
   createDb() {
+    let siteFavorites = [
+      {
+            'siteId': 1,
+            'siteName': 'Favorite 1',
+            'city': 'Atlanta',
+            'stateProvince': 'GA',
+            'country': 'USA',
+            'serviceStatus': 'ACTIVE',
+            'timeZoneId': 1
+        },
+        {
+            'siteId': 2,
+            'siteName': 'Favorite 2',
+            'city': 'Atlanta',
+            'stateProvince': 'GA',
+            'country': 'USA',
+            'serviceStatus': 'ACTIVE',
+            'timeZoneId': 1
+        },
+        {
+            'siteId': 3,
+            'siteName': 'Favorite 3',
+            'city': 'Atlanta',
+            'stateProvince': 'GA',
+            'country': 'USA',
+            'serviceStatus': 'ACTIVE',
+            'timeZoneId': 1
+        }
+
+    ];
+
     let sites = [
       {
             'siteId': 1,
@@ -334,6 +365,7 @@ export class MockData {
     return {
       sites: sites,
       siteGroups: siteGroups,
+      siteFavorites: siteFavorites,
       mobileConfigs: mobileConfigs,
       apiKeys: apiKeys,
       codeBooks: codeBooks,

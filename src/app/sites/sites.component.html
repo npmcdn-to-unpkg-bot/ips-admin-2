@@ -6,7 +6,7 @@
             <nav class="sitesTabs">
                 <li class="liFlex" [routerLink]="['all']"><a>All</a></li>
                 <li class="liFlex" [routerLink]="['groups']"><a>Group</a></li>
-                <li class="liFlex"><a>Favs</a></li>
+                <li class="liFlex" [routerLink]="['favorites']"><a>Favs</a></li>
                 <li class="liNoFlex" (click)="detailsClick()"><md-icon>apps</md-icon></li>
                 <li class="liNoFlex" (click)="noDetailsClick()"><md-icon>menu</md-icon></li>
             </nav>

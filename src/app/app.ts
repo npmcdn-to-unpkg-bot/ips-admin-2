@@ -16,6 +16,7 @@ export { DashboardComponent } from './dashboard/dashboard.component';
 
 export { SitesAllContainer } from './sites-all/containers/sites-all.container';
 export { SitesGroupsComponent } from './sites-groups/containers/sites-groups.container';
+export { SitesFavoritesComponent } from './sites-favorites/containers/sites-favorites.container';
 export { SitesComponent } from './sites/sites.component';
 export { BlankComponent } from './blank/blank.component';
 export { UsersContainer } from './users/containers/users.container';

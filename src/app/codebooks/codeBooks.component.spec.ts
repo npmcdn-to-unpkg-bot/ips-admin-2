@@ -42,10 +42,6 @@ describe('CodebooksComponent::', () => {
         expect(component).toEqual(jasmine.any(CodebooksComponent));
     }));
 
-    it('should have a navHeader', inject([CodebooksComponent], (component: CodebooksComponent) => {
-        expect(component.navHeader).toEqual('Settings > Codebooks');
-    }));
-
     it('should have codebooks', inject([CodebooksComponent], (component: CodebooksComponent) => {
         expect(component.codebooks.length).toBeGreaterThan(0);
     }));

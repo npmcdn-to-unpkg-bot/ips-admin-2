@@ -48,10 +48,6 @@ describe('LightsContainer::', () => {
         //expect(component.lights.length).toBeGreaterThan(0); <-- this is an observable now - dunno how to look at length or if we should
     }));
 
-    it('should have a navHeader', inject([LightsContainer], (component: LightsContainer) => {
-        expect(component.navHeader).toEqual('Lights');
-    }));
-
     it('should have columns', inject([LightsContainer], (component: LightsContainer) => {
         expect(component.columns.length).toBeGreaterThan(0);
         expect(component.columns[0]).toEqual('Name')

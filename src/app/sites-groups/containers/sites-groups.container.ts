@@ -12,7 +12,6 @@ import {Component, ISiteGroups, SiteGroupsService, ButtonComponent, FilterCompon
 export class SitesGroupsComponent {
     
     siteGroups: ISiteGroups[];
-    filterValues = ['Filter', 'By', 'A', 'Value'];
     errorMessage: string;
 
     constructor(private _siteGroupsService: SiteGroupsService) {}
