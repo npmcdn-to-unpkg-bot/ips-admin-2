@@ -14,13 +14,15 @@ export class LightsService{
         this.lights = store.select<Array<ILight>>('LightsReducer');
     }
 
-    getLights() {
+    getLights(onComplete?) {
+        onComplete = onComplete || (()=>{});
         return this.http.get(this.lightsUrl)
             .map(this.extractData)
             .map(payload => ({type: 'ADD_ITEMS', payload}))
             .subscribe(
                 action => this.store.dispatch(action),
-                err => this.handleError(err)
+                err => this.handleError(err),
+                () => { onComplete() }
             );
     }
 
@@ -31,8 +33,7 @@ export class LightsService{
         let options = new RequestOptions({ headers: headers });
 
         return this.http.put(this.lightsUrl, body, options)
-            .map(this.extractData)
-            .catch(this.handleError);
+            .map(this.extractData);
     }
 
     updateLight (light: ILight): Observable<ILight> {
@@ -42,8 +43,7 @@ export class LightsService{
         let options = new RequestOptions({ headers: headers });
 
         return this.http.post(this.lightsUrl, body, options)
-            .map(this.extractData)
-            .catch(this.handleError);
+            .map(this.extractData);
     }
 
     deleteLight (light: ILight)
