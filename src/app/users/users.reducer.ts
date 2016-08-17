@@ -3,6 +3,7 @@
  */
 export const ADD_USERS = 'ADD_USERS';
 export const DELETE_USER = 'DELETE_USER';
+export const CREATE_USER = 'CREATE_USER';
 
 export const UsersReducer = (state: any = [], {type, payload}) => {
     switch (type) {
@@ -12,6 +13,8 @@ export const UsersReducer = (state: any = [], {type, payload}) => {
             return state.filter(item => {
                 return item.displayName !== payload.displayName;
             });
+        case CREATE_USER:
+            return [...state, payload];
         default:
             return state;
     }

@@ -5,9 +5,9 @@ import { Component, AuthenticationComponent, ChangeDetectionStrategy,
 
 @Component({
     selector: 'app-users',
-    providers: [UsersService],
     template: require('./users.container.html'),
     styles: [require('./users.container.less')],
+    providers: [UsersService],
     directives: [BreadcrumbComponent, AuthenticationComponent, UsersList, UsersDetail],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
