@@ -344,22 +344,14 @@ export class MockData {
           }];
       let users = [
           {
-              'luminaireTypeId': 33,
-              'organization_ID': 33,
               'displayName': 'User 33',
-              'exteriorWidth': 33,
-              'exteriorLength': 33,
-              'interiorWidth': 33,
-              'interiorLength': 33
+              'displayEmail': '',
+              'bookmarked': false
           },
           {
-              'luminaireTypeId': 44,
-              'organization_ID': 44,
               'displayName': 'User 44',
-              'exteriorWidth': 44,
-              'exteriorLength': 44,
-              'interiorWidth': 44,
-              'interiorLength': 44
+              'displayEmail': '',
+              'bookmarked': false
           }];
 
     return {

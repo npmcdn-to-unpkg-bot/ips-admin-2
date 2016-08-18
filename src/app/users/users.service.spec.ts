@@ -7,16 +7,16 @@ import { provideStore }	 	from '@ngrx/store';
 import { InMemoryBackendService, SEED_DATA }  from 'angular2-in-memory-web-api';
 import { MockData }   from '../api/mock-data';
 
-import { ILight, LightsService, LightsReducer } from './lights';
+import { IUser, UsersService, UsersReducer } from './users';
 import 'rxjs/add/operator/catch';
 
-describe('LightsService::InMemoryBackend::', () => {
+describe('UsersService::InMemoryBackend::', () => {
 
     beforeEach(() => {
         addProviders([
-            LightsService,
+            UsersService,
             HTTP_PROVIDERS,
-            provideStore({ LightsReducer }), //add a store
+            provideStore({ UsersReducer }), //add a store
             { provide: XHRBackend, useClass: InMemoryBackendService }, // in-mem mock http server
             { provide: SEED_DATA,  useClass: MockData }                // in-mem mock server data
         ]);
@@ -24,7 +24,7 @@ describe('LightsService::InMemoryBackend::', () => {
 
     describe('mockdata::', () => {
         var testService;
-        beforeEach(inject([LightsService], (service: LightsService) => {
+        beforeEach(inject([UsersService], (service: UsersService) => {
             testService = service;
         }));
 
@@ -32,28 +32,24 @@ describe('LightsService::InMemoryBackend::', () => {
             var service;
             beforeEach((done) => {
                 service = testService;
-                service.getLights(done);
+                service.getUsers(done);
             });
 
-            it('should get lights', (done) => {
-                service.lightsUrl = 'localhost:8080/lights';
+            it('should get users', (done) => {
+                service.userUrl = 'localhost:8080/users';
                 expect(1).toBe(1);
-                service.lights.subscribe(
-                    action => {
+                service.users.subscribe(
+                        action => {
                         expect(action.length).toBeGreaterThan(0);
-                        let lightType: ILight = {
-                            'luminaireTypeId': 1,
-                            'organization_ID': 1,
-                            'displayName': 'Light 1',
-                            'exteriorWidth': 2,
-                            'exteriorLength': 2,
-                            'interiorWidth': 2,
-                            'interiorLength': 1
+                        let user: IUser = {
+                            'displayName': 'User 33',
+                            'displayEmail': '',
+                            'bookmarked': false
                         };
-                        expect(typeof action).toBe(typeof lightType);
+                        expect(typeof action).toBe(typeof user);
                         done();
                     },
-                    err => {
+                        err => {
                         expect(err).toBe(0);
                         done();
                     }
@@ -63,12 +59,12 @@ describe('LightsService::InMemoryBackend::', () => {
     });
 });
 
-describe('LightsService::JasmineAjax::', () => {
+describe('UsersService::JasmineAjax::', () => {
     beforeEach(() => {
         addProviders([
-            LightsService,
+            UsersService,
             HTTP_PROVIDERS,
-            provideStore({ LightsReducer }), //add a store
+            provideStore({ UsersReducer }), //add a store
         ]);
         jasmine.Ajax.install();
     });
@@ -80,7 +76,7 @@ describe('LightsService::JasmineAjax::', () => {
 
     describe('withAjax::', () => {
         var testService;
-        beforeEach(inject([LightsService], (service: LightsService) => {
+        beforeEach(inject([UsersService], (service: UsersService) => {
             testService = service;
         }));
 
@@ -90,26 +86,22 @@ describe('LightsService::JasmineAjax::', () => {
                 service = testService;
             });
 
-            it('Calls api endpoint to retrieves lights', () => {
-                service.lightsUrl = 'someValidUrl';
+            it('Calls api endpoint to retrieve users', () => {
+                service.usersUrl = 'someValidUrl';
                 let spy = jasmine.createSpy('success');
-                service.getLights();
+                service.getUsers();
                 expect(jasmine.Ajax.requests.mostRecent().method).toBe('GET');
             });
 
-            it('Calls api endpoint to delete a light', () => {
-                service.lightsUrl = 'someValidUrl';
+            it('Calls api endpoint to delete a user', () => {
+                service.usersUrl = 'someValidUrl';
                 let spy = jasmine.createSpy('success');
-                let light: ILight = {
-                    'luminaireTypeId': 1,
-                    'organization_ID': 1,
-                    'displayName': 'Light 1',
-                    'exteriorWidth': 2,
-                    'exteriorLength': 2,
-                    'interiorWidth': 2,
-                    'interiorLength': 1
+                let user: IUser = {
+                    'displayName': 'User 33',
+                    'displayEmail': '',
+                    'bookmarked': false
                 };
-                service.deleteLight(light);
+                service.deleteUser(user);
                 expect(jasmine.Ajax.requests.mostRecent().method).toBe('DELETE');
             });
         });
