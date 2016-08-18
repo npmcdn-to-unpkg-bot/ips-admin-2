@@ -25,11 +25,13 @@ export class UsersContainer {
 
     ngOnInit() {
         this.users = this.usersService.users;
+        this.selectedUser = this.usersService.selectedUser;
         this.usersService.getUsers();
     }
 
     selectItem(item: IUser) {
-        this.store.dispatch({type: 'SELECT_ITEM', payload: item});
+        //this.store.dispatch({type: 'SELECT_ITEM', payload: item});
+        this.usersService.selectUser(item);
     }
 
     deleteItem(item: IUser) {

@@ -1,4 +1,4 @@
-import { Store, Observable, Injectable, Http, Headers, RequestOptions, Response, AppStore, IUser, ADD_USERS, DELETE_USER, CREATE_USER } from './users';
+import { Store, Observable, Injectable, Http, Headers, RequestOptions, Response, AppStore, IUser, ADD_USERS, DELETE_USER, CREATE_USER, SELECT_USER } from './users';
 
 const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
@@ -9,9 +9,11 @@ export class UsersService{
 
     userUrl: string = 'localhost:8080/users';
     users: Observable<Array<IUser>>;
+    selectedUser: Observable<IUser>;
 
     constructor(private http : Http, private store: Store<AppStore>) {
         this.users = store.select<Array<IUser>>('UsersReducer');
+        this.selectedUser = store.select<IUser>('SelectedUserReducer');
     }
 
     getUsers() {
@@ -46,6 +48,10 @@ export class UsersService{
         return this.http.post(this.userUrl, body, options)
             .map(this.extractData)
             .catch(this.handleError);
+    }
+
+    selectUser (user: IUser) {
+        this.store.dispatch({type: SELECT_USER, payload: user});
     }
 
     deleteUser (user: IUser)

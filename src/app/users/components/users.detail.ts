@@ -9,10 +9,26 @@ import { Component, Input, Output, EventEmitter, IUser } from '../users';
 //-------------------------------------------------------------------
 @Component({
     selector: 'users-detail',
-    template: `<div class="defaultPlaceholder">Select a user to view details</div>`
+    template: `
+        <h2>Editing {{originalName}}</h2>
+        <form novalidate>
+                  <div class="mdl-textfield mdl-js-textfield">
+                    <label>Item Name</label>
+                    <input [(ngModel)]="selectedItem.displayName" name="displayName"
+                      placeholder="Enter a name"
+                      class="mdl-textfield__input" type="text">
+                  </div>
+        </form>`
 })
 export class UsersDetail {
-     @Input() item: IUser;
-    // @Output() selected = new EventEmitter();
-    // @Output() deleted = new EventEmitter();
+
+    originalName: string;
+    selectedItem: IUser;
+    @Output() saved = new EventEmitter();
+    @Output() cancelled = new EventEmitter();
+
+    @Input('item') set item(value: IUser){
+        if (value) this.originalName = value.displayName;
+        this.selectedItem = Object.assign({}, value);
+    }
 }
