@@ -9,7 +9,7 @@ import { Component, BreadcrumbComponent, AuthenticationComponent } from './dashb
 
 export class DashboardComponent {
 
-    navHeader: string = 'Dashboard';
+
 
 
 }

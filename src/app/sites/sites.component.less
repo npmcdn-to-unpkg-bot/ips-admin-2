@@ -1,34 +1,15 @@
 @import '../../css/colors.less';
+@import '../../css/mixins.less';
 
-/* MIXINS */
-
-
-/* CLASSES */
 .sitesParent {
+    
     display: flex;
-    height: calc(~'100% - 64px');
-    font-family: inherit;
+    height: @sitesheight;
 
     .panelLeft {
         width: 25%;
-        background-color: @reallylightgray;
+        background-color: @snowwhite;
         flex-shrink: 1;
-
-        .filterSection {
-
-            background-color: @lightgray;
-            width: 100%;
-            height: 40px;
-
-            input {
-                border: none;
-                height: 40px;
-                line-height: 40px;
-                width: 100%;
-                background-color: @lightgray;
-            }
-
-        }
 
         ::-webkit-input-placeholder {
             padding-left: 10px;
@@ -46,91 +27,11 @@
             padding-left: 10px; 
         }
 
-
-
-    .sitesTabs{
-
-        min-width: 215px; //for now
-        display: flex;
-        padding-right: 15px;
-
-            .liFlex {
-                flex-shrink: 1;
-                width: 27%;
-                font-size: .8em;
-                text-align: center;
-                display: inline-block;
-                list-style-type: none;
-                color: @stormyblue;
-                padding: 10px;
-                box-sizing: border-box;
-                -moz-box-sizing: border-box;
-                -webkit-box-sizing: border-box;
-                height: 35px;
-
-                a {
-                    text-decoration: none;
-
-                }
-            }
-
-            .liFlex:hover {
-                border-bottom: 3px solid @brightblue;
-            }
-
-            .liNoFlex {
-                list-style-type: none;
-                height: 26px;
-                font-size: 26px;
-                padding: 5px;
-                margin-left: 5px;
-            }
-        }
-
-        .dataSettings {
-            height: 40px;
-            display: flex;
-
-            .flexCheckboxHolder {
-
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 15%;
-            min-width: 42px;
-            flex-shrink: 1;
-
-                input[type='checkbox']{
-                    height: 16px;
-                    width: 16px;
-                    min-width: 16px;
-                    min-height: 16px;
-                    margin-right: 21px;
-                }
-            }
-
-            .dataButtonsHolder {
-                height: 40px;
-                display: flex;
-                width: 85%;
-                flex-shrink: 4;
-
-                img {
-                    height: 28px;
-                    padding: 6px 12px 6px 0;
-                }
-
-                ui-buttonAdd {
-                    margin-left: auto;
-                }
-            }
-        }
     }
 
     .panelRight {
         width: 75%;
-        flex-shrink: 1;
+        flex-shrink: 3;
 
         .rightDetails {
             background-color: @lightgray;
@@ -162,6 +63,18 @@
                 height: 40px;
             }
 
+            .toggleArea {
+                    float: right;
+
+                    .toggleText {
+                        color: @stormyblue;
+                        font-weight: 700;
+                        height: 34px;
+                        vertical-align: middle;
+                        padding-right: 0;
+                    }
+            }
+
             section {
                 padding: 15px;
 
@@ -179,6 +92,7 @@
 
                     position: absolute;
                     top: 85px;
+                    min-width: 300px;
 
 
                 li {

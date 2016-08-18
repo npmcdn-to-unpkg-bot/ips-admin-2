@@ -1,150 +1,192 @@
 @import '../css/colors.less';
+@import '../css/mixins.less';
 
-//provides a namespace for this page
-.appParent {
+// **** MEDIA QUERIES ****
 
-  /* MIXINS */
-
-  /* CLASSES */
-  .mainToolbar {
-
-    color: @white;
-    background: @stormyblue;
-    background:-moz-linear-gradient(left, @moonlitsky 0%, @stormyblue 100%);
-    background: -webkit-linear-gradient(left, @moonlitsky 0%, @stormyblue 100%);
-    background: linear-gradient(to right, @moonlitsky 0%, @stormyblue 100%);
-
-    #acuity {
-      height: 20px;
-      margin-right: -5px;
-    }
-
-    .fill-remaining-space {
-    // This fills the remaining space, by using flexbox. 
-    flex: 1 1 auto;
-    }
-
-    .userButton, .acuityButton {
-      background: none;
-      color: @white;  
-      position: relative; 
-
-      md-icon {
-        vertical-align: bottom;
-        line-height: 1em;
-      } 
-
-      .downArrow {
-        font-size: 14px;
-        height: 18px;
-      }
-    }
-
-
+@media screen and
+  (max-width: 1024px) {
     
-  }
+    .sideDrawer {
+      width: 60px !important;
 
-  .navIcon {
-    padding-right: 10px;
-  }
-
-  // .triangle {
-  //     border-color: @asphalt;
-  //     border-right-color: transparent;
-  //     border-left-color: transparent;
-  //     border-style: solid;
-  //     border-width: 10px 10px 0 10px;
-  //     height: 0;
-  //     width: 0;
-  //     left: 14px;
-  //     position: absolute;
-  // }
-
-  .preventHighlight {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-  }
-
-  .anchor {
-  // just used for selection purposes
-}
-
-.anchorClicked {
-  font-weight: 700;
-  border-left: 5px solid @brightblue;
-  background-color: @stormyblue;
-  color: @white;
-}
-
-  /* GENERAL ELEMENT STYLES */
-  .sideDrawer {
-    font-family: 'Open Sans', sans-serif;  
-    background: @stormyblue; 
-    color: @white;
-    width: 160px;
-    position: absolute;
-    top: 64px;
-    height: calc(~'100% - 64px');
-    padding-top: 0;
-
-    //no highlighty
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-
-    li {
-
-      height: 50px;
-      position: relative;
-
-      a {
-        color: @white;
-        text-decoration: none;
-        position: relative;
-        top: 12px;
-
-        md-icon {
-          color: @white;
-          vertical-align: bottom;
-          padding-left: 15px;
-        }
+      .iconText{
+        display: none !important;
       }
     }
 
     .sideDrawerText {
-      color: @stormcloud;
-      font-weight: 700;
-      padding: 20px 0 15px 10px;
+      display: none;
     }
-
-    .blueBorder {
-      border-bottom: 1px solid @stormyblue;
-    }
-
-
-  }
 
   .routerContent {
-    padding-left: 160px;
+    padding-left: 60px !important;
+  }
+}
+
+@media only screen 
+  and (min-width: 1025px) 
+  and (max-width: 1199px) {
+
+    .sideDrawer {
+      width: 80px !important;
+
+        .iconText{
+          display: none !important;
+        }
+    }
+
+    .sideDrawerText {
+      display: none;
+    }
+
+  .routerContent {
+    padding-left: 80px !important;
+  }
+}
+
+
+.mainToolbar {
+
+  color: @white;
+  background: @stormyblue;
+  background:-moz-linear-gradient(left, @moonlitsky 0%, @stormyblue 100%);
+  background: -webkit-linear-gradient(left, @moonlitsky 0%, @stormyblue 100%);
+  background: linear-gradient(to right, @moonlitsky 0%, @stormyblue 100%);
+
+  #acuity {
+    height: 20px;
+    margin-right: -5px;
   }
 
-  /* SPECIFIC ELEMENT STYLES */
-  #toolbarBtn {
+  .fill-remaining-space {
+  // This fills the remaining space, by using flexbox. 
+  flex: 1 1 auto;
+  }
+
+  .userButton, .acuityButton {
+    background: none;
+    color: @white;  
+    position: relative; 
 
     md-icon {
       vertical-align: bottom;
+      line-height: 1em;
+    } 
+
+    .downArrow {
+      font-size: 14px;
+      height: 18px;
     }
   }
 
+
+  
 }
+
+.navIcon {
+  padding-right: 10px;
+}
+
+// .triangle {
+//     border-color: @asphalt;
+//     border-right-color: transparent;
+//     border-left-color: transparent;
+//     border-style: solid;
+//     border-width: 10px 10px 0 10px;
+//     height: 0;
+//     width: 0;
+//     left: 14px;
+//     position: absolute;
+// }
+
+.preventHighlight {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.anchor {
+// just used for selection purposes
+}
+
+.anchorClicked {
+font-weight: 700;
+border-left: 5px solid @brightblue;
+background-color: @moonlitsky;
+color: @white;
+}
+
+
+.sideDrawer {
+  font-family: 'Open Sans', sans-serif;  
+  background: @stormyblue; 
+  color: @white;
+  width: 160px;
+  position: absolute;
+  top: 64px;
+  height: @sitesheight;
+  padding-top: 0;
+
+  //no highlighty
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+
+  li {
+
+    height: 50px;
+    position: relative;
+
+    .iconHolder {
+      color: @white;
+      text-decoration: none;
+      position: relative;
+      top: 12px;
+
+      md-icon {
+        color: @white;
+        vertical-align: bottom;
+        padding-left: 15px;
+      }
+
+      .iconText {
+        display: inline-block;
+      }
+    }
+  }
+
+  .sideDrawerText {
+    color: @stormcloud;
+    font-weight: 700;
+    padding: 20px 0 15px 10px;
+  }
+
+  .blueBorder {
+    border-bottom: 1px solid @moonlitsky;
+  }
+
+
+}
+
+.routerContent {
+  padding-left: 160px;
+}
+
+/* SPECIFIC ELEMENT STYLES */
+#toolbarBtn {
+
+  md-icon {
+    vertical-align: bottom;
+  }
+}
+
 
 

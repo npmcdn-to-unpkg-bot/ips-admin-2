@@ -2,31 +2,41 @@ import {
     addProviders,
     inject
 } from '@angular/core/testing';
-import { provide } from '@angular/core'
-import { ISiteGroups } from '../sites-groups.interface';
-import { SiteGroupsService } from '../sites-groups.service';
+import { provide } from '@angular/core';
 import { SitesGroupsComponent } from './sites-groups.container';
+import { ISiteGroups, SiteGroupsService } from '../sites-groups';
+
+import { Observable }     from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 class MockSiteGroupsService {
-    getAllSiteGroups(): ISiteGroups[] {
-        return [
+    siteUrl: string = 'localhost:8080/siteGroups';
+
+    getSiteGroups(): Observable<ISiteGroups[]> {
+        return Observable.of(<ISiteGroups[]>[
             {
                 'siteGroupID': 1,
                 'organization_ID': 1,
                 'siteGroupName': 'Group 1',
                 'description': 'This is the first site group'
-            },
-            {
-                'siteGroupID': 2,
-                'organization_ID': 1,
-                'siteGroupName': 'Group 2',
-                'description': 'This is the second site group'
             }
-        ]
+        ]);
+    }
+
+    addSiteGroup (siteGroup: ISiteGroups): Observable<ISiteGroups> {
+        return Observable.of(siteGroup);
+    }
+
+    updateSiteGroup (siteGroup: ISiteGroups): Observable<ISiteGroups> {
+        return Observable.of(siteGroup);
+    }
+
+    deleteSiteGroup (siteGroup: ISiteGroups): Observable<ISiteGroups> {
+        return Observable.of(siteGroup);
     }
 }
 
-describe('SitesGroupsComponent::', () => {
+describe('SitesFavoritesComponent::', () => {
 
     beforeEach(() => {
         addProviders([
@@ -35,27 +45,33 @@ describe('SitesGroupsComponent::', () => {
         ]);
     });
 
-    it('should instantiate by injection', inject([SitesGroupsComponent], (component: SitesGroupsComponent) => {
-        expect(component).toEqual(jasmine.any(SitesGroupsComponent));
-    }));
+    describe('withProviders::', () => {
+        var testComponent;
+        beforeEach(inject([SitesGroupsComponent], (component:SitesGroupsComponent) => {
+            testComponent = component;
+        }));
 
-    it('should have sites', inject([SitesGroupsComponent], (component: SitesGroupsComponent) => {
-        expect(component.siteGroups.length).toBeGreaterThan(0);
-    }));
+        describe('instantiated', () => {
+            var component;
+            beforeEach(() => {
+                component = testComponent;
+                component.ngOnInit()
+            });
 
-    it('should have a navHeader', inject([SitesGroupsComponent], (component: SitesGroupsComponent) => {
-        expect(component.navHeader).toEqual('Sites > Site Groups');
-    }));
 
-    it('should do something when clicked', inject([SitesGroupsComponent], (component: SitesGroupsComponent) => {
-        spyOn(window, 'alert');
-        component.sitesGroupsClick(1);
-        expect(alert).toHaveBeenCalled();
-    }));
+            it('should instantiate by injection', () => {
+                expect(component).toEqual(jasmine.any(SitesGroupsComponent));
+            });
 
-    it('should have filters values', inject([SitesGroupsComponent], (component: SitesGroupsComponent) => {
-        expect(component.filterValues.length).toBeGreaterThan(0);
-        expect(component.filterValues[0]).toEqual('Filter');
-    }));
+            it('should have sites', () => {
+                expect(component.siteGroups.length).toBeGreaterThan(0);
+            });
 
+            it('should do something when clicked', () => {
+                spyOn(window, 'alert');
+                component.sitesGroupsClick(1);
+                expect(alert).toHaveBeenCalled();
+            });
+        });
+    });
 });
