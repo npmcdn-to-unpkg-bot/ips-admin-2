@@ -103,6 +103,18 @@ describe('UsersService::JasmineAjax::', () => {
                 service.deleteUser(user);
                 expect(jasmine.Ajax.requests.mostRecent().method).toBe('DELETE');
             });
+
+            it('Calls api endpoint to create a user', () => {
+                service.usersUrl = 'someValidUrl';
+                let spy = jasmine.createSpy('success');
+                let user: IUser = {
+                    'displayName': 'User 33',
+                    'displayEmail': '',
+                    'bookmarked': false
+                };
+                service.createUser(user);
+                expect(jasmine.Ajax.requests.mostRecent().method).toBe('PUT');
+            });
         });
     });
 });
