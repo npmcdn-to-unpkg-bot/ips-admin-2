@@ -15,8 +15,8 @@ export class UsersDetail {
 
     originalName: string;
     selectedItem: IUser;
-    @Output() saved = new EventEmitter();       //TODO: wire up a save event
-    @Output() cancelled = new EventEmitter();   //TODO: wire up a cancel & reset event
+    @Output() saved = new EventEmitter();
+    @Output() cancelled = new EventEmitter();
 
     @Input('item') set item(value: IUser){
         if (value) this.originalName = value.displayName;
