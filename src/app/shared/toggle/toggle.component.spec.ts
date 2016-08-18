@@ -5,7 +5,7 @@ import {
 
 import { ToggleComponent } from './toggle.component';
 
-describe('ButtonComponent::', () => {
+describe('ToggleComponent::', () => {
 
     beforeEach(() => {
         addProviders([ToggleComponent]);
