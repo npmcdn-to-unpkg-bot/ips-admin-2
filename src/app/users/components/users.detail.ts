@@ -4,9 +4,6 @@
 
 import { Component, Input, Output, EventEmitter, IUser } from '../users';
 
-//-------------------------------------------------------------------
-// LIGHTS-LIST
-//-------------------------------------------------------------------
 @Component({
     selector: 'users-detail',
     template: require('./users.detail.html')
