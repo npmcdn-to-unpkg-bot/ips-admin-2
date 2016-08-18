@@ -9,16 +9,7 @@ import { Component, Input, Output, EventEmitter, IUser } from '../users';
 //-------------------------------------------------------------------
 @Component({
     selector: 'users-detail',
-    template: `
-        <h2>Editing {{originalName}}</h2>
-        <form novalidate>
-                  <div class="mdl-textfield mdl-js-textfield">
-                    <label>Item Name</label>
-                    <input [(ngModel)]="selectedItem.displayName" name="displayName"
-                      placeholder="Enter a name"
-                      class="mdl-textfield__input" type="text">
-                  </div>
-        </form>`
+    template: require('./users.detail.html')
 })
 export class UsersDetail {
 
