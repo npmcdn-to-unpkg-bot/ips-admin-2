@@ -33,7 +33,8 @@ export class LightsService{
         let options = new RequestOptions({ headers: headers });
 
         return this.http.put(this.lightsUrl, body, options)
-            .map(this.extractData);
+            .map(this.extractData)
+            .catch(this.handleError);
     }
 
     updateLight (light: ILight): Observable<ILight> {
@@ -43,7 +44,8 @@ export class LightsService{
         let options = new RequestOptions({ headers: headers });
 
         return this.http.post(this.lightsUrl, body, options)
-            .map(this.extractData);
+            .map(this.extractData)
+            .catch(this.handleError);
     }
 
     deleteLight (light: ILight)
