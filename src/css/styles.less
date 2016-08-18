@@ -9,7 +9,7 @@
 
 //global classes
 .header {
-  color: @graytext;
+  color: @mattegray;
 }
 
 .tableHeader {
@@ -23,7 +23,7 @@
     .text {
       font-weight: 700;
       font-size: 1em;
-      color: @graytext;
+      color: @mattegray;
       text-align: center;
     }
 }
@@ -52,6 +52,10 @@
   flex-wrap: nowrap;
 }
 
+.dataRow:hover {
+  background-color: @lightgray;
+}
+
 .paddingLeft160 { //it's really 160 + 15px padding all around
   padding: 15px 15px 15px 175px;
 }
@@ -76,6 +80,7 @@ h2, h3 {
 }
 body { 
   margin: 0;
+  font-family: "Open Sans","Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
 }
 body, input[text], button { 

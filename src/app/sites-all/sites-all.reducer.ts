@@ -2,7 +2,7 @@
  * Created by sxd15 on 8/10/2016.
  */
 
-export const SightsAllReducer = (state: any = [], {type, payload}) => {
+export const SitesAllReducer = (state: any = [], {type, payload}) => {
     let index: number;
     switch (type) {
         case 'ADD_ITEMS':
