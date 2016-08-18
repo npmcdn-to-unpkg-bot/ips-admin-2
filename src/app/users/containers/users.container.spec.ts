@@ -35,7 +35,7 @@ class MockUsersService {
         );
     }
 
-    addUsers (user: IUser) {
+    createUser (user: IUser) {
     }
     updateUsers (user: IUser): Observable<IUser> {
         return Observable.of(<IUser>user);
