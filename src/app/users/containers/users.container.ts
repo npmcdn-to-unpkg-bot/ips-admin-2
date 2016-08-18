@@ -30,11 +30,22 @@ export class UsersContainer {
     }
 
     selectItem(item: IUser) {
-        //this.store.dispatch({type: 'SELECT_ITEM', payload: item});
         this.usersService.selectUser(item);
     }
 
     deleteItem(item: IUser) {
         this.usersService.deleteUser(item);
+    }
+
+    resetItem() {
+        this.usersService.resetUser()
+    }
+
+    saveItem(user: IUser) {
+        this.usersService.createUser(user);
+
+        // Generally, we would want to wait for the result of `itemsService.saveItem`
+        // before resetting the current item.
+        this.resetItem();
     }
 }
