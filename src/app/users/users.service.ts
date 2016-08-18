@@ -16,13 +16,15 @@ export class UsersService{
         this.selectedUser = store.select<IUser>('SelectedUserReducer');
     }
 
-    getUsers() {
+    getUsers(onComplete?) {
+        onComplete = onComplete || (()=>{});
         return this.http.get(this.userUrl)
             .map(this.extractData)
             .map(payload => ({type: ADD_USERS, payload}))
             .subscribe(
                 action => this.store.dispatch(action),
-                err => this.handleError(err)
+                err => this.handleError(err),
+                () => { onComplete() }
             );
     }
 
