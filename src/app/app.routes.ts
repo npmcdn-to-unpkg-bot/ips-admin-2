@@ -7,7 +7,7 @@ import { provideRouter, RouterConfig, DashboardComponent, SitesAllContainer,
 
 //BlankComponent == I haven't implemented it yet ​
 
-export const routes: RouterConfig = [
+export const routes: RouterConfig = <RouterConfig>[
     { path: '', component: DashboardComponent },
     { 
         path: 'sites', 
