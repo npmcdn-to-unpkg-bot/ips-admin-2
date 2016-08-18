@@ -1,7 +1,7 @@
 import { Component, AuthenticationComponent, ChangeDetectionStrategy,
-    Observable, Store, UsersList, UsersDetail,
+    Observable, UsersList, UsersDetail,
     IUser, UsersService, ButtonComponent, FilterComponent,
-    BreadcrumbComponent, AppStore } from '../users';
+    BreadcrumbComponent} from '../users';
 
 @Component({
     selector: 'app-users',
@@ -19,7 +19,7 @@ export class UsersContainer {
 
     navHeader: string = 'Users';
 
-    constructor(private usersService: UsersService, private store: Store<AppStore>) {
+    constructor(private usersService: UsersService) {
 
     }
 
