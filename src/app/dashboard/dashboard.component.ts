@@ -1,11 +1,10 @@
-import { Component, BreadcrumbComponent } from './dashboard';
-
-import './dashboard.component.less';
+import { Component, BreadcrumbComponent, AuthenticationComponent } from './dashboard';
 
 @Component({
     selector: 'app-dashboard',
-    templateUrl: '../src/app/dashboard/dashboard.component.html',
-    directives: [BreadcrumbComponent],
+    template: require('./dashboard.component.html'),
+    styles: [require('./dashboard.component.less')],
+    directives: [BreadcrumbComponent, AuthenticationComponent],
 })
 
 export class DashboardComponent {

@@ -1,12 +1,34 @@
-var commonConfig = require('./webpack.common.js');
-var webpackMerge = require('webpack-merge');
-var helpers = require('./helpers');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+const commonConfig = require('./webpack.common.js');
+const webpackMerge = require('webpack-merge');
+const helpers = require('./helpers');
+
+/**
+ * Webpack Plugins
+ */
+const DefinePlugin = require('webpack/lib/DefinePlugin');
+
+/**
+ * Webpack Constants
+ */
+const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
+const HOST = process.env.HOST || 'localhost';
+const PORT = process.env.PORT || 8080;
+const HMR = helpers.hasProcessFlag('hot');
+
+const METADATA = webpackMerge(commonConfig.metadata, {
+    host: HOST,
+    port: PORT,
+    ENV: ENV,
+    HMR: HMR
+});
 
 module.exports = webpackMerge(commonConfig, {
+
     //Extra development config
 
-    devtool: 'cheap-module-eval-source-map',
+    debug: true,
+
+    devtool: 'eval-cheap-module-source-map',
 
     output: {
 
@@ -31,7 +53,9 @@ module.exports = webpackMerge(commonConfig, {
          *
          * See: http://webpack.github.io/docs/configuration.html#output-sourcemapfilename
          */
-        sourceMapFilename: '[name].map',
+        sourceMapFilename: '[file].map',
+
+        //devtoolModuleFilenameTemplate: '[absolute-resource-path]',
 
         /** The filename of non-entry chunks as relative path
          * inside the output.path directory.
@@ -40,12 +64,63 @@ module.exports = webpackMerge(commonConfig, {
          */
         chunkFilename: '[id].chunk.js'
 
-      },
+    },
 
     plugins: [
-        new ExtractTextPlugin("[name].css")
-	]
 
-       
+        /**
+         * Plugin: DefinePlugin
+         * Description: Define free variables.
+         * Useful for having development builds with debug logging or adding global constants.
+         *
+         * Environment helpers
+         *
+         * See: https://webpack.github.io/docs/list-of-plugins.html#defineplugin
+         */
+        // NOTE: when adding more properties, make sure you include them in custom-typings.d.ts
+        new DefinePlugin({
+            'ENV': JSON.stringify(METADATA.ENV),
+            'HMR': METADATA.HMR,
+            'process.env': {
+                'ENV': JSON.stringify(METADATA.ENV),
+                'NODE_ENV': JSON.stringify(METADATA.ENV),
+                'HMR': METADATA.HMR,
+            }
+        })
+    ],
+
+    /**
+   * Webpack Development Server configuration
+   * Description: The webpack-dev-server is a little node.js Express server.
+   * The server emits information about the compilation state to the client,
+   * which reacts to those events.
+   *
+   * See: https://webpack.github.io/docs/webpack-dev-server.html
+   */
+    devServer: {
+        port: METADATA.port,
+        host: METADATA.host,
+        historyApiFallback: true,
+        watchOptions: {
+            aggregateTimeout: 300,
+            poll: 1000
+        },
+        outputPath: helpers.root('dist')
+    },
+
+    /*
+    * Include polyfills or mocks for various node stuff
+    * Description: Node configuration
+    *
+    * See: https://webpack.github.io/docs/configuration.html#node
+    */
+    node: {
+        global: 'window',
+        crypto: 'empty',
+        process: true,
+        module: false,
+        clearImmediate: false,
+        setImmediate: false
+    }
+    
 });
-

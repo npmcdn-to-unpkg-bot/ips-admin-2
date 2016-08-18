@@ -1,17 +1,28 @@
 import { provideRouter, RouterConfig, DashboardComponent, SitesAllContainer,
-     SitesGroupsComponent, BlankComponent, UsersComponent, SettingsComponent,
-    LightsContainer, APIKeysComponent, CodebooksComponent, DeploymentComponent,
-    MobileConfigComponent, GeneralComponent, AuthenticationComponent} from './app'
+     SitesGroupsComponent, BlankComponent, UsersContainer, SettingsComponent,
+    LightsContainer, APIKeysComponent, CodebooksComponent, DeploymentComponent, 
+    MobileConfigComponent, GeneralComponent, AuthenticationComponent, NotFoundComponent,
+    SitesComponent, SitesFavoritesComponent } from './app'
 
 
 //BlankComponent == I haven't implemented it yet ​
 
 export const routes: RouterConfig = [
     { path: '', component: DashboardComponent },
-    { path: 'sites-all', component: SitesAllContainer },
-    { path: 'sites-groups', component: SitesGroupsComponent },
+    { 
+        path: 'sites', 
+        component: SitesComponent,
+        children: [
+            { path: '', 
+              redirectTo: 'all',
+              pathMatch: 'full' 
+            },
+            { path: 'all', component: SitesAllContainer },
+            { path: 'groups', component: SitesGroupsComponent },
+            { path: 'favorites', component: SitesFavoritesComponent }
+        ] },
     { path: 'lights', component: LightsContainer },
-    { path: 'users', component: UsersComponent },
+    { path: 'users', component: UsersContainer },
     { 
         path: 'settings', 
         component: SettingsComponent,
@@ -24,16 +35,9 @@ export const routes: RouterConfig = [
             { path: 'deployment', component: DeploymentComponent }
         ] 
     },
-    { path: 'login', component: AuthenticationComponent }
+    { path: 'login', component: AuthenticationComponent },
+    { path: '**', component: NotFoundComponent } //404 support
 ];
-
-//if you need to route 2+ levels deep, it'd be like this 
-//(say you're drilling down from sites)
-//   { path: 'sites/all', component: <component> },
-//   { path: 'sites/groups', component: <component> },
-//
-// and in the html:
-// [routerLink]='['/sites/all']'
 ​
 export const APP_ROUTER_PROVIDERS = [
     provideRouter(routes)

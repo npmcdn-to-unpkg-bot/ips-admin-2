@@ -1,16 +1,20 @@
-import * as a from './app'
-import './rxjs-operators';
+import { Component, ROUTER_DIRECTIVES, provideRouter,
+    RouterConfig, Store, Observable, AuthenticationComponent, MdButton, MdToolbar,
+    MD_LIST_DIRECTIVES, MdIcon, MdIconRegistry, DashboardComponent, 
+    SitesAllContainer, SitesGroupsComponent, BlankComponent, UsersContainer,
+    SettingsComponent, LightsContainer, APIKeysComponent, CodebooksComponent,
+    DeploymentComponent, MobileConfigComponent, GeneralComponent, NotFoundComponent} from './app'
 
-//there isn't a LESS loader in ng2 yet
-import './app.component.less';
+//import global less file
+import '../css/styles.less';
 
-@a.Component({
+@Component({
    selector: 'app',
-   templateUrl: '../src/app/app.component.html',
-   directives: [a.ROUTER_DIRECTIVES, a.AuthenticationComponent, a.MD_SIDENAV_DIRECTIVES, a.MdButton, 
-                    a.DashboardComponent, a.MdToolbar, a.MdIcon, a.Dropdown],
-   viewProviders: [a.MdIconRegistry],
-   changeDetection: a.ChangeDetectionStrategy.OnPush
+   template: require('./app.component.html'),
+   styles: [require('./app.component.less')],
+   directives: [ROUTER_DIRECTIVES, AuthenticationComponent, MdButton, MD_LIST_DIRECTIVES, 
+   DashboardComponent, MdToolbar, MdIcon],
+   viewProviders: [MdIconRegistry]
 })
 
 
@@ -20,30 +24,18 @@ export class AppComponent {
     //text decoration values for sublist anchors
     clicked: string = null;
     private selectedAnchorId: string;
-    dropdownValues = ['Adam', 'This', 'Is', 'Just', 'A', 'Sample', 'Component'];
-
-    //for future use with advanced icons and stuff
-    // constructor(mdIconRegistry: MdIconRegistry) {
-    //     mdIconRegistry
-    //         .addSvgIcon('thumb-up', '/icon/assets/thumbup-icon.svg')
-    //         .addSvgIconSetInNamespace('core', '/icon/assets/core-icon-set.svg')
-    //         .registerFontClassAlias('fontawesome', 'fa');
-    // }
-
-    sideNavClick(clicked: string): void {
-
-        this.clicked = this.clicked == clicked ? null : clicked;
-    }
+    user: string = "Adam"; //this will later be replaced with dynamic user profile info
 
     setSelectedAnchor(e): void {
+
       this.selectedAnchorId = e.currentTarget.id;
     }
 
     setClasses(elementId: string) {
 
         return {
-            sublistAnchor: true,
-            sublistAnchorClicked: this.selectedAnchorId === elementId
+            anchor: true,
+            anchorClicked: this.selectedAnchorId === elementId
         }
     }
 }

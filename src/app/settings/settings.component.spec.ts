@@ -4,7 +4,7 @@ import {
 } from '@angular/core/testing';
 
 import { SettingsComponent } from './settings.component';
-import { SidebarComponent } from '../../shared/sidebar/sidebar.component';
+import { SidebarComponent } from '../shared/sidebar/sidebar.component';
 
 describe('SettingsComponent::', () => {
 
@@ -14,10 +14,6 @@ describe('SettingsComponent::', () => {
 
     it('should instantiate by injection', inject([SettingsComponent], (component: SettingsComponent) => {
         expect(component).toEqual(jasmine.any(SettingsComponent));
-    }));
-
-    it('should have a navHeader', inject([SettingsComponent], (component: SettingsComponent) => {
-        expect(component.navHeader).toEqual('Settings');
     }));
 
     it('should have sidebarButtons', inject([SettingsComponent], (component: SettingsComponent) => {

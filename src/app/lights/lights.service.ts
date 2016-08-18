@@ -1,4 +1,4 @@
-import { Store, Observable, Injectable, Http, Headers, RequestOptions, Response, AppStore, ILight } from './lights';
+import { Store, Observable, Injectable, Http, Headers, RequestOptions, Response, AppStore, ILight, ADD_LIGHTS, DELETE_LIGHT } from './lights';
 
 const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
@@ -18,7 +18,7 @@ export class LightsService{
         onComplete = onComplete || (()=>{});
         return this.http.get(this.lightsUrl)
             .map(this.extractData)
-            .map(payload => ({type: 'ADD_ITEMS', payload}))
+            .map(payload => ({type: ADD_LIGHTS, payload}))
             .subscribe(
                 action => this.store.dispatch(action),
                 err => this.handleError(err),
@@ -55,7 +55,7 @@ export class LightsService{
         return this.http.delete(this.lightsUrl+'/'+light.luminaireTypeId, options)
             .map(this.extractData)
             .subscribe(
-                action => this.store.dispatch({ type: 'DELETE_ITEM', payload: light }),
+                action => this.store.dispatch({ type: DELETE_LIGHT, payload: light }),
                 err => this.handleError(err)
             );
     }

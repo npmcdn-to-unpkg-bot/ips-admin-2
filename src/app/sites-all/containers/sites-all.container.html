@@ -1,41 +1,27 @@
 <div class="sitesAllParent">
 
-    <div class="panelLeft">
-        <ui-breadcrumb [navHeader]="navHeader"></ui-breadcrumb>
+    <div id="allSites">
 
-        <ui-filter [values]="filterValues" [(value)]="value"></ui-filter>
-
-        <ui-button id="newSite">+ New Site</ui-button>
-
-        <div id="allSites">
-            <div class="tableHeader">
-                <div class="big text">Site Name</div>
-                <div class="big text">Assigned Groups</div>
-                <div class="small text">Service Status</div>
-            </div>
-
-            <div class="data">
-                <!--<div class="dataRow dataRowSites tall" *ngFor="let site of allSites" (click)="allSitesClick(site.siteId)">-->
-                    <!--<div class="big tall">-->
-                        <!--<div class="blue30">{{site.siteName}}</div>-->
-                        <!--<div class="gray">{{site.city + ', ' + site.stateProvince}}</div>-->
-                    <!--</div>-->
-                    <!--<div class="big"></div>-->
-                    <!--<div class="small lineHeight60px">{{site.serviceStatus}}</div>-->
-                <!--</div>-->
-                <sites-all-list [items]="mySites | async"
-                                (selected)="selectItem($event)"
-                                (deleted)="deleteItem($event)"></sites-all-list>
+        <div class="data">
+            <div class="dataRow siteRow tall" *ngFor="let site of allSites" (click)="allSitesClick(site)">
+                
+                <div class="allSitesControls">
+                    <input type="checkbox"/>
+                    <div class="greenCircle"></div>
+                </div>
+                
+                <div class="allSiteInfo">
+                    <md-icon>bookmark</md-icon>
+                    <div class="blue30">{{site.siteName}}
+                    </div>
+                    <div class="gray">{{site.city + ', ' + site.stateProvince + ' |  x groups'}}</div>
+                </div>
             </div>
         </div>
-
     </div>
-
-    <div class="panelRight">
-        <div class="panelTop">
-            <ui-map [map-id]="'sitesMap'"></ui-map>
-        </div>
-        <div class="panelBottom defaultPlaceholder">Select a site to view details</div>
-    </div>
-
 </div>
+
+
+               <!-- <sites-all-list [items]="mySites | async"
+                                (selected)="selectItem($event)"
+                                (deleted)="deleteItem($event)"></sites-all-list> -->
