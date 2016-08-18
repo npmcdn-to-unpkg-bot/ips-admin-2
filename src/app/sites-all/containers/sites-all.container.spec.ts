@@ -3,17 +3,17 @@ import {
     inject
 } from '@angular/core/testing';
 import { provide } from '@angular/core';
-import { SitesFavoritesComponent } from './sites-favorites.container';
-import { ISiteFavorites, SiteFavoritesService } from '../sites-favorites';
+import { SitesAllContainer } from './sites-all.container';
+import { ISite, AllSitesService } from '../sites-all';
 
 import { Observable }     from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
-class MockSiteFavoritesService {
-    siteUrl: string = 'localhost:8080/siteFavorites';
+class MockAllSitesService {
+    siteUrl: string = 'localhost:8080/sites';
 
-    getSiteFavorites(): Observable<ISiteFavorites[]> {
-        return Observable.of(<ISiteFavorites[]>[
+    getSites(): Observable<ISite[]> {
+        return Observable.of(<ISite[]>[
             {
                 'siteId': 1,
                 'siteName': 'Site 1',
@@ -26,31 +26,31 @@ class MockSiteFavoritesService {
         ]);
     }
 
-    addSiteFavorite (siteFavorite: ISiteFavorites): Observable<ISiteFavorites> {
-        return Observable.of(siteFavorite);
+    addSite (site: ISite): Observable<ISite> {
+        return Observable.of(site);
     }
 
-    updateSiteFavorite (siteFavorite: ISiteFavorites): Observable<ISiteFavorites> {
-        return Observable.of(siteFavorite);
+    updateSite (site: ISite): Observable<ISite> {
+        return Observable.of(site);
     }
 
-    deleteSiteFavorite (siteFavorite: ISiteFavorites): Observable<ISiteFavorites> {
-        return Observable.of(siteFavorite);
+    deleteSite (site: ISite): Observable<ISite> {
+        return Observable.of(site);
     }
 }
 
-describe('SitesFavoritesComponent::', () => {
+describe('SitesAllContainer::', () => {
 
     beforeEach(() => {
         addProviders([
-            SitesFavoritesComponent,
-            provide(SiteFavoritesService, {useClass: MockSiteFavoritesService})
+            SitesAllContainer,
+            provide(AllSitesService, {useClass: MockAllSitesService})
         ]);
     });
 
     describe('withProviders::', () => {
         var testComponent;
-        beforeEach(inject([SitesFavoritesComponent], (component:SitesFavoritesComponent) => {
+        beforeEach(inject([SitesAllContainer], (component:SitesAllContainer) => {
             testComponent = component;
         }));
 
@@ -63,16 +63,16 @@ describe('SitesFavoritesComponent::', () => {
 
 
             it('should instantiate by injection', () => {
-                expect(component).toEqual(jasmine.any(SitesFavoritesComponent));
+                expect(component).toEqual(jasmine.any(SitesAllContainer));
             });
 
             it('should have sites', () => {
-                expect(component.siteFavs.length).toBeGreaterThan(0);
+                expect(component.allSites.length).toBeGreaterThan(0);
             });
 
             it('should do something when clicked', () => {
                 spyOn(window, 'alert');
-                component.favoritesClick();
+                component.allSitesClick(1);
                 expect(alert).toHaveBeenCalled();
             });
         });

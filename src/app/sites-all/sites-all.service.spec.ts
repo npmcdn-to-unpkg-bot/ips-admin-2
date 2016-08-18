@@ -7,23 +7,22 @@ import { XHRBackend, HTTP_PROVIDERS } from '@angular/http';
 import { InMemoryBackendService, SEED_DATA }  from 'angular2-in-memory-web-api';
 import { MockData }   from '../api/mock-data';
 
-import { ISiteFavorites } from './sites-favorites.interface';
-import { SiteFavoritesService } from './sites-favorites.service';
+import { ISite, AllSitesService } from './sites-all';
 import 'rxjs/add/operator/catch';
 
-describe('SiteGroupsService::', () => {
+describe('AllSitesService::', () => {
 
     beforeEach(() => {
         addProviders([
-            SiteFavoritesService,
+            AllSitesService,
             HTTP_PROVIDERS,
             { provide: XHRBackend, useClass: InMemoryBackendService }, // in-mem mock http server
             { provide: SEED_DATA,  useClass: MockData }                // in-mem mock server data
         ]);
     });
 
-    it('should instantiate by injection', inject([SiteFavoritesService], (service: SiteFavoritesService) => {
-        expect(service).toEqual(jasmine.any(SiteFavoritesService));
+    it('should instantiate by injection', inject([AllSitesService], (service: AllSitesService) => {
+        expect(service).toEqual(jasmine.any(AllSitesService));
     }));
 
 });

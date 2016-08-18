@@ -75,10 +75,6 @@ describe('LightsContainer::', () => {
                 component = testComponent;
             });
 
-    it('should have columns', inject([LightsContainer], (component: LightsContainer) => {
-        expect(component.columns.length).toBeGreaterThan(0);
-        expect(component.columns[0]).toEqual('Name')
-    }));
             it('should instantiate with injection', () => {
                 expect(component).toEqual(jasmine.any(LightsContainer));
             });

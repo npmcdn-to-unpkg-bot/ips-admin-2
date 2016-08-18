@@ -7,13 +7,13 @@ describe('LightsReducer::', ()=> {
         expect(defaultState).toEqual([]);
     })
 
-    it('ADD_ITEMS adds the provided payload', ()=>{
-        let addItem = LightsReducer(undefined, {type: 'ADD_ITEMS', payload: 'payload'});
+    it('ADD_LIGHTS adds the provided payload', ()=>{
+        let addItem = LightsReducer(undefined, {type: 'ADD_LIGHTS', payload: 'payload'});
         expect(addItem).toEqual('payload');
     })
 
-    it('DELETE_ITEM removes the provided payload', ()=>{
-        let removeItem = LightsReducer([{displayName: 'random'},{displayName: 'payload'}], {type: 'DELETE_ITEM', payload: {displayName:'payload'}});
+    it('DELETE_LIGHT removes the provided payload', ()=>{
+        let removeItem = LightsReducer([{displayName: 'random'},{displayName: 'payload'}], {type: 'DELETE_LIGHT', payload: {displayName:'payload'}});
         expect(removeItem).toEqual([{displayName:'random'}]);
     })
 
