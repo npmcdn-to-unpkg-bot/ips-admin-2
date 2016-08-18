@@ -37,7 +37,6 @@ describe('UsersService::InMemoryBackend::', () => {
 
             it('should get users', (done) => {
                 service.userUrl = 'localhost:8080/users';
-                expect(1).toBe(1);
                 service.users.subscribe(
                         action => {
                         expect(action.length).toBeGreaterThan(0);
