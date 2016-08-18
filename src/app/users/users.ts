@@ -12,7 +12,5 @@ export { UsersReducer, SelectedUserReducer, ADD_USERS, DELETE_USER, CREATE_USER,
 export { UsersList } from './components/users.list';
 export { UsersDetail } from './components/users.detail';
 export { ButtonComponent } from '../shared/button/button.component';
-export { FilterComponent } from '../shared/filter/filter.component';
-export { BreadcrumbComponent } from '../shared/breadcrumbs/breadcrumbs.component';
-export { AuthenticationComponent } from '../authentication/authentication.component';
+export { ButtonAddComponent } from '../shared/buttonAdd/buttonAdd.component'; 
 export { Observable } from 'rxjs/Observable';
