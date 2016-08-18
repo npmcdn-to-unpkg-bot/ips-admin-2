@@ -8,7 +8,7 @@ import { InMemoryBackendService, SEED_DATA }  from 'angular2-in-memory-web-api';
 import { MockData }   from '../api/mock-data';
 
 import { ILight, LightsService, LightsReducer } from './lights';
-import '../rxjs-operators';
+import 'rxjs/add/operator/catch';
 
 describe('LightsService::InMemoryBackend::', () => {
 
