@@ -21,17 +21,20 @@
     <div class="sideDrawerText">MAIN</div>
 
     <li id="dashboard" md-list-item [routerLink]="['/']" (click)="setSelectedAnchor($event)" [ngClass]="setClasses('dashboard')">
-        <a><md-icon class="navIcon">keyboard</md-icon>Dashboard</a>      
+        <div class="iconHolder"><md-icon class="navIcon">keyboard</md-icon>
+        <div class="iconText">Dashboard</div></div>      
     </li>
     <li id="sites" md-list-item [routerLink]="['/sites']" (click)="setSelectedAnchor($event)" [ngClass]="setClasses('sites')">
-        <a><md-icon class="navIcon">location_city</md-icon>Sites</a>
+        <div class="iconHolder"><md-icon class="navIcon">location_city</md-icon>
+        <div class="iconText">Sites</div></div>
     </li>
     <li id="lights" md-list-item [routerLink]="['/lights']" (click)="setSelectedAnchor($event)" [ngClass]="setClasses('lights')">
-        <a>
-        <md-icon class="navIcon">lightbulb_outline</md-icon>Lights</a>
+        <div class="iconHolder"><md-icon class="navIcon">lightbulb_outline</md-icon>
+        <div class="iconText">Lights</div></div>
     </li>
     <li id="users" md-list-item [routerLink]="['/users']" (click)="setSelectedAnchor($event)" [ngClass]="setClasses('users')">
-        <a><md-icon class="navIcon">wc</md-icon>Users</a>
+        <div class="iconHolder"><md-icon class="navIcon">wc</md-icon>
+        <div class="iconText">Users</div></div>
     </li>
 
     <!--hidden for now-->
@@ -44,7 +47,8 @@
     <div class="sideDrawerText">OTHER</div>
 
     <li id="feedback" md-list-item [ngClass]="setClasses('feedback')">
-        <a><md-icon class="navIcon">feedback</md-icon>Feedback</a>
+        <div class="iconHolder"><md-icon class="navIcon">feedback</md-icon>
+        <div class="iconText">Feedback</div></div>
     </li>
 </ul>
 
