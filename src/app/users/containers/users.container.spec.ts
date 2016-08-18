@@ -3,7 +3,6 @@ import {
     inject
 } from '@angular/core/testing';
 import { provide } from '@angular/core';
-import { provideStore }	 	from '@ngrx/store';
 import { IUser, UsersService, UsersReducer, Observable } from '../users';
 import { UsersContainer } from './users.container';
 import 'rxjs/add/observable/of';
@@ -35,7 +34,7 @@ class MockUsersService {
         );
     }
 
-    addUsers (user: IUser) {
+    createUser (user: IUser) {
     }
     updateUsers (user: IUser): Observable<IUser> {
         return Observable.of(<IUser>user);
@@ -48,7 +47,6 @@ describe('UsersContainer::', () => {
 
     beforeEach(() => {
         addProviders([
-            provideStore({ UsersReducer }), //add a store
             provide(UsersService, {useClass: MockUsersService}),
             UsersContainer
         ]);

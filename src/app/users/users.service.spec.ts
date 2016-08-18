@@ -37,7 +37,6 @@ describe('UsersService::InMemoryBackend::', () => {
 
             it('should get users', (done) => {
                 service.userUrl = 'localhost:8080/users';
-                expect(1).toBe(1);
                 service.users.subscribe(
                         action => {
                         expect(action.length).toBeGreaterThan(0);
@@ -103,6 +102,18 @@ describe('UsersService::JasmineAjax::', () => {
                 };
                 service.deleteUser(user);
                 expect(jasmine.Ajax.requests.mostRecent().method).toBe('DELETE');
+            });
+
+            it('Calls api endpoint to create a user', () => {
+                service.usersUrl = 'someValidUrl';
+                let spy = jasmine.createSpy('success');
+                let user: IUser = {
+                    'displayName': 'User 33',
+                    'displayEmail': '',
+                    'bookmarked': false
+                };
+                service.createUser(user);
+                expect(jasmine.Ajax.requests.mostRecent().method).toBe('PUT');
             });
         });
     });
