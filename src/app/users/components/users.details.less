@@ -1,0 +1,45 @@
+@import '../../../css/colors.less';
+@import '../../../css/mixins.less';
+
+.userDetailHeader {
+    height: 100px;
+    position: relative;
+    border-bottom: 1px solid @paleblue;
+    
+    section {
+        padding: 15px;
+    }
+
+    .userInfo {
+        display: inline-block;
+    }
+}
+
+.userDetailTabs {
+
+    position: absolute;
+    top: 65px;
+    min-width: 300px;
+    cursor: pointer;
+
+    li {
+        font-size: .8em;
+        text-align: center;
+        display: inline-block;
+        list-style-type: none;
+        color: @stormyblue;
+        padding: 10px 20px 10px 20px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        height: 35px;
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    li:hover {
+        border-bottom: 3px solid @brightblue;
+    }
+}

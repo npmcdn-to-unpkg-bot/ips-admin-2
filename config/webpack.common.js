@@ -54,7 +54,7 @@ module.exports = {
 
             //Finds component or container less files (assumed angular component)
             {
-                test: /(component|container|list)\.less$/,
+                test: /(component|container|list|details)\.less$/,
                 loaders: ['to-string-loader', 'css-loader', 'less-loader'],
                 exclude: [/node_modules/]
             }

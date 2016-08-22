@@ -4,12 +4,17 @@
 .usersParent {
 
     display: flex;
-    height: @sitesheight;
+    height: @containerHeight;
 
     .panelLeft {
         width: 25%;
         background: @snowwhite;
         flex-shrink: 1;
+
+        #usersList {
+            height: @dataHeight;
+            overflow-y: auto;
+        }
     }
 
     .panelRight {

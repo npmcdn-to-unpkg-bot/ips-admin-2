@@ -345,57 +345,72 @@ export class MockData {
       let users = [
           {
               'displayName': 'User 1',
-              'displayEmail': '',
+              'displayEmail': 'user1@email.com',
               'bookmarked': false
           },
           {
               'displayName': 'User 2',
-              'displayEmail': '',
+              'displayEmail': 'user2@email.com',
               'bookmarked': false
           },
           {
               'displayName': 'User 3',
-              'displayEmail': '',
+              'displayEmail': 'user3@email.com',
               'bookmarked': false
           },
           {
               'displayName': 'User 4',
-              'displayEmail': '',
+              'displayEmail': 'user4@email.com',
               'bookmarked': false
           },
           {
               'displayName': 'User 5',
-              'displayEmail': '',
+              'displayEmail': 'user5@email.com',
               'bookmarked': false
           },
           {
               'displayName': 'User 6',
-              'displayEmail': '',
+              'displayEmail': 'user6@email.com',
               'bookmarked': false
           },
           {
               'displayName': 'User 7',
-              'displayEmail': '',
+              'displayEmail': 'user7@email.com',
               'bookmarked': false
           },
           {
               'displayName': 'User 8',
-              'displayEmail': '',
+              'displayEmail': 'user8@email.com',
               'bookmarked': false
           },
           {
               'displayName': 'User 9',
-              'displayEmail': '',
+              'displayEmail': 'user9@email.com',
               'bookmarked': false
           },
           {
               'displayName': 'User 10',
-              'displayEmail': '',
+              'displayEmail': 'user10@email.com',
               'bookmarked': false
           },
           {
               'displayName': 'User 11',
-              'displayEmail': '',
+              'displayEmail': 'user11@email.com',
+              'bookmarked': false
+          },
+          {
+              'displayName': 'User 12',
+              'displayEmail': 'user12@email.com',
+              'bookmarked': false
+          },
+          {
+              'displayName': 'User 13',
+              'displayEmail': 'user13@email.com',
+              'bookmarked': false
+          },
+          {
+              'displayName': 'User 14',
+              'displayEmail': 'user14@email.com',
               'bookmarked': false
           }];
 

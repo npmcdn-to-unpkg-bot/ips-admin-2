@@ -1,11 +1,10 @@
-import {Component, ISiteFavorites, SiteFavoritesService, ButtonComponent, FilterComponent
-     } from '../sites-favorites';
+import {Component, ISiteFavorites, SiteFavoritesService, ButtonComponent } from '../sites-favorites';
 
 @Component({
     selector: 'app-sites-groups',
     template: require('./sites-favorites.container.html'),
     styles: [require('./sites-favorites.container.less')],
-    directives: [ButtonComponent, FilterComponent],
+    directives: [ButtonComponent],
     providers: [SiteFavoritesService]
 })
 

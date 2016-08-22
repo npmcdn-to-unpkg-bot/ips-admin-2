@@ -4,79 +4,29 @@
 .sitesParent {
     
     display: flex;
-    height: @sitesheight;
+    height: @containerHeight;
 
     .panelLeft {
         width: 25%;
         background-color: @snowwhite;
         flex-shrink: 1;
-
-        ::-webkit-input-placeholder {
-            padding-left: 10px;
-        }
-
-        :-moz-placeholder { /* Firefox 18- */
-            padding-left: 10px;
-        }
-
-        ::-moz-placeholder {  /* Firefox 19+ */
-            padding-left: 10px; 
-        }
-
-        :-ms-input-placeholder {  
-            padding-left: 10px; 
-        }
-
     }
 
     .panelRight {
         width: 75%;
         flex-shrink: 3;
 
-        .rightDetails {
-            background-color: @lightgray;
-            height: 35px;
-            line-height: 35px;
-            color: @stormyblue;
-            padding-left: 10px;
-
-            ul {
-                display: inline-block;
-            }
-
-            li {
-                display: inline-block;
-                list-style-type: none;
-
-                a {
-                    color: @brightblue;
-                }
-            }
-        }
-
         .mapHeader {
             border: 1px solid @lightgray;
             height: 120px;
             position: relative;
 
-            #mapHeaderBookmark {
-                height: 40px;
-            }
-
-            .toggleArea {
-                    float: right;
-
-                    .toggleText {
-                        color: @stormyblue;
-                        font-weight: 700;
-                        height: 34px;
-                        vertical-align: middle;
-                        padding-right: 0;
-                    }
-            }
-
             section {
                 padding: 15px;
+
+                .bookmark {
+                    vertical-align: top;
+                }
 
                 div {
                     display: inline-block;
@@ -93,7 +43,7 @@
                     position: absolute;
                     top: 85px;
                     min-width: 300px;
-
+                    cursor: pointer;
 
                 li {
                     font-size: .8em;
@@ -127,20 +77,6 @@
         .floors {
             background-color: @lightgray;
             height: 20px;
-
-            .floorsHeader {
-                height: 40px;
-                background-color: @stormyblue;
-
-                .floorsHeaderValue {
-                    color: @white;
-                    display: inline-block;
-                    padding-left: 15px;
-                    vertical-align: middle;
-                    position: relative;
-                    top: 12px;
-                }
-            }
         }
 
         .inProgress {

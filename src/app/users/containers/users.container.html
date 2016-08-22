@@ -22,20 +22,21 @@
 
                 <div class="dataButtonsHolder">
 
-                    <span class="fa-stack fa-lg">
+                    <span class="fa-stack">
                         <i class="fa fa-circle-thin fa-stack-2x"></i>
-                        <i class="fa fa-bookmark-o fa-stack-1x"></i>
+                        <i class="fa fa-bookmark fa-stack-1x smallIcon"></i>
                     </span>
 
-                    <span class="fa-stack fa-lg">
+                    <span class="fa-stack">
                         <i class="fa fa-circle-thin fa-stack-2x"></i>
-                        <i class="fa fa-clone fa-stack-1x"></i>
+                        <i class="fa fa-clone fa-stack-1x smallIcon"></i>
                     </span>
+
                     <ui-buttonAdd></ui-buttonAdd>
                 </div>
             </div>   
 
-            <div>
+            <div id="usersList">
                 <users-list [items]="users | async"
                                 (selected)="selectItem($event)"
                                 (deleted)="deleteItem($event)"></users-list>
@@ -46,6 +47,9 @@
         <users-detail
                 (saved)="saveItem($event)" (cancelled)="resetItem($event)"
                 [item]="selectedUser | async"></users-detail>
+
+
+
     </div>
 
 </div>
