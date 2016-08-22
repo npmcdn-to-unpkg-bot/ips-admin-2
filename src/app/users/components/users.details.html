@@ -29,22 +29,30 @@
     </nav>
 </header>
 
-<div *ngIf="showUserDetails">
-    <h2>Editing {{originalName}}</h2>
-    <form novalidate>
-        <div class="mdl-textfield mdl-js-textfield">
-            <label>Display Name</label>
-            <input [(ngModel)]="selectedItem.displayName" name="displayName"
-                placeholder="Enter a name"
-                class="mdl-textfield__input" type="text">
-        </div>
+<div *ngIf="showUserDetails" class="userDetails">
+
+
+
+    <form>
+        <section class="userDetailNames">
+            <md-input [(ngModel)]="selectedItem.displayName" name="displayName" placeholder="First Name"></md-input>
+            <md-input placeholder="Last Name"></md-input>
+        </section>
+
+        <section>
+            <md-input [(ngModel)]="selectedItem.displayEmail" name="displayEmail" placeholder="Email Address"></md-input>  
+        </section>
+        
+        <!--<div class="mdl-card__actions">
+            <button type="submit" (click)="cancelled.emit(selectedItem)"
+                    class="mdl-button mdl-js-button mdl-js-ripple-effect">Cancel</button>
+            <button type="submit" (click)="saved.emit(selectedItem)"
+                    class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect">Save</button>
+        </div>-->
+
+        <button id="deleteUserBtn">Delete User</button>
+
     </form>
-    <div class="mdl-card__actions">
-        <button type="submit" (click)="cancelled.emit(selectedItem)"
-                class="mdl-button mdl-js-button mdl-js-ripple-effect">Cancel</button>
-        <button type="submit" (click)="saved.emit(selectedItem)"
-                class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect">Save</button>
-    </div>
 </div>
 
 

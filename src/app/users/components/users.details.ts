@@ -6,12 +6,13 @@ import { Component, Input, Output, EventEmitter, IUser } from '../users';
 
 //this import will fail if not explicit
 import { ToggleComponent } from '../../shared/toggle/toggle.component';
+import { MD_INPUT_DIRECTIVES } from '@angular2-material/input/input';
 
 @Component({
     selector: 'users-detail',
     template: require('./users.details.html'),
     styles: [require('./users.details.less')],
-    directives: [ToggleComponent]
+    directives: [ToggleComponent, MD_INPUT_DIRECTIVES]
 })
 export class UsersDetail {
 

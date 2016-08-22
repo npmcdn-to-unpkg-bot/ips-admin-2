@@ -41,5 +41,50 @@
 
     li:hover {
         border-bottom: 3px solid @brightblue;
+    }  
+}
+
+.userDetails {
+
+    padding: 15px;
+    
+    form{
+        margin: 0 auto;
+        width: 90%;
+
+        .userDetailNames {
+
+            padding-bottom: 20px;
+
+            // md-input {
+            //     width: 40%;
+            //     min-width: 150px;
+            // }
+
+            md-input:first-of-type {
+                margin-right: 30px;
+            }
+
+            md-input {
+                width: 30%;
+                min-width: 150px;
+            }
+        }
+        md-input {
+            width: 80%;
+            padding-bottom: 20px;
+        }
+
+        #deleteUserBtn {
+            border: none;
+            border-radius: 3px;
+            background-color: @rosyred;
+            color: @white;
+            width: 120px;
+            height: 40px;
+
+        }
     }
+
+
 }
