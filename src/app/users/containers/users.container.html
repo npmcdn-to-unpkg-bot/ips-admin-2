@@ -21,34 +21,25 @@
                 </div>
 
                 <div class="dataButtonsHolder">
-                    <img src="../assets/bookmark.svg" alt="Bookmark">
-                    <img src="../assets/group.svg" alt="Group">
+
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle-thin fa-stack-2x"></i>
+                        <i class="fa fa-bookmark-o fa-stack-1x"></i>
+                    </span>
+
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle-thin fa-stack-2x"></i>
+                        <i class="fa fa-clone fa-stack-1x"></i>
+                    </span>
                     <ui-buttonAdd></ui-buttonAdd>
                 </div>
+            </div>   
+
+            <div>
+                <users-list [items]="users | async"
+                                (selected)="selectItem($event)"
+                                (deleted)="deleteItem($event)"></users-list>
             </div>
-
-
-
-
-
-            <div class="data">
-
-                <div>
-
-
-
-                    <users-list [items]="users | async"
-                                    (selected)="selectItem($event)"
-                                    (deleted)="deleteItem($event)">
-                                    
-
-                                    
-                                    </users-list>
-
-                </div>
-
-            </div>
-
     </div>
 
     <div class="panelRight">
