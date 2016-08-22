@@ -1,4 +1,10 @@
-<div class="dataRow" *ngFor="let item of items" (click)="selected.emit(item)">
+<div class="userRow dataRow" *ngFor="let item of items" (click)="selected.emit(item)">
+   
+    <div class="allSitesControls">
+        <input type="checkbox"/>
+        <div class="greenCircle"></div>
+    </div>
+   
     <div class="big blue" (click)="selected.emit(item)">{{item.displayName}}</div>
     <div class="mdl-card__menu">
         <button (click)="deleted.emit(item); $event.stopPropagation();"

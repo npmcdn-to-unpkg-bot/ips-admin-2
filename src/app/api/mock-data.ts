@@ -344,12 +344,57 @@ export class MockData {
           }];
       let users = [
           {
-              'displayName': 'User 33',
+              'displayName': 'User 1',
               'displayEmail': '',
               'bookmarked': false
           },
           {
-              'displayName': 'User 44',
+              'displayName': 'User 2',
+              'displayEmail': '',
+              'bookmarked': false
+          },
+          {
+              'displayName': 'User 3',
+              'displayEmail': '',
+              'bookmarked': false
+          },
+          {
+              'displayName': 'User 4',
+              'displayEmail': '',
+              'bookmarked': false
+          },
+          {
+              'displayName': 'User 5',
+              'displayEmail': '',
+              'bookmarked': false
+          },
+          {
+              'displayName': 'User 6',
+              'displayEmail': '',
+              'bookmarked': false
+          },
+          {
+              'displayName': 'User 7',
+              'displayEmail': '',
+              'bookmarked': false
+          },
+          {
+              'displayName': 'User 8',
+              'displayEmail': '',
+              'bookmarked': false
+          },
+          {
+              'displayName': 'User 9',
+              'displayEmail': '',
+              'bookmarked': false
+          },
+          {
+              'displayName': 'User 10',
+              'displayEmail': '',
+              'bookmarked': false
+          },
+          {
+              'displayName': 'User 11',
               'displayEmail': '',
               'bookmarked': false
           }];
